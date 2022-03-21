@@ -1,20 +1,24 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react'
 import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="banner">
+      <div className="content">
+        <h1>Rick and Morty Explorer</h1>
+        <button type="button">
+          <span />
+          Characters
+        </button>
+        <button type="button">
+          <span />
+          Locations
+        </button>
+        <button type="button">
+          <span />
+          Episodes
+        </button>
+      </div>
     </div>
   )
 }
