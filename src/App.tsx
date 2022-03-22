@@ -1,24 +1,20 @@
 import React from 'react'
-import './App.css'
+import { Routes, Route } from 'react-router-dom'
+
+import MainPage from './pages/MainPage'
+import CharacterPage from './pages/CharacterPage'
+import EpisodePage from './pages/EpisodePage'
+import LocationPage from './pages/LocationPage'
 
 function App() {
   return (
     <div className="banner">
-      <div className="content">
-        <h1>Rick and Morty Explorer</h1>
-        <button type="button">
-          <span />
-          Characters
-        </button>
-        <button type="button">
-          <span />
-          Locations
-        </button>
-        <button type="button">
-          <span />
-          Episodes
-        </button>
-      </div>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/characters" element={<CharacterPage />} />
+        <Route path="/episodes" element={<EpisodePage />} />
+        <Route path="/locations" element={<LocationPage />} />
+      </Routes>
     </div>
   )
 }
