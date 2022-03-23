@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Button from '../components/Button'
+import './pages.scss'
 
 function CharacterPage() {
   return (
@@ -7,12 +8,7 @@ function CharacterPage() {
       <h1>
         Rick and Morty <p>Characters</p>
       </h1>
-      <Link to="/">
-        <button type="button">
-          <span />
-          Home
-        </button>
-      </Link>
+      {Button({ page: 'home' })}
     </div>
   )
 }

@@ -1,0 +1,31 @@
+button {
+  font-size: 20px;
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 60px 20px;
+  border-radius: 25px;
+  border: 2px solid #4AADC9;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  span {
+    background: #4AADC9;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+  :hover span {
+    width: 100%;
+  }
+  :hover {
+    border: none;
+  }
+}
