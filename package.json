@@ -17,11 +17,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier src/",
-    "format": "npm run prettier -- --write",
-    "check": "npm run prettier -- --check",
-    "check-format": "npm run prettier -- --list-different",
-    "lint-check": "eslint --ext .ts,.tsx src/",
-    "lint": "eslint --ext .ts,.tsx src/ --fix"
+    "format:prettier": "npm run prettier -- --write",
+    "check:prettier": "npm run prettier -- --check",
+    "lint": "eslint --ext .ts,.tsx src/",
+    "fix": "eslint --ext .ts,.tsx src/ --fix"
   },
   "browserslist": {
     "production": [
