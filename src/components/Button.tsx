@@ -1,18 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import './button.scss'
+import { useNavigate } from 'react-router-dom'
+
+import styleButton from './Button.module.scss'
 
 interface Props {
   page: string
 }
 
-export default function Button({ page }: Props) {
+function Button({ page }: Props) {
+  const navigate = useNavigate()
   return (
-    <Link to={`/${page}`}>
-      <button type="button">
-        <span />
-        {page}
-      </button>
-    </Link>
+    <button
+      className={styleButton.button}
+      type="button"
+      onClick={() => navigate(`/${page}`)}
+    >
+      <span className={styleButton.span} />
+      {page}
+    </button>
   )
 }
+
+export default Button

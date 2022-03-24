@@ -1,10 +1,12 @@
+@import '../styles/colors.scss';
+
 .content {
   width: 100%;
   position: absolute;
   top: 50%;
   transform: translateY(-80%);
   text-align: center;
-  color: #4AADC9;
+  color: $rnm-color;
   h1 {
     font-size: 90px;
   }

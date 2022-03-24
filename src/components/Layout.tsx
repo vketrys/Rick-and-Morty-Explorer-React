@@ -6,11 +6,11 @@ import CharacterPage from '../pages/Character'
 import EpisodePage from '../pages/Episode'
 import LocationPage from '../pages/Location'
 
-import './layout.scss'
+import styleLayout from './Layout.module.scss'
 
 function Layout() {
   return (
-    <div className="banner">
+    <div className={styleLayout.banner}>
       <Routes>
         <Route path="*" element={<MainPage />} />
         <Route path="/home" element={<MainPage />} />

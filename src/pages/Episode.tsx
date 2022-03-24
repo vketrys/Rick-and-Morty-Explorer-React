@@ -1,14 +1,14 @@
 import React from 'react'
 import Button from '../components/Button'
-import './pages.scss'
+import styleEpisode from './Episode.module.scss'
 
 function EpisodePage() {
   return (
-    <div className="content">
+    <div className={styleEpisode.content}>
       <h1>
         Rick and Morty <p>Episodes</p>
       </h1>
-      {Button({ page: 'home' })}
+      <Button page="home" />
     </div>
   )
 }
