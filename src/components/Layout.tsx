@@ -12,6 +12,7 @@ function Layout() {
   return (
     <div className="banner">
       <Routes>
+        <Route path="*" element={<MainPage />} />
         <Route path="/home" element={<MainPage />} />
         <Route path="/characters" element={<CharacterPage />} />
         <Route path="/episodes" element={<EpisodePage />} />
