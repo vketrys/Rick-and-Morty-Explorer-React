@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../components/Button'
 import styleLocation from './Location.module.scss'
 
-function LocationPage() {
+function LocationPage(): JSX.Element {
   return (
     <div className={styleLocation.content}>
       <h1>

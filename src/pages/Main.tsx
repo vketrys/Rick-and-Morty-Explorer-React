@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../components/Button'
 import styleMain from './Main.module.scss'
 
-function MainPage() {
+function MainPage(): JSX.Element {
   return (
     <div className={styleMain.content}>
       <h1>

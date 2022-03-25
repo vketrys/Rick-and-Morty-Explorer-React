@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../components/Button'
 import styleEpisode from './Episode.module.scss'
 
-function EpisodePage() {
+function EpisodePage(): JSX.Element {
   return (
     <div className={styleEpisode.content}>
       <h1>

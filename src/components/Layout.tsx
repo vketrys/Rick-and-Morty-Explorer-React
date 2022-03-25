@@ -8,7 +8,7 @@ import LocationPage from '../pages/Location'
 
 import styleLayout from './Layout.module.scss'
 
-function Layout() {
+function Layout(): JSX.Element {
   return (
     <div className={styleLayout.banner}>
       <Routes>

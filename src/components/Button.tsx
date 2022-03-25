@@ -7,13 +7,13 @@ interface Props {
   page: string
 }
 
-function Button({ page }: Props) {
+function Button({ page }: Props): JSX.Element {
   const navigate = useNavigate()
   return (
     <button
       className={styleButton.button}
       type="button"
-      onClick={() => navigate(`/${page}`)}
+      onClick={(): void => navigate(`/${page}`)}
     >
       <span className={styleButton.span} />
       {page}

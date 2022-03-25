@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../components/Button'
 import styleCharacter from './Character.module.scss'
 
-function CharacterPage() {
+function CharacterPage(): JSX.Element {
   return (
     <div className={styleCharacter.content}>
       <h1>
