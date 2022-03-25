@@ -23,7 +23,8 @@
     "format:prettier": "prettier src/ --write",
     "check:prettier": "prettier src/ --check",
     "lint": "eslint --ext .ts,.tsx src/",
-    "lint:fix": "eslint --ext .ts,.tsx src/ --fix"
+    "lint:fix": "eslint --ext .ts,.tsx src/ --fix",
+    "tsc":"tsc --noEmit"
   },
   "browserslist": {
     "production": [
