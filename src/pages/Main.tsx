@@ -8,9 +8,9 @@ function MainPage(): JSX.Element {
       <h1>
         Rick and Morty <p>Explorer</p>
       </h1>
-      <Button page="characters" />
-      <Button page="locations" />
-      <Button page="episodes" />
+      <Button page="characters" label="characters" />
+      <Button page="locations" label="locations" />
+      <Button page="episodes" label="episodes" />
     </div>
   )
 }

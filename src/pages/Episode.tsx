@@ -8,7 +8,7 @@ function EpisodePage(): JSX.Element {
       <h1>
         Rick and Morty <p>Episodes</p>
       </h1>
-      <Button page="home" />
+      <Button page="home" label="home" />
     </div>
   )
 }

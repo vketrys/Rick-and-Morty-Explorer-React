@@ -3,20 +3,20 @@ import { useNavigate } from 'react-router-dom'
 
 import styleButton from './Button.module.scss'
 
-interface Props {
+interface ButtonProps {
   page: string
+  label: string
 }
 
-function Button({ page }: Props): JSX.Element {
+function Button({ page, label }: ButtonProps): JSX.Element {
   const navigate = useNavigate()
+  function link(): void {
+    navigate(`/${page}`)
+  }
   return (
-    <button
-      className={styleButton.button}
-      type="button"
-      onClick={(): void => navigate(`/${page}`)}
-    >
+    <button className={styleButton.button} type="button" onClick={link}>
       <span className={styleButton.span} />
-      {page}
+      {label}
     </button>
   )
 }
