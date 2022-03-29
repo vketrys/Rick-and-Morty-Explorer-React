@@ -1,16 +1,16 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import MainPage from '../pages/Main'
-import CharacterPage from '../pages/Character'
-import EpisodePage from '../pages/Episode'
-import LocationPage from '../pages/Location'
+import MainPage from '../../pages/main/Main'
+import CharacterPage from '../../pages/character/Character'
+import EpisodePage from '../../pages/episode/Episode'
+import LocationPage from '../../pages/location/Location'
 
-import styleLayout from './Layout.module.scss'
+import style from './Layout.module.scss'
 
 function Layout(): JSX.Element {
   return (
-    <div className={styleLayout.banner}>
+    <div className={style.banner}>
       <Routes>
         <Route path="*" element={<MainPage />} />
         <Route path="/home" element={<MainPage />} />

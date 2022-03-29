@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 
-import Layout from './components/Layout'
+import Layout from './components/navigation/Layout'
 
 function App(): JSX.Element {
-  return <Layout />
+  return (
+    <Suspense fallback="loading">
+      <Layout />
+    </Suspense>
+  )
 }
 
 export default App
