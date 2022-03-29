@@ -20,18 +20,6 @@ function CharacterPage(): JSX.Element {
         <Card />
         <Card />
         <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
       </div>
       <Button
         label={t('character.home')}
