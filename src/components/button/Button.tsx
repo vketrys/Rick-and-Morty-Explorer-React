@@ -11,7 +11,7 @@ function Button({ label, onClick }: ButtonProps): JSX.Element {
   return (
     <button className={style.button} type="button" onClick={onClick}>
       <span className={style.span} />
-      {label}
+      <p>{label}</p>
     </button>
   )
 }

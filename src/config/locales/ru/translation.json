@@ -1,0 +1,19 @@
+{
+  "title": "Рик и Морти",
+  "home": "Домой",
+  "character": {
+    "page": "Персонажи"
+  },
+  "episode": {
+    "page": "Эпизоды"
+  },
+  "location": {
+    "page": "Локации"
+  },
+  "main": {
+    "page": "Энциклопедия",
+    "characterButton": "Персонажи",
+    "locationButton": "Локации",
+    "episodeButton": "Эпизоды"
+  }
+}

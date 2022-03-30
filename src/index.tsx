@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import './utils/i18n'
+import './config/i18n'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(

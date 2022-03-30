@@ -1,16 +1,15 @@
 import React from 'react'
+
 import { Routes, Route } from 'react-router-dom'
 
 import MainPage from '../../pages/main/Main'
-import CharacterPage from '../../pages/character/Character'
-import EpisodePage from '../../pages/episode/Episode'
-import LocationPage from '../../pages/location/Location'
+import CharacterPage from '../../pages/Character'
+import EpisodePage from '../../pages/Episode'
+import LocationPage from '../../pages/Location'
 
-import style from './Layout.module.scss'
-
-function Layout(): JSX.Element {
+function Router(): JSX.Element {
   return (
-    <div className={style.banner}>
+    <div>
       <Routes>
         <Route path="*" element={<MainPage />} />
         <Route path="/home" element={<MainPage />} />
@@ -22,4 +21,4 @@ function Layout(): JSX.Element {
   )
 }
 
-export default Layout
+export default Router

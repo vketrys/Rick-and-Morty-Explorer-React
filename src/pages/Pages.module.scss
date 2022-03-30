@@ -1,20 +1,14 @@
-@import '../../styles/colors.scss';
+@import '../styles/colors.scss';
 
 .content {
   width: 100%;
   text-align: center;
   color: $blue;
-  margin-top: 5em;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  .buttons {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-  }
+  margin-top: 5em;
   h1 {
     font-size: 90px;
   }
