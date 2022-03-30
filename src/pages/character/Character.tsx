@@ -7,6 +7,7 @@ import Button from '../../components/button/Button'
 import Card from '../../components/card/Card'
 
 import style from './Character.module.scss'
+import CharacterList from '../../components/lists/CharacterLists'
 
 function CharacterPage(): JSX.Element {
   const { t } = useTranslation('translation')
@@ -20,6 +21,7 @@ function CharacterPage(): JSX.Element {
         <Card />
         <Card />
         <Card />
+        <CharacterList />
       </div>
       <Button
         label={t('character.home')}

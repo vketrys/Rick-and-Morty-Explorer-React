@@ -1,9 +1,12 @@
 import { combineReducers } from 'redux'
+// import store from '..'
 import characterReducer from './characterReducer'
 
 const rootReducer = combineReducers({
-  characters: characterReducer,
+  character: characterReducer,
 })
-export default rootReducer
 
+// export type RootState = ReturnType<typeof store.getState>
 export type RootState = ReturnType<typeof rootReducer>
+
+export default rootReducer

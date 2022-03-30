@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import useTypeSelector from '../../hooks/useTypeSelector'
 import fetchCharacters from '../../store/action-creators/character'
 
-function CharacterList(): JSX.Element {
+const CharacterList: React.FC = () => {
   const { characters, error, loading } = useTypeSelector(
     (state) => state.character
   )
@@ -19,6 +19,7 @@ function CharacterList(): JSX.Element {
   if (error) {
     return <h1>{error}</h1>
   }
+
   return (
     <div>
       {characters.map(

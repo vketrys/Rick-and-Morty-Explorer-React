@@ -1,5 +1,5 @@
 export interface CharacterState {
-  characters: string[]
+  characters: any[]
   loading: boolean
   error: null | string
 }
@@ -13,7 +13,7 @@ interface FetchCharacterAction {
 }
 interface FetchCharacterSuccessAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS
-  payload: string[]
+  payload: any[]
 }
 interface FetchCharacterErrorAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_ERROR
