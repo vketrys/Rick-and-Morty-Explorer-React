@@ -1,14 +1,13 @@
 import React from 'react'
 
-import Router from '../navigation/Router'
 import style from './Layout.module.scss'
 
-function Layout(): JSX.Element {
-  return (
-    <div className={style.banner}>
-      <Router />
-    </div>
-  )
+interface LayoutProps {
+  children: JSX.Element
+}
+
+function Layout({ children }: LayoutProps): JSX.Element {
+  return <div className={style.banner}>{children}</div>
 }
 
 export default Layout

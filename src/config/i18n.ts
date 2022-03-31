@@ -1,15 +1,15 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
-import translationEN from './locales/en/translation.json'
-import translationRU from './locales/ru/translation.json'
+import EN from './locales/en/translation.json'
+import RU from './locales/ru/translation.json'
 
 const resources = {
   en: {
-    translation: translationEN,
+    translation: EN,
   },
   ru: {
-    translation: translationRU,
+    translation: RU,
   },
 }
 
@@ -22,7 +22,5 @@ i18n.use(initReactI18next).init({
     escapeValue: false,
   },
 })
-
-i18n.t('')
 
 export default i18n
