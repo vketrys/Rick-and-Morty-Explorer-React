@@ -21,7 +21,6 @@ function CharacterPage(): JSX.Element {
         <Card />
         <Card />
         <Card />
-        <CharacterList />
       </div>
       <Button
         label={t('character.home')}

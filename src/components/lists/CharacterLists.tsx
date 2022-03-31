@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import useTypeSelector from '../../hooks/useTypeSelector'
 import fetchCharacters from '../../store/action-creators/character'
 
 const CharacterList: React.FC = () => {
-  const { characters, error, loading } = useTypeSelector(
+  const state = useSelector(
     (state) => state.character
   )
   const dispatch = useDispatch()
