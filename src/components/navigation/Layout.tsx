@@ -10,14 +10,16 @@ import style from './Layout.module.scss'
 
 function Layout(): JSX.Element {
   return (
-    <div className={style.banner}>
-      <Routes>
-        <Route path="*" element={<MainPage />} />
-        <Route path="/home" element={<MainPage />} />
-        <Route path="/characters" element={<CharacterPage />} />
-        <Route path="/episodes" element={<EpisodePage />} />
-        <Route path="/locations" element={<LocationPage />} />
-      </Routes>
+    <div className={style.container}>
+      <div className={style.banner}>
+        <Routes>
+          <Route path="*" element={<MainPage />} />
+          <Route path="/home" element={<MainPage />} />
+          <Route path="/characters" element={<CharacterPage />} />
+          <Route path="/episodes" element={<EpisodePage />} />
+          <Route path="/locations" element={<LocationPage />} />
+        </Routes>
+      </div>
     </div>
   )
 }

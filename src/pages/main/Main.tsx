@@ -12,12 +12,17 @@ function MainPage(): JSX.Element {
       <h1>
         Rick and Morty <p>Explorer</p>
       </h1>
-      <Button
-        label="characters"
-        onClick={(): void => navigate('/characters')}
-      />
-      <Button label="locations" onClick={(): void => navigate('/locations')} />
-      <Button label="episodes" onClick={(): void => navigate('/episodes')} />
+      <div className={style.buttons}>
+        <Button
+          label="characters"
+          onClick={(): void => navigate('/characters')}
+        />
+        <Button
+          label="locations"
+          onClick={(): void => navigate('/locations')}
+        />
+        <Button label="episodes" onClick={(): void => navigate('/episodes')} />
+      </div>
     </div>
   )
 }

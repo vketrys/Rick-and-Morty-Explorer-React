@@ -18,7 +18,9 @@ function CharacterPage(): JSX.Element {
       <h1>
         {t('character.title')} <p>{t('character.page')}</p>
       </h1>
-      <CharacterList />
+      <div className={style.characterList}>
+        <CharacterList />
+      </div>
       <Button
         label={t('character.home')}
         onClick={(): void => navigate('/home')}
