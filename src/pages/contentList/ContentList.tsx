@@ -1,16 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import '../config/i18n'
+import '../../config/i18n'
 
-import Button from '../components/button/Button'
-import style from './Pages.module.scss'
+import Button from '../../components/button/Button'
+import style from './ContentList.module.scss'
 
 interface PageName {
   name: string
 }
 
-function PageList({ name }: PageName): JSX.Element {
+function ContentList({ name }: PageName): JSX.Element {
   const navigate = useNavigate()
   const { t } = useTranslation()
 
@@ -24,4 +24,4 @@ function PageList({ name }: PageName): JSX.Element {
   )
 }
 
-export default PageList
+export default ContentList
