@@ -12,16 +12,13 @@ import CharacterList from '../../components/lists/CharacterLists'
 function CharacterPage(): JSX.Element {
   const { t } = useTranslation('translation')
   const navigate = useNavigate()
+
   return (
     <div className={style.content}>
       <h1>
         {t('character.title')} <p>{t('character.page')}</p>
       </h1>
-      <div className={style.CardContainer}>
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <CharacterList />
       <Button
         label={t('character.home')}
         onClick={(): void => navigate('/home')}

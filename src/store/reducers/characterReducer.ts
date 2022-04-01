@@ -11,8 +11,9 @@ const initialState: CharacterState = {
 }
 
 const characterReducer = (
-  action: CharacterAction,
-  state = initialState
+  // eslint-disable-next-line default-param-last
+  state = initialState,
+  action: CharacterAction
 ): CharacterState => {
   switch (action.type) {
     case CharacterActionTypes.FETCH_CHARACTERS:

@@ -3,6 +3,7 @@ export interface CharacterState {
   loading: boolean
   error: null | string
 }
+
 export enum CharacterActionTypes {
   FETCH_CHARACTERS = 'FETCH_CHARACTERS',
   FETCH_CHARACTERS_SUCCESS = 'FETCH_CHARACTERS_SUCCESS ',

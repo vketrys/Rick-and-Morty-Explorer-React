@@ -6,18 +6,17 @@ import {
 } from '../../types/characterTypes'
 
 const fetchCharacters = () => {
-  return async (dispatch: Dispatch<CharacterAction>): Promise<1> => {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  return async (dispatch: Dispatch<CharacterAction>) => {
     try {
       dispatch({ type: CharacterActionTypes.FETCH_CHARACTERS })
       const response = await axios.get(
         'https://rickandmortyapi.com/api/character'
       )
-      setTimeout(() => {
-        dispatch({
-          type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
-          payload: response.data,
-        })
-      }, 500)
+      dispatch({
+        type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
+        payload: response.data.results,
+      })
     } catch (e) {
       dispatch({
         type: CharacterActionTypes.FETCH_CHARACTERS_ERROR,

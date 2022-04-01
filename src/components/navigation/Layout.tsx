@@ -7,12 +7,10 @@ import EpisodePage from '../../pages/episode/Episode'
 import LocationPage from '../../pages/location/Location'
 
 import style from './Layout.module.scss'
-import CharacterList from '../lists/CharacterLists'
 
 function Layout(): JSX.Element {
   return (
     <div className={style.banner}>
-      <CharacterList />
       <Routes>
         <Route path="*" element={<MainPage />} />
         <Route path="/home" element={<MainPage />} />
