@@ -10,7 +10,7 @@ interface PageName {
   name: string
 }
 
-function Page({ name }: PageName): JSX.Element {
+function PageList({ name }: PageName): JSX.Element {
   const navigate = useNavigate()
   const { t } = useTranslation()
 
@@ -24,4 +24,4 @@ function Page({ name }: PageName): JSX.Element {
   )
 }
 
-export default Page
+export default PageList
