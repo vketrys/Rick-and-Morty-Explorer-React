@@ -10,12 +10,20 @@ const fetchCharacters = () => {
   return async (dispatch: Dispatch<CharacterAction>) => {
     try {
       dispatch({ type: CharacterActionTypes.FETCH_CHARACTERS })
-      const response = await axios.get(
-        'https://rickandmortyapi.com/api/character'
+      let endpoints = []
+      let api = ''
+      endpoints = []
+      for (let i = 1; i < 6; i += 1) {
+        api = `https://rickandmortyapi.com/api/character/?page=${i}`
+        endpoints.push(api)
+      }
+      const response = await axios.all(
+        endpoints.map((endpoint) => axios.get(endpoint))
       )
+
       dispatch({
         type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
-        payload: response.data.results,
+        payload: response[0].data.results,
       })
     } catch (e) {
       dispatch({
