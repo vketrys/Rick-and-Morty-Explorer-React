@@ -6,24 +6,15 @@ import {
 } from '../../types/characterTypes'
 
 const fetchCharacters = () => {
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  return async (dispatch: Dispatch<CharacterAction>) => {
+  return async (dispatch: Dispatch<CharacterAction>): Promise<any> => {
     try {
       dispatch({ type: CharacterActionTypes.FETCH_CHARACTERS })
-      let endpoints = []
-      let api = ''
-      endpoints = []
-      for (let i = 1; i < 6; i += 1) {
-        api = `https://rickandmortyapi.com/api/character/?page=${i}`
-        endpoints.push(api)
-      }
-      const response = await axios.all(
-        endpoints.map((endpoint) => axios.get(endpoint))
-      )
+      const api = 'https://rickandmortyapi.com/api/character'
+      const response = await axios.get(api)
 
       dispatch({
         type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
-        payload: response[0].data.results,
+        payload: response.data.results,
       })
     } catch (e) {
       dispatch({
@@ -33,4 +24,5 @@ const fetchCharacters = () => {
     }
   }
 }
+
 export default fetchCharacters

@@ -1,0 +1,19 @@
+{
+  "title": "Rick and Morty",
+  "home": "Home",
+  "character": {
+    "page": "Characters"
+  },
+  "episode": {
+    "page": "Episode"
+  },
+  "location": {
+    "page": "Location"
+  },
+  "main": {
+    "page": "Explorer",
+    "characterButton": "Characters",
+    "locationButton": "Locations",
+    "episodeButton": "Episodes"
+  }
+}

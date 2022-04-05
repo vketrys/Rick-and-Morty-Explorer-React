@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import '../../utils/i18n'
 
 import Button from '../../components/button/Button'
-import Card from '../../components/card/Card'
 
 import style from './Character.module.scss'
 import CharacterList from '../../components/lists/CharacterLists'
@@ -16,15 +15,12 @@ function CharacterPage(): JSX.Element {
   return (
     <div className={style.content}>
       <h1>
-        {t('character.title')} <p>{t('character.page')}</p>
+        {t('title')} <p>{t('character.page')}</p>
       </h1>
       <div className={style.characterList}>
         <CharacterList />
       </div>
-      <Button
-        label={t('character.home')}
-        onClick={(): void => navigate('/home')}
-      />
+      <Button label={t('home')} onClick={(): void => navigate('/home')} />
     </div>
   )
 }

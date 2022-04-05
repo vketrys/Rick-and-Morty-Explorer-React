@@ -10,9 +10,10 @@ interface CardProps {
     gender: string
     origin: {
       name: string
-      link: string
+      url: string
     }
     image: string
+    episode: string[]
     url: string
   }
 }
@@ -27,14 +28,19 @@ function Card({ character }: CardProps): JSX.Element {
       <div className={styleCard.CardContent}>
         <div className={styleCard.NameSection}>
           <a href={character.url}>
-            <h2>{character.name}</h2>
+            <h2>
+              {character.name}, {character.id}
+            </h2>
           </a>
           <h6>
-            {character.species}-{character.gender}
+            {character.species}, {character.gender}
           </h6>
         </div>
         <div className={styleCard.description}>
-          <a href={character.origin.link}>Origin: {character.origin.name}</a>
+          <a href={character.episode[0]}>First episode </a>
+          <br />
+          <br />
+          <a href={character.origin.url}>Origin: {character.origin.name}</a>
         </div>
       </div>
     </article>
