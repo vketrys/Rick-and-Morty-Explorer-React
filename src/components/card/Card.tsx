@@ -18,7 +18,7 @@ interface CardProps {
   }
 }
 
-function Card({ character }: CardProps): JSX.Element {
+export default React.memo(function Card({ character }: CardProps): JSX.Element {
   return (
     <article className={styleCard.CardWrapper}>
       <div className={styleCard.CardImage}>
@@ -37,7 +37,7 @@ function Card({ character }: CardProps): JSX.Element {
           </h6>
         </div>
         <div className={styleCard.description}>
-          <a href={character.episode[0]}>First episode </a>
+          <a href={character.episode[0]}>First seen at...</a>
           <br />
           <br />
           <a href={character.origin.url}>Origin: {character.origin.name}</a>
@@ -45,6 +45,4 @@ function Card({ character }: CardProps): JSX.Element {
       </div>
     </article>
   )
-}
-
-export default Card
+})

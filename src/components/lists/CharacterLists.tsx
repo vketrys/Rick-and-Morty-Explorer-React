@@ -64,7 +64,6 @@ const CharacterList: React.FC = () => {
   if (error) {
     return <h1>{error}</h1>
   }
-  console.log(characters.length)
 
   return (
     <InfiniteScroll
@@ -74,8 +73,9 @@ const CharacterList: React.FC = () => {
       }
       hasMore={characters.length <= 812}
       loader={<h4>Loading...</h4>}
-      height={400}
+      height={450}
       endMessage={<b>Yay! You have seen it all</b>}
+      className={styleCard.Scrollbar}
     >
       <div className={styleCard.CardsContainer}>
         {characters.map((character) => (
