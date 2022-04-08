@@ -1,8 +1,88 @@
-.LoaderContainer {
-  background-color: dimgray;
+@mixin position-center($text-align: center) {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: $text-align;
 }
-.LoaderImage {
-  background-image: url(../../img/rick.png);
-  width: 100px;
-  height: 100px;
+
+.LoaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../img/background.jpg);
+  background-size: cover;
+  background-position: center; 
+  z-index: 9999;
+}
+
+.LoaderText {
+	@include position-center;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	span {
+		display: inline-block;
+		color: #4AADC9;
+    font-family: 'Creepster', sans-serif;
+    font-size: 80px;
+    animation-name:bounce-text;
+		  -webkit-animation-name:bounce-text;
+    animation-duration:1s;
+      -webkit-animation-duration:1s;
+    animation-iteration-count:infinite;
+      -webkit-animation-iteration-count:infinite;
+    animation-direction:alternate;
+      -webkit-animation-direction:alternate;
+	}
+}
+.LoaderWord1{
+	animation-delay:0s;
+		-webkit-animation-delay:0s;
+}
+.LoaderWord2{
+	animation-delay:0.2s;
+		-webkit-animation-delay:0.2s;
+}
+.LoaderWord3{
+	animation-delay:0.4s;
+		-webkit-animation-delay:0.4s;
+}
+.LoaderWord4{
+	animation-delay:0.6s;
+		-webkit-animation-delay:0.6s;
+}
+.LoaderWord5{
+	animation-delay:0.8s;
+		-webkit-animation-delay:0.8s;
+}
+
+@-webkit-keyframes bounce-text {
+	0% {
+      -webkit-filter: blur(0px);
+      -webkit-transform:scale(1) translate(0, -40px);
+    
+  }
+	100% {
+    -webkit-filter: blur(4px);
+    -webkit-transform:scale(0.2) translate(0, 40px);
+    color: transparent;
+  }
+}
+
+@keyframes bounce-text {
+  0% {
+    filter: blur(0px);
+    transform:scale(1) translate(0, -40px);
+  
+  }
+  100% {
+    filter: blur(4px);
+    transform:scale(0.1) translate(0, 40px);
+    color: transparent;
+  }
 }

@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 
 import { BrowserRouter } from 'react-router-dom'
 
-import App from './App'
 import './utils/i18n'
 import reportWebVitals from './reportWebVitals'
+import Loader from './components/loader/Loader'
+
+const App = React.lazy(() => import('./App'))
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Suspense fallback={<Loader />}>
+        <App />
+      </Suspense>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
