@@ -2,8 +2,7 @@ import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 
 import { BrowserRouter } from 'react-router-dom'
-
-import './utils/i18n'
+import './config/i18n'
 import reportWebVitals from './reportWebVitals'
 import Loader from './components/loader/Loader'
 

@@ -1,14 +1,13 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import store from './store/index'
+import Layout from './components/layout/Layout'
 
-import Layout from './components/navigation/Layout'
+import Router from './components/navigation/Router'
 
 function App(): JSX.Element {
   return (
-    <Provider store={store}>
-      <Layout />
-    </Provider>
+    <Layout>
+      <Router />
+    </Layout>
   )
 }
 

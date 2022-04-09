@@ -2,6 +2,10 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "engines" : {
+    "npm": "8.5.4",
+    "node" : "17.7.1" 
+  },
   "dependencies": {
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.4",
@@ -19,7 +23,6 @@
     "react-scripts": "5.0.0",
     "redux": "4.1.2",
     "redux-thunk": "2.4.1",
-    "rickmortyapi": "1.0.0",
     "typescript": "4.6.2",
     "web-vitals": "2.1.4"
   },
