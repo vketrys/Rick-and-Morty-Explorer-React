@@ -6,7 +6,7 @@ import axios from 'axios'
 
 import useTypeSelector from '../../hooks/useTypeSelector'
 import fetchCharacters from '../../store/action-creators/character'
-import styleCard from '../card/Card.module.scss'
+import style from '../card/Card.module.scss'
 import Card from '../card/Card'
 import {
   CharacterAction,
@@ -14,7 +14,7 @@ import {
 } from '../../types/characterTypes'
 import { RootState } from '../../store/reducers'
 
-type ThunkAction<R, S, E, A extends CharacterAction> = (
+export type ThunkAction<R, S, E, A extends CharacterAction> = (
   dispatch: Dispatch<CharacterAction>,
   getState: () => S,
   extraArgument: E
@@ -33,7 +33,7 @@ const CharacterList: React.FC = () => {
     dispatch(fetchCharacters())
   }, [dispatch])
 
-  const fetchMore = (): ThunkAction<
+  const fetchMoreCharacters = (): ThunkAction<
     void,
     RootState,
     unknown,
@@ -41,15 +41,14 @@ const CharacterList: React.FC = () => {
   > => {
     return async (dispatch: Dispatch<CharacterAction>) => {
       try {
-        const response = await axios.get(
-          `https://rickandmortyapi.com/api/character?page=${page}`
-        )
+        const api = `https://rickandmortyapi.com/api/character?page=${page}`
+        const response = await axios.get(api)
         page += 1
         dispatch({
           type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
           payload: [...characters, ...response.data.results],
         })
-      } catch (e) {
+      } catch (error) {
         dispatch({
           type: CharacterActionTypes.FETCH_CHARACTERS_ERROR,
           payload: 'Loading error',
@@ -69,17 +68,17 @@ const CharacterList: React.FC = () => {
     <InfiniteScroll
       dataLength={characters.length}
       next={(): ThunkAction<void, RootState, unknown, CharacterAction> =>
-        dispatch(fetchMore())
+        dispatch(fetchMoreCharacters())
       }
       hasMore={characters.length <= 812}
       loader={<h4>Loading...</h4>}
       height={450}
-      endMessage={<b>Yay! You have seen it all</b>}
-      className={styleCard.Scrollbar}
+      endMessage={<b>You have seen it all, mate!</b>}
+      className={style.Scrollbar}
     >
-      <div className={styleCard.CardsContainer}>
+      <div className={style.CardsContainer}>
         {characters.map((character) => (
-          <div key={character.id}>
+          <div>
             <Card character={character} />
           </div>
         ))}

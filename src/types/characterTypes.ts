@@ -1,7 +1,7 @@
 export interface CharacterState {
-  characters: any[]
+  characters: Array<number | string>
   loading: boolean
-  error: null | string
+  error?: string
 }
 
 export enum CharacterActionTypes {
@@ -11,10 +11,11 @@ export enum CharacterActionTypes {
 }
 interface FetchCharacterAction {
   type: CharacterActionTypes.FETCH_CHARACTERS
+  payload: null
 }
 interface FetchCharacterSuccessAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS
-  payload: any[]
+  payload: Array<number | string>
 }
 interface FetchCharacterErrorAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_ERROR

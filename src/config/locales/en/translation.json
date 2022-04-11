@@ -2,7 +2,9 @@
   "title": "Rick and Morty",
   "home": "Home",
   "character": {
-    "page": "Characters"
+    "page": "Characters",
+    "firstSeen": "Firts seen at...",
+    "origin": "Origin:"
   },
   "episode": {
     "page": "Episode"

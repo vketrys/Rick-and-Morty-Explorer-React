@@ -7,21 +7,20 @@ import {
 const initialState: CharacterState = {
   characters: [],
   loading: false,
-  error: null,
 }
 
 const characterReducer = (
   // eslint-disable-next-line default-param-last
   state = initialState,
-  action: CharacterAction
+  { type, payload }: CharacterAction
 ): CharacterState => {
-  switch (action.type) {
+  switch (type) {
     case CharacterActionTypes.FETCH_CHARACTERS:
-      return { loading: true, error: null, characters: [] }
+      return { loading: true, characters: [] }
     case CharacterActionTypes.FETCH_CHARACTERS_SUCCESS:
-      return { loading: false, error: null, characters: action.payload }
+      return { loading: false, characters: payload }
     case CharacterActionTypes.FETCH_CHARACTERS_ERROR:
-      return { loading: false, error: action.payload, characters: [] }
+      return { loading: false, error: payload, characters: [] }
     default:
       return state
   }

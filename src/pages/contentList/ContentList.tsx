@@ -5,6 +5,7 @@ import '../../config/i18n'
 
 import Button from '../../components/button/Button'
 import style from './ContentList.module.scss'
+import CharacterList from '../../components/lists/CharacterLists'
 
 interface PageName {
   name: string
@@ -19,6 +20,9 @@ function ContentList({ name }: PageName): JSX.Element {
       <h1>
         {t('title')} <p>{t(`${name}.page`)}</p>
       </h1>
+      <div className={style.characterList}>
+        <CharacterList />
+      </div>
       <Button label={t('home')} onClick={(): void => navigate('/home')} />
     </div>
   )

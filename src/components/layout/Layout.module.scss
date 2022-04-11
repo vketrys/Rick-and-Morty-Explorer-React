@@ -17,3 +17,21 @@
   display: flex;
   justify-content: center;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: $dark-gradient;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $blue;
+  border: 5px solid $dark-gradient;
+  border-radius: 10px;
+  &:hover {
+    background: darken($blue, $amount: 10);
+  }
+}

@@ -1,5 +1,9 @@
 import React from 'react'
-import styleCard from './Card.module.scss'
+
+import { useTranslation } from 'react-i18next'
+import '../../config/i18n'
+
+import style from './Card.module.scss'
 
 interface CardProps {
   character: {
@@ -18,15 +22,16 @@ interface CardProps {
   }
 }
 
-export default React.memo(function Card({ character }: CardProps): JSX.Element {
+function Card({ character }: CardProps): JSX.Element {
+  const { t } = useTranslation()
   return (
-    <article className={styleCard.CardWrapper}>
-      <div className={styleCard.CardImage}>
-        <div className={styleCard.Status}>{character.status}</div>
+    <article className={style.CardWrapper}>
+      <div className={style.CardImage}>
+        <div className={style.Status}>{character.status}</div>
         <img src={character.image} alt={character.name} />
       </div>
-      <div className={styleCard.CardContent}>
-        <div className={styleCard.NameSection}>
+      <div className={style.CardContent}>
+        <div className={style.NameSection}>
           <a href={character.url}>
             <h2>
               {character.name}, {character.id}
@@ -36,13 +41,15 @@ export default React.memo(function Card({ character }: CardProps): JSX.Element {
             {character.species}, {character.gender}
           </h6>
         </div>
-        <div className={styleCard.description}>
-          <a href={character.episode[0]}>First seen at...</a>
-          <br />
-          <br />
-          <a href={character.origin.url}>Origin: {character.origin.name}</a>
+        <div className={style.description}>
+          <a href={character.episode[0]}>{t('character.firstSeen')}</a>
+          <a href={character.origin.url}>
+            {t('character.origin')} {character.origin.name}
+          </a>
         </div>
       </div>
     </article>
   )
-})
+}
+
+export default React.memo(Card)
