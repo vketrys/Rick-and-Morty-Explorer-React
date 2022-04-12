@@ -1,6 +1,9 @@
 {
   "title": "Rick and Morty",
   "home": "Home",
+  "loading": "Loading...",
+  "srollEnd": "You have seen it all, mate!",
+  "loadingError": "Loading error",
   "character": {
     "page": "Characters",
     "firstSeen": "Firts seen at...",

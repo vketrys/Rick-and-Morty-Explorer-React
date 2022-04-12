@@ -3,24 +3,19 @@ import { Dispatch } from 'redux'
 import {
   CharacterActionTypes,
   CharacterAction,
+  AppThunk,
 } from '../../types/characterTypes'
-import { RootState } from '../reducers'
-import { ThunkAction } from '../../components/lists/CharacterLists'
 
-const fetchCharacters = (): ThunkAction<
-  void,
-  RootState,
-  unknown,
-  CharacterAction
-> => {
+const fetchCharacters = (): AppThunk<void> => {
   return async (dispatch: Dispatch<CharacterAction>) => {
     try {
       dispatch({
         type: CharacterActionTypes.FETCH_CHARACTERS,
         payload: null,
       })
-      const api = 'https://rickandmortyapi.com/api/character'
-      const response = await axios.get(api)
+      const response = await axios.get(
+        `${process.env.REACT_APP_CHARS_FIRST_PAGE_URL}`
+      )
 
       dispatch({
         type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
