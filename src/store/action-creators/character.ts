@@ -3,8 +3,8 @@ import { Dispatch } from 'redux'
 import {
   CharacterActionTypes,
   CharacterAction,
-  AppThunk,
 } from '../../types/characterTypes'
+import { AppThunk } from '../../types/thunkTypes'
 
 const fetchCharacters = (): AppThunk<void> => {
   return async (dispatch: Dispatch<CharacterAction>) => {
@@ -14,9 +14,8 @@ const fetchCharacters = (): AppThunk<void> => {
         payload: null,
       })
       const response = await axios.get(
-        `${process.env.REACT_APP_CHARS_FIRST_PAGE_URL}`
+        `${process.env.REACT_APP_API_URL_CHARACTER}`
       )
-
       dispatch({
         type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
         payload: response.data.results,

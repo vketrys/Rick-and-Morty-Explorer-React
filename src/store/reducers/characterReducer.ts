@@ -6,7 +6,7 @@ import {
 
 const initialState: CharacterState = {
   characters: [],
-  loading: false,
+  isLoading: false,
 }
 
 const characterReducer = (
@@ -16,11 +16,11 @@ const characterReducer = (
 ): CharacterState => {
   switch (type) {
     case CharacterActionTypes.FETCH_CHARACTERS:
-      return { loading: true, characters: [] }
+      return { isLoading: true, characters: [] }
     case CharacterActionTypes.FETCH_CHARACTERS_SUCCESS:
-      return { loading: false, characters: payload }
+      return { isLoading: false, characters: [...state.characters, ...payload] }
     case CharacterActionTypes.FETCH_CHARACTERS_ERROR:
-      return { loading: false, error: payload, characters: [] }
+      return { isLoading: false, error: payload, characters: [] }
     default:
       return state
   }

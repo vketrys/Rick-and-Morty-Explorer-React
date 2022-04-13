@@ -10,6 +10,9 @@ function MainPage(): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
+  const characterRoute = 'character?page=1'
+  console.log(`${process.env.REACT_APP_API_URL}${characterRoute}`)
+
   return (
     <div className={style.content}>
       <h1>

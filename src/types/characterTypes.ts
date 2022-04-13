@@ -1,14 +1,10 @@
-import { Dispatch } from 'redux'
-import { ThunkDispatch } from 'redux-thunk'
-import { RootState } from '../store/reducers'
-
 export interface CharacterState {
-  characters: CharacterProps[]
-  loading: boolean
+  characters: CharacterType[]
+  isLoading: boolean
   error?: string
 }
 
-export interface CharacterProps {
+interface CharacterProps {
   id: number
   name: string
   status: string
@@ -23,6 +19,8 @@ export interface CharacterProps {
   url: string
 }
 
+export type CharacterType = CharacterProps
+
 export enum CharacterActionTypes {
   FETCH_CHARACTERS = 'FETCH_CHARACTERS',
   FETCH_CHARACTERS_SUCCESS = 'FETCH_CHARACTERS_SUCCESS ',
@@ -34,7 +32,7 @@ interface FetchCharacterAction {
 }
 interface FetchCharacterSuccessAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS
-  payload: CharacterProps[]
+  payload: CharacterType[]
 }
 interface FetchCharacterErrorAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_ERROR
@@ -45,16 +43,3 @@ export type CharacterAction =
   | FetchCharacterAction
   | FetchCharacterSuccessAction
   | FetchCharacterErrorAction
-
-type ThunkAction<R, S, E, A extends CharacterAction> = (
-  dispatch: ThunkDispatch<S, E, A>,
-  getState: () => S,
-  extraArgument: E
-) => R
-
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  CharacterAction
->

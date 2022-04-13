@@ -2,15 +2,15 @@ import React from 'react'
 
 import { useTranslation } from 'react-i18next'
 import '../../config/i18n'
-import { CharacterProps } from '../../types/characterTypes'
+import { CharacterType } from '../../types/characterTypes'
 
 import style from './Card.module.scss'
 
 interface CardProps {
-  character: CharacterProps
+  character: CharacterType
 }
 
-function Card({ character }: CardProps): JSX.Element {
+function CharacterCard({ character }: CardProps): JSX.Element {
   const { t } = useTranslation()
   return (
     <article className={style.CardWrapper}>
@@ -40,4 +40,4 @@ function Card({ character }: CardProps): JSX.Element {
   )
 }
 
-export default React.memo(Card)
+export default React.memo(CharacterCard)
