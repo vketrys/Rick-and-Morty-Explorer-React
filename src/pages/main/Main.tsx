@@ -1,17 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import '../../config/i18n'
+import 'config/i18n'
 
-import Button from '../../components/button/Button'
+import Button from 'components/button/Button'
 import style from './Main.module.scss'
 
 function MainPage(): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
-
-  const characterRoute = 'character?page=1'
-  console.log(`${process.env.REACT_APP_API_URL}${characterRoute}`)
 
   return (
     <div className={style.content}>

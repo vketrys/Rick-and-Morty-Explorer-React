@@ -1,9 +1,9 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import Layout from './components/layout/Layout'
+import Layout from 'components/layout/Layout'
 
-import Router from './components/navigation/Router'
-import store from './store'
+import Router from 'components/navigation/Router'
+import store from 'store'
 
 function App(): JSX.Element {
   return (

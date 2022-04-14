@@ -1,4 +1,4 @@
-@import '../../styles/colors.scss';
+@import 'styles/colors.scss';
 
 .button {
   font-size: 25px;
@@ -13,9 +13,11 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+
   p {
     position: relative;
   }
+
   .span {
     background: $blue;
     height: 100%;
@@ -26,10 +28,12 @@
     bottom: 0;
     transition: 0.5s;
   }
+
   &:hover 
     .span {
       width: 100%;
   }
+  
   &:hover {
     border: 1px solid transparent;
   }

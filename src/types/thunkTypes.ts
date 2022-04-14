@@ -1,5 +1,5 @@
 import { ThunkDispatch } from 'redux-thunk'
-import { RootState } from '../store/reducers'
+import { RootState } from 'store/reducers'
 import { CharacterAction } from './characterTypes'
 
 type ThunkAction<R, S, E, A extends CharacterAction> = (

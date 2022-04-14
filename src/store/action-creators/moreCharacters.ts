@@ -1,13 +1,10 @@
 import { Dispatch } from 'redux'
 import axios from 'axios'
 
-import i18n from '../../config/i18n'
+import i18n from 'config/i18n'
 
-import { AppThunk } from '../../types/thunkTypes'
-import {
-  CharacterAction,
-  CharacterActionTypes,
-} from '../../types/characterTypes'
+import { AppThunk } from 'types/thunkTypes'
+import { CharacterAction, CharacterActionTypes } from 'types/characterTypes'
 
 const fetchMoreCharacters = (page: number): AppThunk<void> => {
   return async (dispatch: Dispatch<CharacterAction>) => {

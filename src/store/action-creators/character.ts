@@ -1,10 +1,7 @@
 import axios from 'axios'
 import { Dispatch } from 'redux'
-import {
-  CharacterActionTypes,
-  CharacterAction,
-} from '../../types/characterTypes'
-import { AppThunk } from '../../types/thunkTypes'
+import { CharacterActionTypes, CharacterAction } from 'types/characterTypes'
+import { AppThunk } from 'types/thunkTypes'
 
 const fetchCharacters = (): AppThunk<void> => {
   return async (dispatch: Dispatch<CharacterAction>) => {

@@ -2,7 +2,7 @@ import {
   CharacterAction,
   CharacterActionTypes,
   CharacterState,
-} from '../../types/characterTypes'
+} from 'types/characterTypes'
 
 const initialState: CharacterState = {
   characters: [],

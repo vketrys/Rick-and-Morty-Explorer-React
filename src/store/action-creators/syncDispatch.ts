@@ -1,9 +1,6 @@
 import { Dispatch } from 'redux'
-import {
-  CharacterActionTypes,
-  CharacterAction,
-} from '../../types/characterTypes'
-import { AppThunk } from '../../types/thunkTypes'
+import { CharacterActionTypes, CharacterAction } from 'types/characterTypes'
+import { AppThunk } from 'types/thunkTypes'
 
 const fetchCharacters = (): AppThunk<void> => {
   return (dispatch: Dispatch<CharacterAction>) => {

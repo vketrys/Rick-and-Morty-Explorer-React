@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useTranslation } from 'react-i18next'
-import '../../config/i18n'
+import 'config/i18n'
+import { AppThunk } from 'types/thunkTypes'
+import fetchMoreCharacters from 'store/action-creators/moreCharacters'
 
-import useTypeSelector from '../../hooks/useTypeSelector'
-import fetchCharacters from '../../store/action-creators/character'
+import useTypeSelector from 'hooks/useTypeSelector'
+import fetchCharacters from 'store/action-creators/character'
 import style from '../card/Card.module.scss'
 import CharacterCard from '../card/Card'
-import { AppThunk } from '../../types/thunkTypes'
-import fetchMoreCharacters from '../../store/action-creators/moreCharacters'
 
 const CharacterList: React.FC = () => {
   const { t } = useTranslation()

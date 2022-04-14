@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { useTranslation } from 'react-i18next'
-import '../../config/i18n'
-import { CharacterType } from '../../types/characterTypes'
+import 'config/i18n'
+import { CharacterType } from 'types/characterTypes'
 
 import style from './Card.module.scss'
 
