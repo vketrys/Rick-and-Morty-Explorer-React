@@ -20,63 +20,11 @@
 	width: 100%;
 	height: 100px;
 	line-height: 100px;
+  
 	span {
 		display: inline-block;
 		color: $blue;
     font-family: 'Creepster', sans-serif;
     font-size: 80px;
-    animation-name:bounce-text;
-		  -webkit-animation-name:bounce-text;
-    animation-duration:3s;
-      -webkit-animation-duration:1s;
-    animation-iteration-count:infinite;
-      -webkit-animation-iteration-count:infinite;
-    animation-direction:alternate;
-      -webkit-animation-direction:alternate;
 	}
-}
-.LoaderWord1{
-	animation-delay:0s;
-		-webkit-animation-delay:0s;
-}
-.LoaderWord2{
-	animation-delay:0.2s;
-		-webkit-animation-delay:0.2s;
-}
-.LoaderWord3{
-	animation-delay:0.4s;
-		-webkit-animation-delay:0.4s;
-}
-.LoaderWord4{
-	animation-delay:0.6s;
-		-webkit-animation-delay:0.6s;
-}
-.LoaderWord5{
-	animation-delay:0.8s;
-		-webkit-animation-delay:0.8s;
-}
-
-@-webkit-keyframes bounce-text {
-	0% {
-    -webkit-filter: blur(0px);
-    -webkit-transform:scale(1) translate(0, -40px);
-  }
-	100% {
-    -webkit-filter: blur(4px);
-    -webkit-transform:scale(0.1) translate(0, 40px);
-    color: transparent;
-  }
-}
-
-@keyframes bounce-text {
-  0% {
-    filter: blur(0px);
-    transform:scale(1) translate(0, -40px);
-  }
-  100% {
-    filter: blur(4px);
-    transform:scale(0.1) translate(0, 40px);
-    color: transparent;
-  }
-  
 }

@@ -9,9 +9,7 @@ import {
   CharacterActionTypes,
 } from '../../types/characterTypes'
 
-let page = 2
-
-const fetchMoreCharacters = (): AppThunk<void> => {
+const fetchMoreCharacters = (page: number): AppThunk<void> => {
   return async (dispatch: Dispatch<CharacterAction>) => {
     try {
       const response = await axios.get(
@@ -22,7 +20,6 @@ const fetchMoreCharacters = (): AppThunk<void> => {
           },
         }
       )
-      page += 1
       dispatch({
         type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
         payload: response.data.results,

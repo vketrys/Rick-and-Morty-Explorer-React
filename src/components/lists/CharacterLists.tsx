@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useTranslation } from 'react-i18next'
@@ -13,6 +13,7 @@ import fetchMoreCharacters from '../../store/action-creators/moreCharacters'
 
 const CharacterList: React.FC = () => {
   const { t } = useTranslation()
+  const [page, setPage] = useState(0)
   const { characters, error, isLoading } = useTypeSelector(
     (state) => state.character
   )
@@ -24,6 +25,8 @@ const CharacterList: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => setPage((page) => page + 1), [characters])
+
   if (isLoading) {
     return <h1>{t('loading')}</h1>
   }
@@ -34,7 +37,7 @@ const CharacterList: React.FC = () => {
   return (
     <InfiniteScroll
       dataLength={characters.length}
-      next={(): AppThunk<void> => dispatch(fetchMoreCharacters())}
+      next={(): AppThunk<void> => dispatch(fetchMoreCharacters(page))}
       hasMore
       loader={<h4>{t('loading')}</h4>}
       height={450}

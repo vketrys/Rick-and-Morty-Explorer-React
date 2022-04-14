@@ -9,10 +9,6 @@ import { AppThunk } from '../../types/thunkTypes'
 const fetchCharacters = (): AppThunk<void> => {
   return async (dispatch: Dispatch<CharacterAction>) => {
     try {
-      dispatch({
-        type: CharacterActionTypes.FETCH_CHARACTERS,
-        payload: null,
-      })
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL_CHARACTER}`
       )
