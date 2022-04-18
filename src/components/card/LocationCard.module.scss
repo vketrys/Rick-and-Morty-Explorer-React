@@ -1,0 +1,74 @@
+@import 'styles/colors.scss';
+@import 'styles/fonts.scss';
+
+.CardsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  padding: 20px;
+  
+  .CardWrapper {
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    overflow: hidden;
+    border: 1px solid $blue;
+    background: $dark-gradient ;
+    border-radius: 10px;
+    margin: 20px;
+
+    .CardContent {
+      padding: 10px;
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .Description {
+        flex: 1 1 0%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        a {
+          color: $white;
+          text-decoration: none;
+
+          h2 {
+            font-size: 35px;
+            color: $blue;
+          }
+        }
+
+        h6 {
+          font-size: 25px;
+          font-family: $Courier;
+        }
+        p {
+          font-size: 20px;
+          font-family: $Courier;
+          margin-top: 5px;
+        }
+      }
+
+      .Residents {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+
+        a {
+          margin-top: 25px;
+          color: $white;
+          text-decoration: none;
+          font-family: $Courier;
+        }
+
+      }
+    }
+  }
+}
+
+

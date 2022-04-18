@@ -1,11 +1,11 @@
 import { Dispatch } from 'redux'
-import { CharacterActionTypes, CharacterAction } from 'types/characterTypes'
+import { LocationActionTypes, LocationAction } from 'types/locationTypes'
 import { AppThunk } from 'types/thunkTypes'
 
 const syncDispatch = (): AppThunk<void> => {
-  return (dispatch: Dispatch<CharacterAction>) => {
+  return (dispatch: Dispatch<LocationAction>) => {
     dispatch({
-      type: CharacterActionTypes.FETCH_CHARACTERS,
+      type: LocationActionTypes.FETCH_LOCATIONS,
       payload: null,
     })
   }

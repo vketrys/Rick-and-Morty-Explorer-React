@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import 'config/i18n'
 import { CharacterType } from 'types/characterTypes'
 
-import style from './Card.module.scss'
+import style from './CharacterCard.module.scss'
 
 interface CardProps {
   character: CharacterType

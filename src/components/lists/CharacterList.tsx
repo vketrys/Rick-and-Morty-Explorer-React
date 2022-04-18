@@ -8,8 +8,8 @@ import fetchMoreCharacters from 'store/action-creators/moreCharacters'
 
 import useTypeSelector from 'hooks/useTypeSelector'
 import fetchCharacters from 'store/action-creators/character'
-import style from '../card/Card.module.scss'
-import CharacterCard from '../card/Card'
+import style from '../card/CharacterCard.module.scss'
+import CharacterCard from '../card/CharacterCard'
 
 const CharacterList: React.FC = () => {
   const { t } = useTranslation()
