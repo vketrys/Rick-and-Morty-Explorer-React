@@ -1,3 +1,10 @@
 @import './fonts/stylesheet.scss';
 
-$Courier: 'Courier New', Courier, monospace;
+$PrimaryFont: 'Creepster';
+$FallbackFont: 'Neucha';
+$SecondaryFont: 'Courier New', Courier, monospace;
+
+$LabelSize: 90px;
+$TextSize: 25px;
+$TitleSize: 35px;
+$DescriptionSize: 20px;

@@ -1,14 +1,10 @@
-import { Dispatch } from 'redux'
-import { CharacterActionTypes, CharacterAction } from 'types/characterTypes'
-import { AppThunk } from 'types/thunkTypes'
+import { CharacterAction, CharacterActionTypes } from 'types/characterTypes'
 
-const fetchCharacters = (): AppThunk<void> => {
-  return (dispatch: Dispatch<CharacterAction>) => {
-    dispatch({
-      type: CharacterActionTypes.FETCH_CHARACTERS,
-      payload: null,
-    })
+const syncDispatch = (): CharacterAction => {
+  return {
+    type: CharacterActionTypes.FETCH_CHARACTERS,
+    payload: null,
   }
 }
 
-export default fetchCharacters
+export default syncDispatch
