@@ -24,7 +24,7 @@
 	span {
 		display: inline-block;
 		color: $blue;
-    font-family: "Brush Script MT", cursive;
-    font-size: 80px;
+    font-family: $PrimaryFont, sans-serif;
+    font-size: $Label;
 	}
 }

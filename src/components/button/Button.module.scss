@@ -1,7 +1,8 @@
 @import 'styles/colors.scss';
+@import 'styles/fonts.scss';
 
 .button {
-  font-size: 25px;
+  font-size: $Subtitle;
   width: 200px;
   padding: 15px 0;
   text-align: center;

@@ -3,29 +3,29 @@ import { useDispatch } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useTranslation } from 'react-i18next'
 import 'config/i18n'
-import { AppThunk } from 'types/thunkTypes'
-import fetchMoreCharacters from 'store/action-creators/moreCharacters'
+import fetchCharacters from 'store/action-creators/moreCharacters'
 
-import useTypeSelector from 'hooks/useTypeSelector'
-import fetchCharacters from 'store/action-creators/character'
+import CharacterSelectors from 'components/selectors'
 import style from '../card/CharacterCard.module.scss'
 import CharacterCard from '../card/CharacterCard'
 
 const CharacterList: React.FC = () => {
   const { t } = useTranslation()
-  const [page, setPage] = useState(0)
-  const { characters, error, isLoading } = useTypeSelector(
-    (state) => state.character
-  )
+  const [page, setPage] = useState(1)
+  const { characters, error, isLoading } = CharacterSelectors()
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchCharacters())
+    dispatch(fetchCharacters(page))
+    setPage((page) => page + 1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  useEffect(() => setPage((page) => page + 1), [characters])
+  const nextPage = (): void => {
+    setPage((page) => page + 1)
+    dispatch(fetchCharacters(page))
+  }
 
   if (isLoading) {
     return <h1>{t('loading')}</h1>
@@ -37,7 +37,7 @@ const CharacterList: React.FC = () => {
   return (
     <InfiniteScroll
       dataLength={characters.length}
-      next={(): AppThunk<void> => dispatch(fetchMoreCharacters(page))}
+      next={nextPage}
       hasMore
       loader={<h4>{t('loading')}</h4>}
       height={450}
@@ -46,9 +46,7 @@ const CharacterList: React.FC = () => {
     >
       <div className={style.CardsContainer}>
         {characters.map((character) => (
-          <div key={character.id}>
-            <CharacterCard character={character} />
-          </div>
+          <CharacterCard key={character.id} character={character} />
         ))}
       </div>
     </InfiniteScroll>

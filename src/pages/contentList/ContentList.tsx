@@ -20,7 +20,7 @@ function ContentList({ name }: PageName): JSX.Element {
       <h1>
         {t('title')} <p>{t(`${name}.page`)}</p>
       </h1>
-      <div className={style.characterList}>
+      <div className={style.characterListContainer}>
         <List name={name} />
       </div>
       <Button label={t('home')} onClick={(): void => navigate('/home')} />

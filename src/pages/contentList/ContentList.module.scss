@@ -1,4 +1,5 @@
 @import 'styles/colors.scss';
+@import 'styles/fonts.scss';
 
 .content {
   width: 100%;
@@ -9,11 +10,10 @@
   align-items: center;
 
   h1 {
-    font-size: 90px;
+    font-size: $Label;
   }
   
-  .characterList {
+  .characterListContainer {
     display: flex;
-    font-size: 40px;
   }
 }

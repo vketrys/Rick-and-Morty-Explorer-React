@@ -2,13 +2,9 @@ import React from 'react'
 
 import { useTranslation } from 'react-i18next'
 import 'config/i18n'
-import { CharacterType } from 'types/characterTypes'
 
+import { CardProps } from 'types/characterTypes'
 import style from './CharacterCard.module.scss'
-
-interface CardProps {
-  character: CharacterType
-}
 
 function CharacterCard({ character }: CardProps): JSX.Element {
   const { t } = useTranslation()
