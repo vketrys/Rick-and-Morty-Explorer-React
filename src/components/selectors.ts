@@ -2,9 +2,9 @@ import useTypeSelector from 'hooks/useTypeSelector'
 import { CharacterState } from 'types/characterTypes'
 
 const CharacterSelectors = (): CharacterState => {
-  const characters = useTypeSelector((state) => state.character.characters)
-  const error = useTypeSelector((state) => state.character.error)
-  const isLoading = useTypeSelector((state) => state.character.isLoading)
+  const { characters, error, isLoading } = useTypeSelector(
+    (state) => state.character
+  )
   return { characters, error, isLoading }
 }
 

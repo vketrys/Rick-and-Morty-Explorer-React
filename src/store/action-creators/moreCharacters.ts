@@ -1,30 +1,26 @@
 import { Dispatch } from 'redux'
-import axios from 'axios'
-
-import i18n from 'config/i18n'
+import axios from 'config/axios'
 
 import { AppThunk } from 'types/thunkTypes'
-import { CharacterAction, CharacterActionTypes } from 'types/characterTypes'
+import { CharacterAction } from 'types/characterTypes'
+import {
+  fetchCharacterDispatch,
+  fetchCharacterErrorDispatch,
+  fetchCharacterSuccessDispatch,
+} from './CharacterDispatch'
 
 const fetchCharacters = (page: number): AppThunk<void> => {
   return async (dispatch: Dispatch<CharacterAction>) => {
     try {
-      const response = await axios({
-        url: '/character',
-        baseURL: `${process.env.REACT_APP_API_URL}`,
+      fetchCharacterDispatch()
+      const response = await axios('/character', {
         params: {
           page,
         },
       })
-      dispatch({
-        type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
-        payload: response.data.results,
-      })
+      dispatch(fetchCharacterSuccessDispatch(response))
     } catch (error) {
-      dispatch({
-        type: CharacterActionTypes.FETCH_CHARACTERS_ERROR,
-        payload: i18n.t('loadingError'),
-      })
+      dispatch(fetchCharacterErrorDispatch())
     }
   }
 }

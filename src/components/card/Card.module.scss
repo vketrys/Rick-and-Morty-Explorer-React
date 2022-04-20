@@ -29,7 +29,7 @@
         margin: 5px;
         padding: 2px;
         background-color: $grey;
-        font-size: $DescriptionSize;
+        font-size: $Description;
         color: $white;
         font-family: $SecondaryFont;
         font-weight: bold;
@@ -67,19 +67,19 @@
           text-decoration: none;
 
           h2 {
-            font-size: $TitleSize;
+            font-size: $Title;
             color: $blue;
           }
         }
 
         h6 {
-          font-size: $TextSize;
+          font-size: $Subtitle;
           font-family: $SecondaryFont;
         }
       }
 
       .description {
-        font-size: $DescriptionSize;
+        font-size: $Description;
         display: flex;
         flex-direction: column;
 

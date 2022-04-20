@@ -3,24 +3,8 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import 'config/i18n'
 
+import { CardProps } from 'types/characterTypes'
 import style from './Card.module.scss'
-
-interface CardProps {
-  character: {
-    id: number
-    name: string
-    status: string
-    species: string
-    gender: string
-    origin: {
-      name: string
-      url: string
-    }
-    image: string
-    episode: string[]
-    url: string
-  }
-}
 
 function CharacterCard({ character }: CardProps): JSX.Element {
   const { t } = useTranslation()
