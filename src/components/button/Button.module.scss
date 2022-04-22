@@ -4,9 +4,9 @@
 .button {
   font-size: $Subtitle;
   width: 200px;
-  padding: 15px 0;
+  padding: #{$base-indent*3} 0;
   text-align: center;
-  margin: 30px 20px;
+  margin: #{$base-indent*6} #{$base-indent*4};
   border-radius: 25px;
   border: 1px solid $blue;
   background: transparent;
