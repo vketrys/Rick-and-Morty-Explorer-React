@@ -27,7 +27,7 @@
       .Status {
         position: absolute;
         border-radius: 5px;
-        margin: indent(4);
+        margin: $base-indent;
         padding: indent(0.5);
         background-color: $grey;
         font-size: $Description;
