@@ -1,9 +1,10 @@
 @import 'styles/fonts.scss';
+@import 'styles/vars.scss';
 
 .CardsContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   border-radius: 10px;
-  padding: #{$base-indent*4};
+  padding: indent(4);
 }

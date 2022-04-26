@@ -1,12 +1,13 @@
 @import 'styles/colors.scss';
 @import 'styles/fonts.scss';
+@import 'styles/vars.scss';
 
 .CardsContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   border-radius: 10px;
-  padding: #{$base-indent*4};
+  padding: indent(4);
   
   .CardWrapper {
     position: relative;
@@ -17,7 +18,7 @@
     border: 1px solid $blue;
     background: $dark-gradient;
     border-radius: 10px;
-    margin: #{$base-indent*4};
+    margin: indent(4);
 
     .CardImage {
       flex: 2 1 0%;
@@ -26,8 +27,8 @@
       .Status {
         position: absolute;
         border-radius: 5px;
-        margin: #{$base-indent*4};
-        padding: #{$base-indent/2};
+        margin: indent(4);
+        padding: indent(0.5);
         background-color: $grey;
         font-size: $Description;
         color: $white;
@@ -50,7 +51,7 @@
     .CardContent {
       flex: 3 1 0%;
       position: relative;
-      padding: #{$base-indent*2};
+      padding: indent(2);
       color: $white;
       display: flex;
       flex-direction: column;
@@ -84,7 +85,7 @@
         flex-direction: column;
 
         a {
-          margin-top: #{$base-indent*5};
+          margin-top: indent(5);
           color: $white;
           text-decoration: none;
           font-family: $SecondaryFont;
