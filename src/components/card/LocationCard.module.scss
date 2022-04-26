@@ -6,11 +6,10 @@
   justify-content: center;
   flex-wrap: wrap;
   border-radius: 10px;
-  padding: 20px;
+  padding: #{$base-indent*4};
   
   .CardWrapper {
     position: relative;
-    z-index: 1;
     width: 300px;
     height: 300px;
     display: flex;
@@ -18,10 +17,11 @@
     border: 1px solid $blue;
     background: $dark-gradient ;
     border-radius: 10px;
-    margin: 20px;
+    margin: #{$base-indent*4};
+    justify-content: center;
 
     .CardContent {
-      padding: 10px;
+      padding: #{$base-indent*2};
       color: $white;
       display: flex;
       flex-direction: column;
@@ -31,36 +31,36 @@
         flex: 1 1 0%;
         display: flex;
         flex-direction: column;
-        padding: 10px;
+        padding: #{$base-indent*2};
 
         a {
           color: $white;
           text-decoration: none;
 
           h2 {
-            font-size: 35px;
+            font-size: $Title;
             color: $blue;
           }
         }
 
         h6 {
-          font-size: 25px;
+          font-size: $Subtitle;
           font-family: $SecondaryFont;
         }
         p {
-          font-size: 20px;
+          font-size: $Description;
           font-family: $SecondaryFont;
-          margin-top: 5px;
+          margin-top: $base-indent;
         }
       }
 
       .Residents {
-        font-size: 20px;
+        font-size: $Description;
         display: flex;
         flex-direction: column;
 
         a {
-          margin-top: 25px;
+          margin-top: #{$base-indent*5};
           color: $white;
           text-decoration: none;
           font-family: $SecondaryFont;

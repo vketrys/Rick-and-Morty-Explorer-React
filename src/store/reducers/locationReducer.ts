@@ -5,7 +5,7 @@ import {
 } from 'types/locationTypes'
 
 const initialState: LocationState = {
-  locations: [],
+  data: [],
   isLoading: false,
 }
 
@@ -16,11 +16,11 @@ const locationReducer = (
 ): LocationState => {
   switch (type) {
     case LocationActionTypes.FETCH_LOCATIONS:
-      return { isLoading: true, locations: [] }
+      return { isLoading: true, data: [] }
     case LocationActionTypes.FETCH_LOCATIONS_SUCCESS:
-      return { isLoading: false, locations: [...state.locations, ...payload] }
+      return { isLoading: false, data: [...state.data, ...payload] }
     case LocationActionTypes.FETCH_LOCATIONS_ERROR:
-      return { isLoading: false, error: payload, locations: [] }
+      return { isLoading: false, error: payload, data: [] }
     default:
       return state
   }

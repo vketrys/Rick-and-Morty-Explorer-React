@@ -1,5 +1,5 @@
 export interface LocationState {
-  locations: LocationType[]
+  data: LocationType[]
   isLoading: boolean
   error?: string
 }

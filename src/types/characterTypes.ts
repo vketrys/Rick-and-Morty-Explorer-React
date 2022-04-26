@@ -1,5 +1,5 @@
 export interface CharacterState {
-  characters: CharacterType[]
+  data: CharacterType[]
   isLoading: boolean
   error?: string
 }

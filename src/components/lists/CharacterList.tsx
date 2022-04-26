@@ -5,14 +5,14 @@ import { useTranslation } from 'react-i18next'
 import 'config/i18n'
 import fetchCharacters from 'store/action-creators/moreCharacters'
 
-import CharacterSelectors from 'components/selectors'
+import { CharacterSelectors } from 'components/selectors'
 import style from '../card/CharacterCard.module.scss'
 import CharacterCard from '../card/CharacterCard'
 
 const CharacterList: React.FC = () => {
   const { t } = useTranslation()
   const [page, setPage] = useState(1)
-  const { characters, error, isLoading } = CharacterSelectors()
+  const { data, error, isLoading } = CharacterSelectors()
 
   const dispatch = useDispatch()
 
@@ -36,16 +36,15 @@ const CharacterList: React.FC = () => {
 
   return (
     <InfiniteScroll
-      dataLength={characters.length}
+      dataLength={data.length}
       next={nextPage}
       hasMore
       loader={<h4>{t('loading')}</h4>}
       height={450}
       endMessage={<b>{t('scrollEnd')}</b>}
-      className={style.Scrollbar}
     >
       <div className={style.CardsContainer}>
-        {characters.map((character) => (
+        {data.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))}
       </div>

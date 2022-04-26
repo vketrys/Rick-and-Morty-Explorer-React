@@ -8,20 +8,20 @@ import style from './ContentList.module.scss'
 import List from './List'
 
 interface PageName {
-  name: string
+  type: string
 }
 
-function ContentList({ name }: PageName): JSX.Element {
+function ContentList({ type }: PageName): JSX.Element {
   const navigate = useNavigate()
   const { t } = useTranslation()
 
   return (
     <div className={style.content}>
       <h1>
-        {t('title')} <p>{t(`${name}.page`)}</p>
+        {t('title')} <p>{t(`${type}.page`)}</p>
       </h1>
       <div className={style.characterListContainer}>
-        <List name={name} />
+        <List type={type} />
       </div>
       <Button label={t('home')} onClick={(): void => navigate('/home')} />
     </div>
