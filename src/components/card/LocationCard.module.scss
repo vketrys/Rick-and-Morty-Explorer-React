@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   border-radius: 10px;
   padding: indent(4);
-  
+
   .CardWrapper {
     position: relative;
     width: 300px;
@@ -16,7 +16,7 @@
     display: flex;
     overflow: hidden;
     border: 1px solid $blue;
-    background: $dark-gradient ;
+    background: $dark-gradient;
     border-radius: 10px;
     margin: indent(4);
     justify-content: center;
@@ -48,6 +48,7 @@
           font-size: $Subtitle;
           font-family: $SecondaryFont;
         }
+
         p {
           font-size: $Description;
           font-family: $SecondaryFont;
@@ -66,10 +67,7 @@
           text-decoration: none;
           font-family: $SecondaryFont;
         }
-
       }
     }
   }
 }
-
-

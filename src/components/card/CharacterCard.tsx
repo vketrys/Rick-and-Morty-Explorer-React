@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import { useTranslation } from 'react-i18next'
-import 'config/i18n'
+import { useTranslation } from 'react-i18next';
+import 'config/i18n';
 
-import { CardProps } from 'types/characterTypes'
-import style from './CharacterCard.module.scss'
+import { CardProps } from 'types/characterTypes';
+import style from './CharacterCard.module.scss';
 
 function CharacterCard({ character }: CardProps): JSX.Element {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardImage}>
@@ -33,7 +33,7 @@ function CharacterCard({ character }: CardProps): JSX.Element {
         </div>
       </div>
     </article>
-  )
+  );
 }
 
-export default React.memo(CharacterCard)
+export default React.memo(CharacterCard);

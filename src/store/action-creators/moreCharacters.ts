@@ -1,28 +1,29 @@
-import { Dispatch } from 'redux'
-import axios from 'config/axios'
+import { Dispatch } from 'redux';
+import axios from 'config/axios';
 
-import { AppThunk } from 'types/thunkTypes'
-import { CharacterAction } from 'types/characterTypes'
+import { AppThunk } from 'types/thunkTypes';
+import { CharacterAction } from 'types/characterTypes';
 import {
   fetchCharacterDispatch,
   fetchCharacterErrorDispatch,
   fetchCharacterSuccessDispatch,
-} from './CharacterDispatch'
+} from './CharacterDispatch';
+import paths from '../../components/navigation/paths';
 
-const fetchCharacters = (page: number): AppThunk<void> => {
-  return async (dispatch: Dispatch<CharacterAction>) => {
+const fetchCharacters =
+  (page: number): AppThunk<void> =>
+  async (dispatch: Dispatch<CharacterAction>) => {
     try {
-      fetchCharacterDispatch()
-      const response = await axios('/character', {
+      fetchCharacterDispatch();
+      const response = await axios(paths.character, {
         params: {
           page,
         },
-      })
-      dispatch(fetchCharacterSuccessDispatch(response))
+      });
+      dispatch(fetchCharacterSuccessDispatch(response));
     } catch (error) {
-      dispatch(fetchCharacterErrorDispatch())
+      dispatch(fetchCharacterErrorDispatch());
     }
-  }
-}
+  };
 
-export default fetchCharacters
+export default fetchCharacters;

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import style from './Button.module.scss'
+import style from './Button.module.scss';
 
 interface ButtonProps {
-  label: string
-  onClick: () => void
+  label: string;
+  onClick: () => void;
 }
 
 function Button({ label, onClick }: ButtonProps): JSX.Element {
@@ -13,7 +13,7 @@ function Button({ label, onClick }: ButtonProps): JSX.Element {
       <span className={style.span} />
       <p>{label}</p>
     </button>
-  )
+  );
 }
 
-export default Button
+export default Button;

@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-import { useTranslation } from 'react-i18next'
-import 'config/i18n'
-import { LocationType } from 'types/locationTypes'
+import { useTranslation } from 'react-i18next';
+import 'config/i18n';
+import { LocationType } from 'types/locationTypes';
 
-import style from './LocationCard.module.scss'
+import style from './LocationCard.module.scss';
 
 interface CardProps {
-  location: LocationType
+  location: LocationType;
 }
 
 function LocationCard({ location }: CardProps): JSX.Element {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardContent}>
@@ -30,7 +30,7 @@ function LocationCard({ location }: CardProps): JSX.Element {
         </div>
       </div>
     </article>
-  )
+  );
 }
 
-export default React.memo(LocationCard)
+export default React.memo(LocationCard);

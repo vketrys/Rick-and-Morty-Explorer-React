@@ -19,6 +19,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
+    "semi": ["error", "always"],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
@@ -36,11 +37,14 @@
     "@typescript-eslint/explicit-function-return-type": ["error"],
     "max-len": ["warn", { "code": 80 }],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
+    "default-param-last": "off",
+    "arrow-body-style": ["error", "as-needed"],
     "react/function-component-definition": [2, {
       "namedComponents": ["function-declaration", "function-expression", "arrow-function"],
       "unnamedComponents": ["function-expression", "arrow-function"]
-    }]
+    }],
+    "prettier/prettier": ["error", {"semi": true}]
   },
   "settings": {
     "import/parsers": {

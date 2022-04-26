@@ -1,12 +1,12 @@
-import React, { Suspense } from 'react'
-import ReactDOM from 'react-dom'
+import React, { Suspense } from 'react';
+import ReactDOM from 'react-dom';
 
-import { BrowserRouter } from 'react-router-dom'
-import 'config/i18n'
-import Loader from 'components/loader/Loader'
-import reportWebVitals from './reportWebVitals'
+import { BrowserRouter } from 'react-router-dom';
+import 'config/i18n';
+import Loader from 'components/loader/Loader';
+import reportWebVitals from './reportWebVitals';
 
-const App = React.lazy(() => import('./App'))
+const App = React.lazy(() => import('./App'));
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +17,6 @@ ReactDOM.render(
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
-)
+);
 
-reportWebVitals()
+reportWebVitals();

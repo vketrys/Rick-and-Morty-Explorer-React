@@ -1,19 +1,20 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import 'config/i18n'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import 'config/i18n';
 
-import Button from 'components/button/Button'
-import style from './ContentList.module.scss'
-import List from './List'
+import Button from 'components/button/Button';
+import paths from '../../components/navigation/paths';
+import style from './ContentList.module.scss';
+import List from './List';
 
 interface PageName {
-  type: string
+  type: string;
 }
 
 function ContentList({ type }: PageName): JSX.Element {
-  const navigate = useNavigate()
-  const { t } = useTranslation()
+  const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className={style.content}>
@@ -23,9 +24,9 @@ function ContentList({ type }: PageName): JSX.Element {
       <div className={style.characterListContainer}>
         <List type={type} />
       </div>
-      <Button label={t('home')} onClick={(): void => navigate('/home')} />
+      <Button label={t('home')} onClick={(): void => navigate(paths.home)} />
     </div>
-  )
+  );
 }
 
-export default ContentList
+export default ContentList;

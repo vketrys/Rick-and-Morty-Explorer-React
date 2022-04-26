@@ -31,11 +31,10 @@
     transition: 0.5s;
   }
 
-  &:hover 
-    .span {
-      width: 100%;
+  &:hover .span {
+    width: 100%;
   }
-  
+
   &:hover {
     border: 1px solid transparent;
   }
