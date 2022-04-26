@@ -1,12 +1,13 @@
 @import 'styles/colors.scss';
 @import 'styles/fonts.scss';
+@import 'styles/vars.scss';
 
 .button {
   font-size: $Subtitle;
   width: 200px;
-  padding: #{$base-indent*3} 0;
+  padding: indent(3) 0;
   text-align: center;
-  margin: #{$base-indent*6} #{$base-indent*4};
+  margin: indent(6) indent(4);
   border-radius: 25px;
   border: 1px solid $blue;
   background: transparent;
