@@ -45,7 +45,7 @@ export enum CharacterActionTypes {
 }
 interface FetchCharacterAction {
   type: CharacterActionTypes.FETCH_CHARACTERS;
-  payload: null;
+  payload: boolean;
 }
 interface FetchCharacterSuccessAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS;

@@ -20,10 +20,7 @@ function LocationCard({ location }: CardProps): JSX.Element {
             <h2>{location.name}</h2>
           </a>
           <h6>{location.type}</h6>
-          <p>
-            {t('location.dimension')}
-            {location.dimension}
-          </p>
+          <p>{t('location.dimension', { name: location.dimension })}</p>
         </div>
         <div className={style.Residents}>
           <a href={location.residents[0]}>{t('location.residents')}</a>

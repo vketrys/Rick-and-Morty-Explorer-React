@@ -15,7 +15,7 @@ const locationReducer = (
 ): LocationState => {
   switch (type) {
     case LocationActionTypes.FETCH_LOCATIONS:
-      return { isLoading: true, data: [] };
+      return { isLoading: payload, data: [] };
     case LocationActionTypes.FETCH_LOCATIONS_SUCCESS:
       return { isLoading: false, data: [...state.data, ...payload] };
     case LocationActionTypes.FETCH_LOCATIONS_ERROR:

@@ -28,7 +28,7 @@ function CharacterCard({ character }: CardProps): JSX.Element {
         <div className={style.description}>
           <a href={character.episode[0]}>{t('character.firstSeen')}</a>
           <a href={character.origin.url}>
-            {t('character.origin')} {character.origin.name}
+            {t('character.origin', { name: character.origin.name })}
           </a>
         </div>
       </div>

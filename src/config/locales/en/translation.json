@@ -8,15 +8,15 @@
   "character": {
     "page": "Characters",
     "firstSeen": "Firts seen at...",
-    "origin": "Origin:"
+    "origin": "Origin: {{name}}"
   },
   "episode": {
     "page": "Episode"
   },
   "location": {
     "page": "Location",
-    "dimension": "Dimension: ",
-    "residents": "Residents: "
+    "dimension": "Dimension: {{name}}",
+    "residents": "Residents"
   },
   "main": {
     "page": "Explorer",

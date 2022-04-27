@@ -8,15 +8,15 @@
   "character": {
     "page": "Персонажи",
     "firstSeen": "Первое появление в...",
-    "origin": "Происхождение:"
+    "origin": "Происхождение: {{name}}"
   },
   "episode": {
     "page": "Эпизоды"
   },
   "location": {
     "page": "Локации",
-    "dimension": "Измерение: ",
-    "residents": "Обитатели: "
+    "dimension": "Измерение: {{name}}",
+    "residents": "Обитатели"
   },
   "main": {
     "page": "Энциклопедия",

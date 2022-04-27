@@ -1,15 +1,31 @@
-import { AxiosResponse } from 'axios';
 import i18n from 'config/i18n';
-import { CharacterAction, CharacterActionTypes } from 'types/characterTypes';
+import {
+  CharacterAction,
+  CharacterActionTypes,
+  CharacterType,
+} from 'types/characterTypes';
+
+interface ServerResponse {
+  data: ServerData;
+}
+
+interface ServerData {
+  info: {
+    count: number;
+    pages: number;
+    next: string;
+    prev: string;
+  };
+  results: CharacterType[];
+}
 
 export const fetchCharacterDispatch = (): CharacterAction => ({
   type: CharacterActionTypes.FETCH_CHARACTERS,
-  payload: null,
+  payload: true,
 });
 
 export const fetchCharacterSuccessDispatch = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  response: AxiosResponse<any, any>
+  response: ServerResponse
 ): CharacterAction => ({
   type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
   payload: response.data.results,

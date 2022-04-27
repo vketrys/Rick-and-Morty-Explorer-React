@@ -22,7 +22,7 @@ export enum LocationActionTypes {
 }
 interface FetchLocationAction {
   type: LocationActionTypes.FETCH_LOCATIONS;
-  payload: null;
+  payload: boolean;
 }
 interface FetchLocationSuccessAction {
   type: LocationActionTypes.FETCH_LOCATIONS_SUCCESS;

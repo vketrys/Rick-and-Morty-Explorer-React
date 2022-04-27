@@ -1,15 +1,31 @@
-import { LocationActionTypes, LocationAction } from 'types/locationTypes';
-import { AxiosResponse } from 'axios';
+import {
+  LocationActionTypes,
+  LocationAction,
+  LocationType,
+} from 'types/locationTypes';
 import i18n from 'config/i18n';
+
+interface ServerResponse {
+  data: ServerData;
+}
+
+interface ServerData {
+  info: {
+    count: number;
+    pages: number;
+    next: string;
+    prev: string;
+  };
+  results: LocationType[];
+}
 
 export const fetchLocationDispatch = (): LocationAction => ({
   type: LocationActionTypes.FETCH_LOCATIONS,
-  payload: null,
+  payload: true,
 });
 
 export const fetchLocationSuccessDispatch = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  response: AxiosResponse<any, any>
+  response: ServerResponse
 ): LocationAction => ({
   type: LocationActionTypes.FETCH_LOCATIONS_SUCCESS,
   payload: response.data.results,
