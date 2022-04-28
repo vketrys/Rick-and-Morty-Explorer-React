@@ -11,7 +11,8 @@
     "origin": "Origin: {{name}}"
   },
   "episode": {
-    "page": "Episode"
+    "page": "Episode",
+    "characters": "Starring..."
   },
   "location": {
     "page": "Location",

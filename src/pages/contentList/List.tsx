@@ -4,19 +4,13 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { useTranslation } from 'react-i18next';
 import 'config/i18n';
 
-import LocationCard from 'components/card/LocationCard';
-import {
-  CharacterSelectors,
-  GeneralSelectors,
-  LocationSelectors,
-} from 'components/selectors';
-import CharacterCard from 'components/card/CharacterCard';
-import fetchCharacters from 'store/action-creators/moreCharacters';
-import fetchLocations from 'store/action-creators/locations/moreLocations';
-import { AppThunk } from 'types/thunkTypes';
+import { GeneralSelectors } from 'components/selectors';
 
-import styleCharacter from 'components/card/CharacterCard.module.scss';
-import styleLocation from 'components/card/LocationCard.module.scss';
+import fetchCharacters from 'store/action-creators/characters/moreCharacters';
+import fetchLocations from 'store/action-creators/locations/moreLocations';
+import fetchEpisodes from 'store/action-creators/episodes/moreEpisodes';
+import { AppThunk } from 'types/thunkTypes';
+import Cards from 'components/card/Card';
 import { listTypes } from '../../types/generalTypes';
 
 interface PageName {
@@ -31,8 +25,18 @@ function List({ type }: PageName): JSX.Element {
   const dispatch = useDispatch();
 
   const fetchData = (page: number): AppThunk<void> => {
-    if (type === listTypes.character) return fetchCharacters(page);
-    return fetchLocations(page);
+    // if (type === listTypes.character) return fetchCharacters(page);
+    // return fetchLocations(page);
+    switch (type) {
+      case listTypes.character:
+        return fetchCharacters(page);
+      case listTypes.location:
+        return fetchLocations(page);
+      case listTypes.episode:
+        return fetchEpisodes(page);
+      default:
+        return fetchCharacters(page);
+    }
   };
 
   useEffect(() => {
@@ -52,27 +56,6 @@ function List({ type }: PageName): JSX.Element {
     return <h1>{error}</h1>;
   }
 
-  const cardReturn = (): JSX.Element => {
-    if (type === listTypes.character) {
-      const { data } = CharacterSelectors();
-      return (
-        <div className={styleCharacter.CardsContainer}>
-          {data.map((item) => (
-            <CharacterCard key={item.id} character={item} />
-          ))}
-        </div>
-      );
-    }
-    const { data } = LocationSelectors();
-    return (
-      <div className={styleLocation.CardsContainer}>
-        {data.map((item) => (
-          <LocationCard key={item.id} location={item} />
-        ))}
-      </div>
-    );
-  };
-
   return (
     <InfiniteScroll
       dataLength={data.length}
@@ -82,7 +65,7 @@ function List({ type }: PageName): JSX.Element {
       height={450}
       endMessage={<b>{t('scrollEnd')}</b>}
     >
-      {cardReturn()}
+      <Cards type={type} />
     </InfiniteScroll>
   );
 }

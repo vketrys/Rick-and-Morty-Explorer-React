@@ -8,7 +8,7 @@ import {
   fetchCharacterErrorDispatch,
   fetchCharacterSuccessDispatch,
 } from './CharacterDispatch';
-import paths from '../../components/navigation/paths';
+import paths from '../../../components/navigation/paths';
 
 const fetchCharacters =
   (page: number): AppThunk<void> =>

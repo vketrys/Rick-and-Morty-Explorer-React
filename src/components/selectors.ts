@@ -1,5 +1,6 @@
 import useTypeSelector from 'hooks/useTypeSelector';
 import { CharacterState } from 'types/characterTypes';
+import { EpisodeState } from 'types/episodeTypes';
 import { GeneralState } from 'types/generalTypes';
 import { LocationState } from 'types/locationTypes';
 
@@ -15,9 +16,20 @@ export const LocationSelectors = (): LocationState => {
   return { data, error, isLoading };
 };
 
+export const EpisodeSelectors = (): EpisodeState => {
+  const { data, error, isLoading } = useTypeSelector((state) => state.episode);
+  return { data, error, isLoading };
+};
+
 export const GeneralSelectors = (type: string): GeneralState => {
-  if (type === 'location') {
-    return LocationSelectors();
+  switch (type) {
+    case 'character':
+      return CharacterSelectors();
+    case 'location':
+      return LocationSelectors();
+    case 'episode':
+      return LocationSelectors();
+    default:
+      return CharacterSelectors();
   }
-  return CharacterSelectors();
 };

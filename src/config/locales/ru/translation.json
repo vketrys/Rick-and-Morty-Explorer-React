@@ -11,7 +11,8 @@
     "origin": "Происхождение: {{name}}"
   },
   "episode": {
-    "page": "Эпизоды"
+    "page": "Эпизоды",
+    "characters": "В ролях..."
   },
   "location": {
     "page": "Локации",
