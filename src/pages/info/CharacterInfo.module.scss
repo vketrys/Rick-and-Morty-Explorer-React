@@ -1,0 +1,65 @@
+@import 'styles/fonts.scss';
+@import 'styles/colors.scss';
+
+.Container {
+  width: 100%;
+  height: 100%;
+  background: $dark-gradient;
+  display: flex;
+  flex-direction: column;
+
+  .Button {
+    display: flex;
+    justify-content: center;
+  }
+  .Content {
+    display: flex;
+    flex-direction: row;
+    height: 90%;
+
+    .CharacterInfo{
+      display: flex;
+      flex-direction: column;
+      width: 23%;
+      height: 90%;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid $blue;
+      border-radius: 25px;
+      margin: 50px;
+      margin-left: 70px;
+      background: $dark-grey;
+      .Image {
+  
+      }
+  
+      .Info{
+  
+      }
+    }
+  
+    .CharacterDescription{
+      width: 100%;
+      margin-top: 70px;
+      .Name {
+        color: $blue;
+        font-size: 100px;
+      }
+  
+      .Description{
+        display: flex;
+        flex: 2 1 0%;
+        .Links{
+          color:  white;
+          width: 40%;
+          font-size: 50px;
+          margin-top: 30px;
+        }
+  
+        .Episodes{
+  
+        }
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import MainPage from 'pages/main/Main';
 import ContentList from 'pages/contentList/ContentList';
+import CharacterInfo from 'pages/info/CharacterInfo';
 import paths from './paths';
 
 function Router(): JSX.Element {
@@ -17,6 +18,7 @@ function Router(): JSX.Element {
       />
       <Route path={paths.episode} element={<ContentList type="episode" />} />
       <Route path={paths.location} element={<ContentList type="location" />} />
+      <Route path={paths.characterInfo} element={<CharacterInfo />} />
     </Routes>
   );
 }

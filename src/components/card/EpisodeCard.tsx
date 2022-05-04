@@ -24,8 +24,8 @@ function EpisodeCard({ episode }: CardProps): JSX.Element {
           <a href={episode.url}>
             <h2>{episode.name}</h2>
           </a>
-          <h6>Season: {showSeason}</h6>
-          <h6>Episode: {showEpisode}</h6>
+          <h6>{t('episode.season', { season: showSeason })}</h6>
+          <h6>{t('episode.episode', { episode: showEpisode })}</h6>
           <div className={style.Characters}>
             <a href={episode.characters[0]}>{t('episode.characters')}</a>
           </div>

@@ -12,6 +12,7 @@ import fetchEpisodes from 'store/action-creators/episodes/moreEpisodes';
 import { AppThunk } from 'types/thunkTypes';
 import Cards from 'components/card/Card';
 import { listTypes } from '../../types/generalTypes';
+import hasMore from './hasMore';
 
 interface PageName {
   type: string;
@@ -25,8 +26,6 @@ function List({ type }: PageName): JSX.Element {
   const dispatch = useDispatch();
 
   const fetchData = (page: number): AppThunk<void> => {
-    // if (type === listTypes.character) return fetchCharacters(page);
-    // return fetchLocations(page);
     switch (type) {
       case listTypes.character:
         return fetchCharacters(page);
@@ -60,10 +59,10 @@ function List({ type }: PageName): JSX.Element {
     <InfiniteScroll
       dataLength={data.length}
       next={nextPage}
-      hasMore
+      hasMore={hasMore(type, page)}
       loader={<h4>{t('loading')}</h4>}
       height={450}
-      endMessage={<b>{t('scrollEnd')}</b>}
+      endMessage={<h1>{t('scrollEnd')}</h1>}
     >
       <Cards type={type} />
     </InfiniteScroll>
