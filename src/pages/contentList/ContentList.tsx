@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import 'config/i18n';
 
 import Button from 'components/button/Button';
-import paths from '../../components/navigation/paths';
+import routerPaths from '../../components/navigation/paths';
 import style from './ContentList.module.scss';
 import List from './List';
 
@@ -24,7 +24,10 @@ function ContentList({ type }: PageName): JSX.Element {
       <div className={style.characterListContainer}>
         <List type={type} />
       </div>
-      <Button label={t('home')} onClick={(): void => navigate(paths.home)} />
+      <Button
+        label={t('home')}
+        onClick={(): void => navigate(routerPaths.home)}
+      />
     </div>
   );
 }

@@ -6,11 +6,11 @@ import { LocationType } from 'types/locationTypes';
 
 import style from './LocationCard.module.scss';
 
-interface CardProps {
+interface LocationCardProps {
   location: LocationType;
 }
 
-function LocationCard({ location }: CardProps): JSX.Element {
+function LocationCard({ location }: LocationCardProps): JSX.Element {
   const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>

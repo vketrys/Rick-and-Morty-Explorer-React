@@ -1,8 +1,8 @@
-enum paths {
+enum routerPaths {
   home = '/home',
   character = '/character',
   location = '/location',
   episode = '/episode',
 }
 
-export default paths;
+export default routerPaths;

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import 'config/i18n';
 
 import Button from 'components/button/Button';
-import paths from '../../components/navigation/paths';
+import routerPaths from '../../components/navigation/paths';
 import style from './Main.module.scss';
 
 function MainPage(): JSX.Element {
@@ -19,15 +19,15 @@ function MainPage(): JSX.Element {
       <div className={style.buttons}>
         <Button
           label={t('main.characterButton')}
-          onClick={(): void => navigate(paths.character)}
+          onClick={(): void => navigate(routerPaths.character)}
         />
         <Button
           label={t('main.locationButton')}
-          onClick={(): void => navigate(paths.location)}
+          onClick={(): void => navigate(routerPaths.location)}
         />
         <Button
           label={t('main.episodeButton')}
-          onClick={(): void => navigate(paths.episode)}
+          onClick={(): void => navigate(routerPaths.episode)}
         />
       </div>
     </div>

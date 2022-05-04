@@ -9,11 +9,9 @@ import {
   CharacterSelectors,
   GeneralSelectors,
   LocationSelectors,
+  fetchData,
 } from 'components/selectors';
 import CharacterCard from 'components/card/CharacterCard';
-import fetchCharacters from 'store/action-creators/moreCharacters';
-import fetchLocations from 'store/action-creators/locations/moreLocations';
-import { AppThunk } from 'types/thunkTypes';
 
 import styleCharacter from 'components/card/CharacterCard.module.scss';
 import styleLocation from 'components/card/LocationCard.module.scss';
@@ -30,19 +28,14 @@ function List({ type }: PageName): JSX.Element {
 
   const dispatch = useDispatch();
 
-  const fetchData = (page: number): AppThunk<void> => {
-    if (type === listTypes.character) return fetchCharacters(page);
-    return fetchLocations(page);
-  };
-
   useEffect(() => {
-    dispatch(fetchData(page));
+    dispatch(fetchData(page, type));
     setPage((page) => page + 1);
   }, []);
 
   const nextPage = (): void => {
     setPage((page) => page + 1);
-    dispatch(fetchData(page));
+    dispatch(fetchData(page, type));
   };
 
   if (isLoading) {

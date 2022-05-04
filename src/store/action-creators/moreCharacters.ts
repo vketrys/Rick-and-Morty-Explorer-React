@@ -8,14 +8,14 @@ import {
   fetchCharacterErrorDispatch,
   fetchCharacterSuccessDispatch,
 } from './CharacterDispatch';
-import paths from '../../components/navigation/paths';
+import routerPaths from '../../components/navigation/paths';
 
 const fetchCharacters =
   (page: number): AppThunk<void> =>
   async (dispatch: Dispatch<CharacterAction>) => {
     try {
       fetchCharacterDispatch();
-      const response = await axios(paths.character, {
+      const response = await axios(routerPaths.character, {
         params: {
           page,
         },

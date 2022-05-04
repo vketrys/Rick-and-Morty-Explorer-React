@@ -19,7 +19,7 @@ interface CharacterProps {
   url: string;
 }
 
-export interface CardProps {
+export interface CharacterCardProps {
   character: {
     id: number;
     name: string;
