@@ -2,13 +2,9 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import 'config/i18n';
-import { LocationType } from 'types/locationTypes';
+import { LocationCardProps } from 'types/locationTypes';
 
 import style from './LocationCard.module.scss';
-
-interface LocationCardProps {
-  location: LocationType;
-}
 
 function LocationCard({ location }: LocationCardProps): JSX.Element {
   const { t } = useTranslation();

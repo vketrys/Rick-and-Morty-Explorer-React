@@ -10,12 +10,6 @@ interface ServerResponse {
 }
 
 interface ServerData {
-  info: {
-    count: number;
-    pages: number;
-    next: string;
-    prev: string;
-  };
   results: CharacterType[];
 }
 

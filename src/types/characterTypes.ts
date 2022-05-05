@@ -4,7 +4,7 @@ export interface CharacterState {
   error?: string;
 }
 
-interface CharacterProps {
+export interface CharacterProps {
   id: number;
   name: string;
   status: string;
