@@ -3,7 +3,7 @@ enum paths {
   character = '/character',
   location = '/location',
   episode = '/episode',
-  characterInfo = '/characterInfo',
+  characterInfo = '/character/:id',
 }
 
 export default paths;

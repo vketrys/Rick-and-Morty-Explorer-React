@@ -9,6 +9,7 @@ interface CharacterProps {
   name: string;
   status: string;
   species: string;
+  type: string;
   gender: string;
   origin: {
     name: string;
@@ -25,6 +26,7 @@ export interface CardProps {
     name: string;
     status: string;
     species: string;
+    type: string;
     gender: string;
     origin: {
       name: string;

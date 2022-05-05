@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
+import CharacterInfo from 'pages/info/CharacterInfo';
 
 import MainPage from 'pages/main/Main';
 import ContentList from 'pages/contentList/ContentList';
-import CharacterInfo from 'pages/info/CharacterInfo';
 import paths from './paths';
 
 function Router(): JSX.Element {

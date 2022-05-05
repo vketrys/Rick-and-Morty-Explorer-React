@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import 'config/i18n';
+import { Link } from 'react-router-dom';
 
 import { CardProps } from 'types/characterTypes';
 import style from './CharacterCard.module.scss';
@@ -16,11 +17,11 @@ function CharacterCard({ character }: CardProps): JSX.Element {
       </div>
       <div className={style.CardContent}>
         <div className={style.NameSection}>
-          <a href={character.url}>
+          <Link to={`/character/${character.id}`}>
             <h2>
               {character.name}, {character.id}
             </h2>
-          </a>
+          </Link>
           <h6>
             {character.species}, {character.gender}
           </h6>
