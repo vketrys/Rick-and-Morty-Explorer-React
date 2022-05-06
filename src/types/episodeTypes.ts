@@ -4,24 +4,13 @@ export interface EpisodeState {
   error?: string;
 }
 
-interface EpisodeProps {
+export interface EpisodeProps {
   id: number;
   name: string;
   air_date: string;
   characters: string[];
   episode: string;
   url: string;
-}
-
-export interface CardProps {
-  episode: {
-    id: number;
-    name: string;
-    air_date: string;
-    characters: string[];
-    episode: string;
-    url: string;
-  };
 }
 
 export type EpisodeType = EpisodeProps;

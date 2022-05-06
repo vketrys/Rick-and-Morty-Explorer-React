@@ -1,11 +1,12 @@
 import Button from 'components/button/Button';
 import EpisodeCard from 'components/card/EpisodeCard';
-import { CharacterSelectors } from 'components/selectors';
-import React, { useState } from 'react';
+import { CharacterSelectors, EpisodeSelectors } from 'components/selectors';
+import React, { Dispatch, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { EpisodeAction, EpisodeProps } from 'types/episodeTypes';
 import style from './CharacterInfo.module.scss';
 
 type CharacterParams = {
@@ -15,8 +16,6 @@ type CharacterParams = {
 export default function CharacterInfo(): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [page, setPage] = useState(1);
-  const dispatch = useDispatch();
 
   let { id } = useParams<CharacterParams>();
   if (typeof id === 'undefined') {
@@ -25,8 +24,23 @@ export default function CharacterInfo(): JSX.Element {
   const { data } = CharacterSelectors();
 
   const character = data[+id - 1];
-  console.log(character);
-  console.log(+id);
+  const ids: number[] = [];
+  const episodes: EpisodeProps[] = [];
+
+  const singleEpisodes = (): void => {
+    character.episode.map((url) => {
+      const num = url.slice(40);
+      return ids.push(+num);
+    });
+    const { data } = EpisodeSelectors();
+    console.log(data);
+
+    ids.map((id) => episodes.push(data[id - 1]));
+  };
+
+  console.log(ids);
+  console.log(episodes);
+  singleEpisodes();
 
   return (
     <div className={style.Container}>
@@ -50,21 +64,18 @@ export default function CharacterInfo(): JSX.Element {
               <a href={character.episode[0]}>First seen at ...</a>
             </div>
             <div className={style.Episodes}>
-              {/* <InfiniteScroll
+              <InfiniteScroll
                 dataLength={data.length}
-                next={nextPage}
+                next={singleEpisodes}
                 hasMore
                 loader={<h4>{t('loading')}</h4>}
                 height={450}
                 endMessage={<h1>{t('scrollEnd')}</h1>}
               >
-                <div className={styleEpisodes.CardsContainer}>
-                  {character.episode.map((item) => (
-                    response = axios.
-                    <EpisodeCard key={item.id} episode={item} />
-                  ))}
-                </div>
-              </InfiniteScroll> */}
+                {episodes.map((item) => (
+                  <EpisodeCard key={item.id} episode={item} />
+                ))}
+              </InfiniteScroll>
               Episodes
             </div>
           </div>

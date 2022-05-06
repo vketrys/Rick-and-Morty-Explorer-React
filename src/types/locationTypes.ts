@@ -4,24 +4,13 @@ export interface LocationState {
   error?: string;
 }
 
-interface LocationProps {
+export interface LocationProps {
   id: number;
   name: string;
   type: string;
   dimension: string;
   url: string;
   residents: string[];
-}
-
-export interface CardProps {
-  location: {
-    id: number;
-    name: string;
-    type: string;
-    dimension: string;
-    url: string;
-    residents: string[];
-  };
 }
 
 export type LocationType = LocationProps;

@@ -1,14 +1,12 @@
-import {
-  CharacterSelectors,
-  EpisodeSelectors,
-  LocationSelectors,
-} from 'components/selectors';
+import { GeneralSelectors } from 'components/selectors';
 import React from 'react';
 import { listTypes } from 'types/generalTypes';
 
-import styleCharacter from 'components/card/CharacterCard.module.scss';
-import styleLocation from 'components/card/LocationCard.module.scss';
-import styleEpisode from 'components/card/EpisodeCard.module.scss';
+import style from 'pages/contentList/List.module.scss';
+
+import { CharacterProps } from 'types/characterTypes';
+import { EpisodeProps } from 'types/episodeTypes';
+import { LocationProps } from 'types/locationTypes';
 import CharacterCard from './CharacterCard';
 import EpisodeCard from './EpisodeCard';
 import LocationCard from './LocationCard';
@@ -18,34 +16,41 @@ interface PageName {
 }
 
 const Cards = ({ type }: PageName): JSX.Element => {
-  if (type === listTypes.character) {
-    const { data } = CharacterSelectors();
-    return (
-      <div className={styleCharacter.CardsContainer}>
-        {data.map((item) => (
-          <CharacterCard key={item.id} character={item} />
-        ))}
-      </div>
-    );
-  }
-  if (type === listTypes.location) {
-    const { data } = LocationSelectors();
-    return (
-      <div className={styleLocation.CardsContainer}>
-        {data.map((item) => (
-          <LocationCard key={item.id} location={item} />
-        ))}
-      </div>
-    );
-  }
-  const { data } = EpisodeSelectors();
-  return (
-    <div className={styleEpisode.CardsContainer}>
-      {data.map((item) => (
-        <EpisodeCard key={item.id} episode={item} />
-      ))}
+  const { data } = GeneralSelectors(type);
+
+  const cardRender = (type: string): JSX.Element => (
+    <div className={style.CardsContainer}>
+      {data.map((item) => {
+        switch (type) {
+          case listTypes.character:
+            return (
+              <CharacterCard key={item.id} character={item as CharacterProps} />
+            );
+          case listTypes.location:
+            return (
+              <LocationCard key={item.id} location={item as LocationProps} />
+            );
+          case listTypes.episode:
+            return <EpisodeCard key={item.id} episode={item as EpisodeProps} />;
+          default:
+            return (
+              <CharacterCard key={item.id} character={item as CharacterProps} />
+            );
+        }
+      })}
     </div>
   );
+
+  switch (type) {
+    case listTypes.character:
+      return cardRender(type);
+    case listTypes.location:
+      return cardRender(type);
+    case listTypes.episode:
+      return cardRender(type);
+    default:
+      return cardRender(listTypes.character);
+  }
 };
 
 export default Cards;

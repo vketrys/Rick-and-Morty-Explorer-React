@@ -28,7 +28,7 @@ export const GeneralSelectors = (type: string): GeneralState => {
     case 'location':
       return LocationSelectors();
     case 'episode':
-      return LocationSelectors();
+      return EpisodeSelectors();
     default:
       return CharacterSelectors();
   }

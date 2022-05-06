@@ -2,11 +2,21 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import 'config/i18n';
-import { CardProps } from 'types/locationTypes';
 
 import style from './LocationCard.module.scss';
 
-function LocationCard({ location }: CardProps): JSX.Element {
+interface LocationCardProps {
+  location: {
+    id: number;
+    name: string;
+    type: string;
+    dimension: string;
+    url: string;
+    residents: string[];
+  };
+}
+
+function LocationCard({ location }: LocationCardProps): JSX.Element {
   const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>

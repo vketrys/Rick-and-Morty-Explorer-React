@@ -2,11 +2,21 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import 'config/i18n';
-import { CardProps } from 'types/episodeTypes';
 
 import style from './EpisodeCard.module.scss';
 
-function EpisodeCard({ episode }: CardProps): JSX.Element {
+export interface EpisodeCardProps {
+  episode: {
+    id: number;
+    name: string;
+    air_date: string;
+    characters: string[];
+    episode: string;
+    url: string;
+  };
+}
+
+function EpisodeCard({ episode }: EpisodeCardProps): JSX.Element {
   const { t } = useTranslation();
 
   const showSeason = episode.episode.charAt(2);

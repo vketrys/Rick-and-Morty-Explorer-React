@@ -4,7 +4,7 @@ export interface CharacterState {
   error?: string;
 }
 
-interface CharacterProps {
+export interface CharacterProps {
   id: number;
   name: string;
   status: string;
@@ -18,24 +18,6 @@ interface CharacterProps {
   image: string;
   episode: string[];
   url: string;
-}
-
-export interface CardProps {
-  character: {
-    id: number;
-    name: string;
-    status: string;
-    species: string;
-    type: string;
-    gender: string;
-    origin: {
-      name: string;
-      url: string;
-    };
-    image: string;
-    episode: string[];
-    url: string;
-  };
 }
 
 export type CharacterType = CharacterProps;

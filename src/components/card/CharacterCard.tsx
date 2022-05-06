@@ -4,10 +4,27 @@ import { useTranslation } from 'react-i18next';
 import 'config/i18n';
 import { Link } from 'react-router-dom';
 
-import { CardProps } from 'types/characterTypes';
 import style from './CharacterCard.module.scss';
 
-function CharacterCard({ character }: CardProps): JSX.Element {
+export interface CharacterCardProps {
+  character: {
+    id: number;
+    name: string;
+    status: string;
+    species: string;
+    type: string;
+    gender: string;
+    origin: {
+      name: string;
+      url: string;
+    };
+    image: string;
+    episode: string[];
+    url: string;
+  };
+}
+
+function CharacterCard({ character }: CharacterCardProps): JSX.Element {
   const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>
