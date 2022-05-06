@@ -5,17 +5,15 @@ import { useTranslation } from 'react-i18next';
 import 'config/i18n';
 
 import LocationCard from 'components/card/LocationCard';
-import {
-  CharacterSelectors,
-  GeneralSelectors,
-  LocationSelectors,
-  fetchData,
-} from 'components/selectors';
+import { GeneralSelectors, fetchData } from 'components/selectors';
 import CharacterCard from 'components/card/CharacterCard';
 
 import styleCharacter from 'components/card/CharacterCard.module.scss';
 import styleLocation from 'components/card/LocationCard.module.scss';
+import { LocationProps } from 'types/locationTypes';
+import { CharacterProps } from 'types/characterTypes';
 import { listTypes } from '../../types/generalTypes';
+import style from './List.module.scss';
 
 interface PageName {
   type: string;
@@ -45,25 +43,24 @@ function List({ type }: PageName): JSX.Element {
     return <h1>{error}</h1>;
   }
 
+  const cardRender = (type: string): JSX.Element => (
+    <div className={style.CardsContainer}>
+      {data.map((item) => {
+        if (type === listTypes.character) {
+          return (
+            <CharacterCard key={item.id} character={item as CharacterProps} />
+          );
+        }
+        return <LocationCard key={item.id} location={item as LocationProps} />;
+      })}
+    </div>
+  );
+
   const cardReturn = (): JSX.Element => {
     if (type === listTypes.character) {
-      const { data } = CharacterSelectors();
-      return (
-        <div className={styleCharacter.CardsContainer}>
-          {data.map((item) => (
-            <CharacterCard key={item.id} character={item} />
-          ))}
-        </div>
-      );
+      return cardRender(type);
     }
-    const { data } = LocationSelectors();
-    return (
-      <div className={styleLocation.CardsContainer}>
-        {data.map((item) => (
-          <LocationCard key={item.id} location={item} />
-        ))}
-      </div>
-    );
+    return cardRender(type);
   };
 
   return (

@@ -13,17 +13,6 @@ export interface LocationProps {
   residents: string[];
 }
 
-export interface LocationCardProps {
-  location: {
-    id: number;
-    name: string;
-    type: string;
-    dimension: string;
-    url: string;
-    residents: string[];
-  };
-}
-
 export type LocationType = LocationProps;
 
 export enum LocationActionTypes {
