@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   border-radius: 10px;
   padding: indent(4);
-  
+
   .CardWrapper {
     position: relative;
     width: 600px;
@@ -45,7 +45,6 @@
         object-position: center center;
         object-fit: cover;
       }
-
     }
 
     .CardContent {
@@ -90,11 +89,7 @@
           text-decoration: none;
           font-family: $SecondaryFont;
         }
-
       }
     }
   }
 }
-
-
-

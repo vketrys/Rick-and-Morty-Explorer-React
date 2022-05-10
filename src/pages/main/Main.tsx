@@ -1,14 +1,14 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import 'config/i18n'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import 'config/i18n';
 
-import Button from 'components/button/Button'
-import style from './Main.module.scss'
+import Button from 'components/button/Button';
+import style from './Main.module.scss';
 
 function MainPage(): JSX.Element {
-  const { t } = useTranslation()
-  const navigate = useNavigate()
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <div className={style.content}>
@@ -30,7 +30,7 @@ function MainPage(): JSX.Element {
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default MainPage
+export default MainPage;

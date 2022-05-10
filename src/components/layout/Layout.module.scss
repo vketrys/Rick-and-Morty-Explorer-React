@@ -2,7 +2,6 @@
 @import 'styles/colors.scss';
 @import 'styles/images.scss';
 
-
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +11,7 @@
 .banner {
   background-image: $dark-gradient, $background;
   background-size: cover;
-  background-position: center; 
+  background-position: center;
   background-attachment: fixed;
   height: 100vh;
   display: flex;
