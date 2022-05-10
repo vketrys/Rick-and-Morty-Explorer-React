@@ -1,14 +1,17 @@
 import { Dispatch } from 'redux';
+
 import axios from 'config/axios';
 
 import { AppThunk } from 'types/thunkTypes';
 import { LocationAction } from 'types/locationTypes';
+
+import routerPaths from 'components/navigation/paths';
+
 import {
   fetchLocationDispatch,
   fetchLocationErrorDispatch,
   fetchLocationSuccessDispatch,
 } from './LocationDispatch';
-import routerPaths from '../../../components/navigation/paths';
 
 const fetchLocations =
   (page: number): AppThunk<void> =>

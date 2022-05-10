@@ -1,5 +1,5 @@
 export interface CharacterState {
-  data: CharacterType[];
+  data: CharacterProps[];
   isLoading: boolean;
   error?: string;
 }
@@ -19,8 +19,6 @@ export interface CharacterProps {
   url: string;
 }
 
-export type CharacterType = CharacterProps;
-
 export enum CharacterActionTypes {
   FETCH_CHARACTERS = 'FETCH_CHARACTERS',
   FETCH_CHARACTERS_SUCCESS = 'FETCH_CHARACTERS_SUCCESS ',
@@ -32,7 +30,7 @@ interface FetchCharacterAction {
 }
 interface FetchCharacterSuccessAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS;
-  payload: CharacterType[];
+  payload: CharacterProps[];
 }
 interface FetchCharacterErrorAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_ERROR;

@@ -1,18 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
 import 'config/i18n';
+
+import { ListTypes } from 'types/generalTypes';
 
 import Button from 'components/button/Button';
 import routerPaths from '../../components/navigation/paths';
+
 import style from './ContentList.module.scss';
+
 import List from './List';
 
-interface PageName {
-  type: string;
+interface ContentListProps {
+  type: ListTypes;
 }
 
-function ContentList({ type }: PageName): JSX.Element {
+function ContentList({ type }: ContentListProps): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
 

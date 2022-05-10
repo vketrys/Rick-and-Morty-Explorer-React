@@ -1,5 +1,5 @@
 export interface LocationState {
-  data: LocationType[];
+  data: LocationProps[];
   isLoading: boolean;
   error?: string;
 }
@@ -13,8 +13,6 @@ export interface LocationProps {
   residents: string[];
 }
 
-export type LocationType = LocationProps;
-
 export enum LocationActionTypes {
   FETCH_LOCATIONS = 'FETCH_LOCATIONS',
   FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS ',
@@ -26,7 +24,7 @@ interface FetchLocationAction {
 }
 interface FetchLocationSuccessAction {
   type: LocationActionTypes.FETCH_LOCATIONS_SUCCESS;
-  payload: LocationType[];
+  payload: LocationProps[];
 }
 interface FetchLocationErrorAction {
   type: LocationActionTypes.FETCH_LOCATIONS_ERROR;

@@ -1,8 +1,9 @@
 import i18n from 'config/i18n';
+
 import {
   CharacterAction,
   CharacterActionTypes,
-  CharacterType,
+  CharacterProps,
 } from 'types/characterTypes';
 
 interface ServerResponse {
@@ -10,7 +11,7 @@ interface ServerResponse {
 }
 
 interface ServerData {
-  results: CharacterType[];
+  results: CharacterProps[];
 }
 
 export const fetchCharacterDispatch = (): CharacterAction => ({

@@ -1,14 +1,17 @@
 import { Dispatch } from 'redux';
+
 import axios from 'config/axios';
 
 import { AppThunk } from 'types/thunkTypes';
 import { CharacterAction } from 'types/characterTypes';
+
+import routerPaths from 'components/navigation/paths';
+
 import {
   fetchCharacterDispatch,
   fetchCharacterErrorDispatch,
   fetchCharacterSuccessDispatch,
 } from './CharacterDispatch';
-import routerPaths from '../../components/navigation/paths';
 
 const fetchCharacters =
   (page: number): AppThunk<void> =>

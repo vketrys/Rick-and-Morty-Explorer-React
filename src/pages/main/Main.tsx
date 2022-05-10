@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
 import 'config/i18n';
 
 import Button from 'components/button/Button';
 import routerPaths from '../../components/navigation/paths';
+
 import style from './Main.module.scss';
 
 function MainPage(): JSX.Element {

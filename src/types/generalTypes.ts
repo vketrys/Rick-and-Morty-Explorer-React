@@ -1,12 +1,10 @@
-import { CharacterState, CharacterType } from './characterTypes';
-import { LocationState, LocationType } from './locationTypes';
+import { CharacterState } from './characterTypes';
+import { LocationState } from './locationTypes';
 
 export type GeneralState = LocationState | CharacterState;
 
-export type GeneralType = LocationType | CharacterType;
-
-export enum listTypes {
+export enum ListTypes {
   character = 'character',
   location = 'location',
-  episode = 'episode',
+  // episode = 'episode',
 }
