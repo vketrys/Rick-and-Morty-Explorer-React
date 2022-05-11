@@ -10,7 +10,7 @@ import fetchCharacters from 'store/action-creators/characters/moreCharacters';
 import fetchLocations from 'store/action-creators/locations/moreLocations';
 import fetchEpisodes from 'store/action-creators/episodes/moreEpisodes';
 import { AppThunk } from 'types/thunkTypes';
-import Cards from 'components/card/Card';
+import Cards from 'components/card/Cards';
 import { listTypes } from '../../types/generalTypes';
 import hasMore from './hasMore';
 
