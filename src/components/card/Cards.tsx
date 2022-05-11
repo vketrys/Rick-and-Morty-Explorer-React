@@ -20,7 +20,7 @@ interface CardsProps {
 const Cards = ({ type }: CardsProps): JSX.Element => {
   const { data } = useTypeSelector(selectors[type]);
 
-  const cardRender = (type: ListTypes): JSX.Element => (
+  return (
     <div className={style.CardsContainer}>
       {data.map((item) => {
         const cards = {
@@ -35,12 +35,6 @@ const Cards = ({ type }: CardsProps): JSX.Element => {
       })}
     </div>
   );
-
-  const cardsFunction = {
-    [ListTypes.character]: cardRender(type),
-    [ListTypes.location]: cardRender(type),
-  };
-  return cardsFunction[type];
 };
 
 export default Cards;

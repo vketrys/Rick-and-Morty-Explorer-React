@@ -10,7 +10,6 @@ import Cards from 'components/card/Cards';
 
 import { ListTypes } from 'types/generalTypes';
 import useTypeSelector from 'hooks/useTypeSelector';
-import { AppThunk } from 'types/thunkTypes';
 import fetchCharacters from 'store/action-creators/moreCharacters';
 import fetchLocations from 'store/action-creators/locations/moreLocations';
 
@@ -26,20 +25,18 @@ function List({ type }: ListProps): JSX.Element {
   const dispatch = useDispatch();
 
   const fetchFunctions = {
-    [ListTypes.character]: fetchCharacters(page),
-    [ListTypes.location]: fetchLocations(page),
+    [ListTypes.character]: fetchCharacters,
+    [ListTypes.location]: fetchLocations,
   };
 
-  const fetchData = (type: ListTypes): AppThunk<void> => fetchFunctions[type];
-
   useEffect(() => {
-    dispatch(fetchData(type));
+    dispatch(fetchFunctions[type](page));
     setPage(page + 1);
   }, []);
 
   const nextPage = (): void => {
     setPage(page + 1);
-    dispatch(fetchData(type));
+    dispatch(fetchFunctions[type](page));
   };
 
   if (isLoading) {
