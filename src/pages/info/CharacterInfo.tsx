@@ -1,46 +1,58 @@
 import Button from 'components/button/Button';
 import EpisodeCard from 'components/card/EpisodeCard';
-import { CharacterSelectors, EpisodeSelectors } from 'components/selectors';
-import React, { Dispatch, useState } from 'react';
+import paths from 'components/navigation/paths';
+import axios from 'config/axios';
+import useTypeSelector from 'hooks/useTypeSelector';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { EpisodeAction, EpisodeProps } from 'types/episodeTypes';
+import { EpisodeProps } from 'types/episodeTypes';
 import style from './CharacterInfo.module.scss';
 
 type CharacterParams = {
   id: string;
 };
 
+interface ServerResponse {
+  data: EpisodeProps[];
+}
+
 export default function CharacterInfo(): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [episodes, setEpisodes] = useState<EpisodeProps[]>([]);
 
   let { id } = useParams<CharacterParams>();
   if (typeof id === 'undefined') {
     id = '1';
   }
-  const { data } = CharacterSelectors();
+  const { data } = useTypeSelector((state) => state.character);
 
   const character = data[+id - 1];
-  const ids: number[] = [];
-  const episodes: EpisodeProps[] = [];
+  // eslint-disable-next-line prefer-const
+  let ids: string[] = [];
 
-  const singleEpisodes = (): void => {
-    character.episode.map((url) => {
-      const num = url.slice(40);
-      return ids.push(+num);
+  character.episode.map((url) => {
+    const num = url.slice(40);
+    return ids.push(num);
+  });
+
+  const pages = ids.join();
+
+  const fetchStarringEpisodes = (): EpisodeProps[] => {
+    axios.get(`${paths.episode}/${pages}`).then((response: ServerResponse) => {
+      const episodes: EpisodeProps[] = response.data;
+      console.log(episodes);
+
+      setEpisodes(episodes);
     });
-    const { data } = EpisodeSelectors();
-    console.log(data);
-
-    ids.map((id) => episodes.push(data[id - 1]));
+    return episodes;
   };
 
-  console.log(ids);
-  console.log(episodes);
-  singleEpisodes();
+  useEffect(() => {
+    fetchStarringEpisodes();
+  }, []);
 
   return (
     <div className={style.Container}>
@@ -66,7 +78,7 @@ export default function CharacterInfo(): JSX.Element {
             <div className={style.Episodes}>
               <InfiniteScroll
                 dataLength={data.length}
-                next={singleEpisodes}
+                next={fetchStarringEpisodes}
                 hasMore
                 loader={<h4>{t('loading')}</h4>}
                 height={450}

@@ -1,7 +1,7 @@
 import {
   EpisodeActionTypes,
   EpisodeAction,
-  EpisodeType,
+  EpisodeProps,
 } from 'types/episodeTypes';
 import i18n from 'config/i18n';
 
@@ -10,13 +10,7 @@ interface ServerResponse {
 }
 
 interface ServerData {
-  info: {
-    count: number;
-    pages: number;
-    next: string;
-    prev: string;
-  };
-  results: EpisodeType[];
+  results: EpisodeProps[];
 }
 
 export const fetchEpisodeDispatch = (): EpisodeAction => ({

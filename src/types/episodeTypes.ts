@@ -1,5 +1,5 @@
 export interface EpisodeState {
-  data: EpisodeType[];
+  data: EpisodeProps[];
   isLoading: boolean;
   error?: string;
 }
@@ -13,8 +13,6 @@ export interface EpisodeProps {
   url: string;
 }
 
-export type EpisodeType = EpisodeProps;
-
 export enum EpisodeActionTypes {
   FETCH_EPISODES = 'FETCH_EPISODES',
   FETCH_EPISODES_SUCCESS = 'FETCH_EPISODES_SUCCESS ',
@@ -26,7 +24,7 @@ interface FetchEpisodeAction {
 }
 interface FetchEpisodeSuccessAction {
   type: EpisodeActionTypes.FETCH_EPISODES_SUCCESS;
-  payload: EpisodeType[];
+  payload: EpisodeProps[];
 }
 interface FetchEpisodeErrorAction {
   type: EpisodeActionTypes.FETCH_EPISODES_ERROR;

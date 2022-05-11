@@ -1,35 +1,36 @@
-import useTypeSelector from 'hooks/useTypeSelector';
+import { CombinedState } from 'redux';
+
 import { CharacterState } from 'types/characterTypes';
 import { EpisodeState } from 'types/episodeTypes';
-import { GeneralState } from 'types/generalTypes';
+import { GeneralState, ListTypes } from 'types/generalTypes';
 import { LocationState } from 'types/locationTypes';
 
-export const CharacterSelectors = (): CharacterState => {
-  const { data, error, isLoading } = useTypeSelector(
-    (state) => state.character
-  );
-  return { data, error, isLoading };
-};
+export const CharacterSelectors = (
+  state: CombinedState<{
+    character: CharacterState;
+    location: LocationState;
+    episode: EpisodeState;
+  }>
+): GeneralState => state.character;
 
-export const LocationSelectors = (): LocationState => {
-  const { data, error, isLoading } = useTypeSelector((state) => state.location);
-  return { data, error, isLoading };
-};
+export const LocationSelectors = (
+  state: CombinedState<{
+    character: CharacterState;
+    location: LocationState;
+    episode: EpisodeState;
+  }>
+): GeneralState => state.location;
 
-export const EpisodeSelectors = (): EpisodeState => {
-  const { data, error, isLoading } = useTypeSelector((state) => state.episode);
-  return { data, error, isLoading };
-};
+export const EpisodeSelectors = (
+  state: CombinedState<{
+    character: CharacterState;
+    location: LocationState;
+    episode: EpisodeState;
+  }>
+): GeneralState => state.episode;
 
-export const GeneralSelectors = (type: string): GeneralState => {
-  switch (type) {
-    case 'character':
-      return CharacterSelectors();
-    case 'location':
-      return LocationSelectors();
-    case 'episode':
-      return EpisodeSelectors();
-    default:
-      return CharacterSelectors();
-  }
+export const selectors = {
+  [ListTypes.character]: CharacterSelectors,
+  [ListTypes.location]: LocationSelectors,
+  [ListTypes.episode]: EpisodeSelectors,
 };

@@ -1,12 +1,12 @@
-import { listTypes } from 'types/generalTypes';
+import { ListTypes } from 'types/generalTypes';
 
 export default function hasMore(type: string, page: number): boolean {
   switch (type) {
-    case listTypes.character:
+    case ListTypes.character:
       return page < 43;
-    case listTypes.episode:
+    case ListTypes.episode:
       return page < 4;
-    case listTypes.location:
+    case ListTypes.location:
       return page < 8;
     default:
       return false;

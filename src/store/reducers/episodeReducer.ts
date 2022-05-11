@@ -15,7 +15,7 @@ const episodeReducer = (
 ): EpisodeState => {
   switch (type) {
     case EpisodeActionTypes.FETCH_EPISODES:
-      return { isLoading: payload, data: [] };
+      return { isLoading: payload, data: [...state.data] };
     case EpisodeActionTypes.FETCH_EPISODES_SUCCESS:
       return { isLoading: false, data: [...state.data, ...payload] };
     case EpisodeActionTypes.FETCH_EPISODES_ERROR:
