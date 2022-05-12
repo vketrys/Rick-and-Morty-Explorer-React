@@ -17,28 +17,47 @@
     flex-direction: row;
     height: 90%;
 
-    .CharacterInfo{
+    .CharacterInfo {
       display: flex;
       flex-direction: column;
-      width: 23%;
-      height: 90%;
-      align-items: center;
-      justify-content: center;
+      width: 390px;
+      height: 85%;
       border: 2px solid $blue;
-      border-radius: 25px;
+      border-radius: 15px;
       margin: 50px;
       margin-left: 70px;
-      background: $dark-grey;
+      background: $dark-gradient;
+      overflow: hidden;
+
       .Image {
-  
+        display: flex;
+        justify-content: center;
       }
   
-      .Info{
-  
+      .Info {
+        height: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        font-family: $SecondaryFont;
+        font-size: $Subtitle;
+        justify-content: center;
+        align-items: flex-start;
+
+        p {
+          font-family: $SecondaryFont;
+          font-size: 30px;
+          color: $white;
+          padding-bottom: 15px;
+        }
+
+        b {
+          font-family: $SecondaryFont;
+        }
       }
     }
   
-    .CharacterDescription{
+    .CharacterDescription {
       width: 100%;
       margin-top: 70px;
       .Name {
@@ -46,19 +65,35 @@
         font-size: 100px;
       }
   
-      .Description{
+      .Description {
         display: flex;
         flex: 2 1 0%;
-        .Links{
+
+        .Links {
           color:  white;
-          width: 40%;
+          width: 60%;
           font-size: 50px;
           margin-top: 30px;
+          padding-bottom: 30px;
+
+          a {
+            text-decoration: none;
+            color:  white;
+
+          }
         }
   
-        .Episodes{
+        .Episodes {
           display: flex;
-          width: 80%;
+          width: 100%;
+          justify-content: center;
+
+
+          .EpisodesContainer {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
         }
       }
     }

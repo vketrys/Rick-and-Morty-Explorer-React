@@ -1,6 +1,7 @@
 {
   "title": "Рик и Морти",
   "home": "Домой",
+  "back": "Назад",
   "loading": "Загрузка...",
   "scrollEnd": "Теперь ты видел все, бро!",
   "loadingError": "Ошибка загрузки",
@@ -26,5 +27,11 @@
     "characterButton": "Персонажи",
     "locationButton": "Локации",
     "episodeButton": "Эпизоды"
+  },
+  "info": {
+    "status": "Статус: ",
+    "species": "Вид: ",
+    "type": "Подвид: ",
+    "gender": "Пол: "
   }
 }
