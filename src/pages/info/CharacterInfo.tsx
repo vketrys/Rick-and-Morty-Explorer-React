@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import Button from 'components/button/Button';
 import EpisodeCard from 'components/card/EpisodeCard';
-import paths from 'components/navigation/paths';
 
-import axios from 'config/axios';
+import useStarringEpisodes from 'hooks/useStarringEpisodes';
 import useTypeSelector from 'hooks/useTypeSelector';
 import { EpisodeProps } from 'types/episodeTypes';
 
@@ -17,19 +16,10 @@ type CharacterParams = {
   id: string;
 };
 
-interface ServerResponseArray {
-  data: EpisodeProps[];
-}
-
-interface ServerResponseObject {
-  data: EpisodeProps;
-}
-
 export default function CharacterInfo(): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const [episodes, setEpisodes] = useState<EpisodeProps[]>([]);
   const { data } = useTypeSelector((state) => state.character);
 
   let { id } = useParams<CharacterParams>();
@@ -43,30 +33,7 @@ export default function CharacterInfo(): JSX.Element {
   character.episode.map((url) => ids.push(url.slice(40)));
   const pages = ids.join();
 
-  const fetchStarringEpisodes = (): EpisodeProps[] => {
-    if (ids.length > 1) {
-      axios
-        .get(`${paths.episode}/${pages}`)
-        .then((response: ServerResponseArray) => {
-          const episodes: EpisodeProps[] = response.data;
-          setEpisodes(episodes);
-        });
-    } else {
-      axios
-        .get(`${paths.episode}/${pages}`)
-        .then((response: ServerResponseObject) => {
-          const episodes: EpisodeProps[] = [];
-          episodes.push(response.data);
-          setEpisodes(episodes);
-        });
-    }
-
-    return episodes;
-  };
-
-  useEffect(() => {
-    fetchStarringEpisodes();
-  }, []);
+  const episodes = useStarringEpisodes(pages, ids);
 
   return (
     <div className={style.Container}>
@@ -100,9 +67,9 @@ export default function CharacterInfo(): JSX.Element {
             <div className={style.Episodes}>
               <InfiniteScroll
                 dataLength={data.length}
-                next={fetchStarringEpisodes}
+                next={(): EpisodeProps[] => episodes}
                 hasMore
-                loader={<h4> </h4>}
+                loader={<h4>{t('loading')}</h4>}
                 height={450}
                 endMessage={<h1>{t('scrollEnd')}</h1>}
               >

@@ -35,7 +35,7 @@ function List({ type }: ListProps): JSX.Element {
   };
 
   useEffect(() => {
-    if (data.length < 1) {
+    if (!data.length) {
       dispatch(fetchFunctions[type](page));
     }
     setPage(page + 1);
