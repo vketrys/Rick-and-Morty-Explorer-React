@@ -30,12 +30,13 @@ export default function CharacterInfo(): JSX.Element {
   const { t } = useTranslation();
 
   const [episodes, setEpisodes] = useState<EpisodeProps[]>([]);
+  const { data } = useTypeSelector((state) => state.character);
 
   let { id } = useParams<CharacterParams>();
   if (typeof id === 'undefined') {
     id = '1';
   }
-  const { data } = useTypeSelector((state) => state.character);
+
   const character = data[+id - 1];
 
   const ids: string[] = [];
@@ -101,7 +102,7 @@ export default function CharacterInfo(): JSX.Element {
                 dataLength={data.length}
                 next={fetchStarringEpisodes}
                 hasMore
-                loader={<h4>{t('loading')}</h4>}
+                loader={<h4> </h4>}
                 height={450}
                 endMessage={<h1>{t('scrollEnd')}</h1>}
               >

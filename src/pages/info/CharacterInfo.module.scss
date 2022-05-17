@@ -15,7 +15,7 @@
   .Content {
     display: flex;
     flex-direction: row;
-    height: 90%;
+    height: 85%;
 
     .CharacterInfo {
       display: flex;
@@ -60,6 +60,7 @@
     .CharacterDescription {
       width: 100%;
       margin-top: 70px;
+      
       .Name {
         color: $blue;
         font-size: 100px;

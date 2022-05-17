@@ -35,7 +35,9 @@ function List({ type }: ListProps): JSX.Element {
   };
 
   useEffect(() => {
-    dispatch(fetchFunctions[type](page));
+    if (data.length < 1) {
+      dispatch(fetchFunctions[type](page));
+    }
     setPage(page + 1);
   }, []);
 
@@ -58,7 +60,7 @@ function List({ type }: ListProps): JSX.Element {
       hasMore={hasMore(type, page)}
       loader={<h4>{t('loading')}</h4>}
       height={450}
-      endMessage={<h1>{t('scrollEnd')}</h1>}
+      endMessage={<h2>{t('scrollEnd')}</h2>}
     >
       <Cards type={type} />
     </InfiniteScroll>
