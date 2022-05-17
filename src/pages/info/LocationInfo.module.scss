@@ -1,0 +1,33 @@
+@import 'styles/fonts.scss';
+@import 'styles/colors.scss';
+
+.Container {
+  width: 100%;
+  height: 100%;
+  background: $dark-gradient;
+  display: flex;
+  flex-direction: row;
+
+  .LocationInfo {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+
+    .Name {
+
+    }
+
+    .Description {
+
+    }
+  }
+
+  .Characters {
+
+  }
+
+  .Button {
+    display: flex;
+    justify-content: center;
+  }
+}

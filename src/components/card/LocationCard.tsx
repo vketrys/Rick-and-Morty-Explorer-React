@@ -1,7 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import { LocationProps } from 'types/locationTypes';
+import paths from 'components/navigation/paths';
 
 import 'config/i18n';
 
@@ -17,14 +19,16 @@ function LocationCard({ location }: Location): JSX.Element {
     <article className={style.CardWrapper}>
       <div className={style.CardContent}>
         <div className={style.Description}>
-          <a href={location.url}>
+          <Link to={`${paths.location}/${location.url.slice(41)}`}>
             <h2>{location.name}</h2>
-          </a>
+          </Link>
           <h6>{location.type}</h6>
           <p>{t('location.dimension', { name: location.dimension })}</p>
         </div>
         <div className={style.Residents}>
-          <a href={location.residents[0]}>{t('location.residents')}</a>
+          <p>
+            {t('location.residents')}: {location.residents.length}
+          </p>
         </div>
       </div>
     </article>

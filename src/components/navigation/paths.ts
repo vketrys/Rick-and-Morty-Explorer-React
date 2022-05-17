@@ -4,6 +4,7 @@ enum routerPaths {
   location = '/location',
   episode = '/episode',
   characterInfo = '/character/:id',
+  locationInfo = '/location/:id',
 }
 
 export default routerPaths;

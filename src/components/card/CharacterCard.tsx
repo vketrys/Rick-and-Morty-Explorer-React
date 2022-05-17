@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import { CharacterProps } from 'types/characterTypes';
 import 'config/i18n';
-import { Link } from 'react-router-dom';
+
+import paths from 'components/navigation/paths';
 
 import style from './CharacterCard.module.scss';
 
@@ -21,7 +23,7 @@ function CharacterCard({ character }: Character): JSX.Element {
       </div>
       <div className={style.CardContent}>
         <div className={style.NameSection}>
-          <Link to={`/character/${character.id}`}>
+          <Link to={`${paths.character}/${character.id}`}>
             <h2>
               {character.name}, {character.id}
             </h2>
@@ -31,10 +33,12 @@ function CharacterCard({ character }: Character): JSX.Element {
           </h6>
         </div>
         <div className={style.description}>
-          <a href={character.episode[0]}>{t('character.firstSeen')}</a>
-          <a href={character.origin.url}>
+          <Link to={`${paths.episode}/${character.episode[0].slice(40)}`}>
+            {t('character.firstSeen')}
+          </Link>
+          <Link to={`${paths.location}/${character.origin.url.slice(41)}`}>
             {t('character.origin', { name: character.origin.name })}
-          </a>
+          </Link>
         </div>
       </div>
     </article>

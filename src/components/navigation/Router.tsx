@@ -1,11 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import CharacterInfo from 'pages/info/CharacterInfo';
 
 import { ListTypes } from 'types/generalTypes';
 
 import MainPage from 'pages/main/Main';
 import ContentList from 'pages/contentList/ContentList';
+import LocationInfo from 'pages/info/LocationInfo';
+import CharacterInfo from 'pages/info/CharacterInfo';
 
 import routerPaths from './paths';
 
@@ -27,6 +28,7 @@ function Router(): JSX.Element {
         element={<ContentList type={ListTypes.location} />}
       />
       <Route path={routerPaths.characterInfo} element={<CharacterInfo />} />
+      <Route path={routerPaths.locationInfo} element={<LocationInfo />} />
     </Routes>
   );
 }
