@@ -6,24 +6,61 @@
   height: 100%;
   background: $dark-gradient;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
-  .LocationInfo {
+  .Content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 85%;
 
-    .Name {
+    .LocationInfo {
+      display: flex;
+      flex-direction: column;
+      height: 85%;
+      width: 55%;
+      margin-left: 60px;
+      margin-top: 30px;
+      justify-content: center;
 
+      .Name {
+        color: $blue;
+        font-size: 130px;
+      }
+  
+      .Description {
+        color:  white;
+        width: 60%;
+        font-size: 45px;
+        font-size: 80px;
+
+        p {
+          margin-top: 30px;
+          font-family: $SecondaryFont;
+          font-weight: bold;
+        }
+      }
     }
+  
+    .Characters {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-content: center;
+      margin-top: 2%;
+      
+      .Label {
+        color:  white;
+        font-size: 50px;
+        font-family: $SecondaryFont;
+      }
 
-    .Description {
+      .Cards {
+        height: 100%;
+        display: flex;
+        justify-content: center;
 
+      }
     }
-  }
-
-  .Characters {
-
   }
 
   .Button {

@@ -1,13 +1,18 @@
 import { ListTypes } from 'types/generalTypes';
 
+enum pageQty {
+  character = 42,
+  location = 7,
+  episode = 3,
+}
 export default function hasMore(type: string, page: number): boolean {
   switch (type) {
     case ListTypes.character:
-      return page < 43;
+      return page <= pageQty.character;
     case ListTypes.episode:
-      return page < 4;
+      return page <= pageQty.episode;
     case ListTypes.location:
-      return page < 8;
+      return page <= pageQty.location;
     default:
       return false;
   }
