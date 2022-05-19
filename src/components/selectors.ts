@@ -8,23 +8,17 @@ import { LocationState } from 'types/locationTypes';
 export const CharacterSelectors = (
   state: CombinedState<{
     character: CharacterState;
-    location: LocationState;
-    episode: EpisodeState;
   }>
 ): GeneralState => state.character;
 
 export const LocationSelectors = (
   state: CombinedState<{
-    character: CharacterState;
     location: LocationState;
-    episode: EpisodeState;
   }>
 ): GeneralState => state.location;
 
 export const EpisodeSelectors = (
   state: CombinedState<{
-    character: CharacterState;
-    location: LocationState;
     episode: EpisodeState;
   }>
 ): GeneralState => state.episode;

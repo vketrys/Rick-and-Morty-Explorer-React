@@ -11,9 +11,9 @@ import useTypeSelector from 'hooks/useTypeSelector';
 
 import style from 'pages/contentList/List.module.scss';
 
-import CharacterCard from './CharacterCard';
-import LocationCard from './LocationCard';
-import EpisodeCard from './EpisodeCard';
+import CharacterCard from './character/CharacterCard';
+import LocationCard from './location/LocationCard';
+import EpisodeCard from './episode/EpisodeCard';
 
 interface CardsProps {
   type: ListTypes;

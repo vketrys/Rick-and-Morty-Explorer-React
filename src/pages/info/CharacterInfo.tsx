@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import Button from 'components/button/Button';
-import EpisodeCard from 'components/card/EpisodeCard';
+import EpisodeCard from 'components/card/episode/EpisodeCard';
 
 import useStarringEpisodes from 'hooks/useStarringEpisodes';
 import useTypeSelector from 'hooks/useTypeSelector';
@@ -23,17 +23,18 @@ export default function CharacterInfo(): JSX.Element {
   const { data } = useTypeSelector((state) => state.character);
 
   let { id } = useParams<CharacterParams>();
-  if (typeof id === 'undefined') {
-    id = '1';
-  }
+  id = id ?? '1';
 
   const character = data[+id - 1];
 
   const ids: string[] = [];
-  character.episode.map((url) => ids.push(url.slice(40)));
-  const pages = ids.join();
+  character.episode.map((url) => {
+    const id = url.slice(40);
+    ids.push(id);
+    return ids;
+  });
 
-  const episodes = useStarringEpisodes(pages, ids);
+  const episodes = useStarringEpisodes(ids);
 
   return (
     <div className={style.Container}>

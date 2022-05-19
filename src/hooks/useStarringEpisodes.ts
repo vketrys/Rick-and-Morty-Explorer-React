@@ -11,19 +11,19 @@ interface ServerResponseObject {
   data: EpisodeProps;
 }
 
-const useStarringEpisodes = (pages: string, ids: string[]): EpisodeProps[] => {
+const useStarringEpisodes = (ids: string[]): EpisodeProps[] => {
   const [episodes, setEpisodes] = useState<EpisodeProps[]>([]);
   useEffect(() => {
     if (ids.length > 1) {
       axios
-        .get(`${paths.episode}/${pages}`)
+        .get(`${paths.episode}/${ids.join()}`)
         .then((response: ServerResponseArray) => {
           const episodes: EpisodeProps[] = response.data;
           setEpisodes(episodes);
         });
     } else {
       axios
-        .get(`${paths.episode}/${pages}`)
+        .get(`${paths.episode}/${ids.join()}`)
         .then((response: ServerResponseObject) => {
           const episodes: EpisodeProps[] = [];
           episodes.push(response.data);

@@ -6,6 +6,7 @@ import 'config/i18n';
 import { EpisodeProps } from 'types/episodeTypes';
 
 import style from './EpisodeCard.module.scss';
+import episodeSlice from './episodeSlice';
 
 export interface Episode {
   episode: EpisodeProps;
@@ -15,12 +16,7 @@ function EpisodeCard({ episode }: Episode): JSX.Element {
   const { t } = useTranslation();
 
   const showSeason = episode.episode.charAt(2);
-  const ep = episode.episode.slice(4);
-  let showEpisode;
-
-  if (ep[0] !== '0') {
-    showEpisode = ep;
-  } else [, ...showEpisode] = ep;
+  const showEpisode = episodeSlice(episode);
 
   return (
     <article className={style.CardWrapper}>
