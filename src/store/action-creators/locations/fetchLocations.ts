@@ -8,24 +8,24 @@ import { LocationAction } from 'types/locationTypes';
 import routerPaths from 'components/navigation/paths';
 
 import {
-  fetchLocationDispatch,
-  fetchLocationErrorDispatch,
-  fetchLocationSuccessDispatch,
-} from './LocationDispatch';
+  fetchLocationAction,
+  fetchLocationErrorAction,
+  fetchLocationSuccessAction,
+} from './LocationActions';
 
 const fetchLocations =
   (page: number): AppThunk<void> =>
   async (dispatch: Dispatch<LocationAction>) => {
     try {
-      fetchLocationDispatch();
+      fetchLocationAction();
       const response = await axios(routerPaths.location, {
         params: {
           page,
         },
       });
-      dispatch(fetchLocationSuccessDispatch(response));
+      dispatch(fetchLocationSuccessAction(response));
     } catch (error) {
-      dispatch(fetchLocationErrorDispatch());
+      dispatch(fetchLocationErrorAction());
     }
   };
 

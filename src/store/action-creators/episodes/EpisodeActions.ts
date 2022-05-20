@@ -13,19 +13,19 @@ interface ServerData {
   results: EpisodeProps[];
 }
 
-export const fetchEpisodeDispatch = (): EpisodeAction => ({
+export const fetchEpisodeAction = (): EpisodeAction => ({
   type: EpisodeActionTypes.FETCH_EPISODES,
   payload: true,
 });
 
-export const fetchEpisodeSuccessDispatch = (
+export const fetchEpisodeSuccessAction = (
   response: ServerResponse
 ): EpisodeAction => ({
   type: EpisodeActionTypes.FETCH_EPISODES_SUCCESS,
   payload: response.data.results,
 });
 
-export const fetchEpisodeErrorDispatch = (): EpisodeAction => ({
+export const fetchEpisodeErrorAction = (): EpisodeAction => ({
   type: EpisodeActionTypes.FETCH_EPISODES_ERROR,
   payload: i18n.t('loadingError'),
 });

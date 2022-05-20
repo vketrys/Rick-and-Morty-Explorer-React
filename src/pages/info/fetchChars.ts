@@ -1,6 +1,6 @@
 import useTypeSelector from 'hooks/useTypeSelector';
 import { useDispatch } from 'react-redux';
-import fetchCharacters from 'store/action-creators/characters/moreCharacters';
+import fetchCharacters from 'store/action-creators/characters/fetchCharacters';
 import { CharacterProps } from 'types/characterTypes';
 
 const FetchChars = (id: string): CharacterProps[] => {

@@ -14,19 +14,19 @@ interface ServerData {
   results: LocationProps[];
 }
 
-export const fetchLocationDispatch = (): LocationAction => ({
+export const fetchLocationAction = (): LocationAction => ({
   type: LocationActionTypes.FETCH_LOCATIONS,
   payload: true,
 });
 
-export const fetchLocationSuccessDispatch = (
+export const fetchLocationSuccessAction = (
   response: ServerResponse
 ): LocationAction => ({
   type: LocationActionTypes.FETCH_LOCATIONS_SUCCESS,
   payload: response.data.results,
 });
 
-export const fetchLocationErrorDispatch = (): LocationAction => ({
+export const fetchLocationErrorAction = (): LocationAction => ({
   type: LocationActionTypes.FETCH_LOCATIONS_ERROR,
   payload: i18n.t('loadingError'),
 });

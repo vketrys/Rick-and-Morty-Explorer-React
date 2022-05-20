@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { pagesQty } from 'pages/contentList/hasMore';
 
 interface ServerResponse {
   data: ServerData;
@@ -20,7 +21,7 @@ const instance = axios.create({
 instance.interceptors.response.use(
   (response: ServerResponse) => {
     const { pages } = response.data.info;
-    console.log(pages);
+    pagesQty.pages = pages;
     return response;
   },
   (error) => Promise.reject(error.message)

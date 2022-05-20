@@ -8,24 +8,24 @@ import { CharacterAction } from 'types/characterTypes';
 import routerPaths from 'components/navigation/paths';
 
 import {
-  fetchCharacterDispatch,
-  fetchCharacterErrorDispatch,
-  fetchCharacterSuccessDispatch,
-} from './CharacterDispatch';
+  fetchCharacterAction,
+  fetchCharacterErrorAction,
+  fetchCharacterSuccessAction,
+} from './CharacterActions';
 
 const fetchCharacters =
   (page: number): AppThunk<void> =>
   async (dispatch: Dispatch<CharacterAction>) => {
     try {
-      fetchCharacterDispatch();
+      fetchCharacterAction();
       const response = await axios(routerPaths.character, {
         params: {
           page,
         },
       });
-      dispatch(fetchCharacterSuccessDispatch(response));
+      dispatch(fetchCharacterSuccessAction(response));
     } catch (error) {
-      dispatch(fetchCharacterErrorDispatch());
+      dispatch(fetchCharacterErrorAction());
     }
   };
 
