@@ -1,17 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LocationProps } from 'types/locationTypes';
+import { Location } from 'types/locationTypes';
 
 import 'config/i18n';
 
 import style from './LocationCard.module.scss';
 
-export interface Location {
-  location: LocationProps;
+export interface LocationCardProps {
+  location: Location;
 }
 
-function LocationCard({ location }: Location): JSX.Element {
+function LocationCard({ location }: LocationCardProps): JSX.Element {
   const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>

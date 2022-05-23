@@ -1,8 +1,4 @@
-import {
-  EpisodeActionTypes,
-  EpisodeAction,
-  EpisodeProps,
-} from 'types/episodeTypes';
+import { EpisodeActionTypes, EpisodeAction, Episode } from 'types/episodeTypes';
 import i18n from 'config/i18n';
 
 interface ServerResponse {
@@ -10,7 +6,7 @@ interface ServerResponse {
 }
 
 interface ServerData {
-  results: EpisodeProps[];
+  results: Episode[];
 }
 
 export const fetchEpisodeAction = (): EpisodeAction => ({

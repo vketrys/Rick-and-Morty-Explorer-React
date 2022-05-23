@@ -1,9 +1,9 @@
 import useTypeSelector from 'hooks/useTypeSelector';
 import { useDispatch } from 'react-redux';
 import fetchCharacters from 'store/action-creators/characters/fetchCharacters';
-import { CharacterProps } from 'types/characterTypes';
+import { Character } from 'types/characterTypes';
 
-const FetchChars = (id: string): CharacterProps[] => {
+const FetchChars = (id: string): Character[] => {
   const dispatch = useDispatch();
 
   dispatch(fetchCharacters(Math.ceil(+id / 20)));

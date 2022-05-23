@@ -1,10 +1,10 @@
 export interface EpisodeState {
-  data: EpisodeProps[];
+  data: Episode[];
   isLoading: boolean;
   error?: string;
 }
 
-export interface EpisodeProps {
+export interface Episode {
   id: number;
   name: string;
   air_date: string;
@@ -24,7 +24,7 @@ interface FetchEpisodeAction {
 }
 interface FetchEpisodeSuccessAction {
   type: EpisodeActionTypes.FETCH_EPISODES_SUCCESS;
-  payload: EpisodeProps[];
+  payload: Episode[];
 }
 interface FetchEpisodeErrorAction {
   type: EpisodeActionTypes.FETCH_EPISODES_ERROR;

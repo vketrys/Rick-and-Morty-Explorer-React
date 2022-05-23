@@ -3,16 +3,16 @@ import { useTranslation } from 'react-i18next';
 
 import 'config/i18n';
 
-import { EpisodeProps } from 'types/episodeTypes';
+import { Episode } from 'types/episodeTypes';
 
 import style from './EpisodeCard.module.scss';
 import episodeSlice from './episodeSlice';
 
-export interface Episode {
-  episode: EpisodeProps;
+export interface EpisodeCardProps {
+  episode: Episode;
 }
 
-function EpisodeCard({ episode }: Episode): JSX.Element {
+function EpisodeCard({ episode }: EpisodeCardProps): JSX.Element {
   const { t } = useTranslation();
 
   const showSeason = episode.episode.charAt(2);

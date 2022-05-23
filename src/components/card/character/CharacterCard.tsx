@@ -2,17 +2,17 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import { CharacterProps } from 'types/characterTypes';
+import { Character } from 'types/characterTypes';
 import 'config/i18n';
 import paths from 'components/navigation/paths';
 
 import style from './CharacterCard.module.scss';
 
-interface Character {
-  character: CharacterProps;
+interface CharacterCardProps {
+  character: Character;
 }
 
-function CharacterCard({ character }: Character): JSX.Element {
+function CharacterCard({ character }: CharacterCardProps): JSX.Element {
   const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>

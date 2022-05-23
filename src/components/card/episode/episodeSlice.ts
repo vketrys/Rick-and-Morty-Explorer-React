@@ -1,6 +1,6 @@
-import { EpisodeProps } from 'types/episodeTypes';
+import { Episode } from 'types/episodeTypes';
 
-const episodeSlice = (episode: EpisodeProps): string => {
+const episodeSlice = (episode: Episode): string => {
   const episodeNum = episode.episode.slice(4);
   let slicedEpisode: string;
 

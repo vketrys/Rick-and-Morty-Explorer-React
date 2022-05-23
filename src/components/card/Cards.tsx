@@ -3,9 +3,9 @@ import React from 'react';
 import { selectors } from 'components/selectors';
 
 import { ListTypes } from 'types/generalTypes';
-import { CharacterProps } from 'types/characterTypes';
-import { LocationProps } from 'types/locationTypes';
-import { EpisodeProps } from 'types/episodeTypes';
+import { Character } from 'types/characterTypes';
+import { Location } from 'types/locationTypes';
+import { Episode } from 'types/episodeTypes';
 
 import useTypeSelector from 'hooks/useTypeSelector';
 
@@ -27,13 +27,13 @@ const Cards = ({ type }: CardsProps): JSX.Element => {
       {data.map((item) => {
         const cards = {
           [ListTypes.character]: (
-            <CharacterCard key={item.id} character={item as CharacterProps} />
+            <CharacterCard key={item.id} character={item as Character} />
           ),
           [ListTypes.location]: (
-            <LocationCard key={item.id} location={item as LocationProps} />
+            <LocationCard key={item.id} location={item as Location} />
           ),
           [ListTypes.episode]: (
-            <EpisodeCard key={item.id} episode={item as EpisodeProps} />
+            <EpisodeCard key={item.id} episode={item as Episode} />
           ),
         };
         return cards[type];

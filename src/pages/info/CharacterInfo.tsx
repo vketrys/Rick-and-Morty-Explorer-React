@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
 import EpisodeCard from 'components/card/episode/EpisodeCard';
@@ -9,7 +10,7 @@ import EpisodeCard from 'components/card/episode/EpisodeCard';
 // eslint-disable-next-line max-len
 import fetchStarringEpisodes from 'store/action-creators/starring/episodes/fetchStarringEpisodes';
 import useTypeSelector from 'hooks/useTypeSelector';
-import { EpisodeProps } from 'types/episodeTypes';
+import { Episode } from 'types/episodeTypes';
 
 import style from './CharacterInfo.module.scss';
 
@@ -20,10 +21,10 @@ type CharacterParams = {
 export default function CharacterInfo(): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const { data } = useTypeSelector((state) => state.character);
   const { episodes } = useTypeSelector((state) => state.starringEpisodes);
-  console.log(episodes);
 
   let { id } = useParams<CharacterParams>();
   id = id ?? '1';
@@ -38,8 +39,7 @@ export default function CharacterInfo(): JSX.Element {
   });
 
   useEffect(() => {
-    fetchStarringEpisodes(ids);
-    console.log('here');
+    dispatch(fetchStarringEpisodes(ids));
   }, []);
 
   return (
@@ -74,7 +74,7 @@ export default function CharacterInfo(): JSX.Element {
             <div className={style.Episodes}>
               <InfiniteScroll
                 dataLength={data.length}
-                next={(): EpisodeProps[] => episodes}
+                next={(): Episode[] => episodes}
                 hasMore
                 loader={<h4>{t('loading')}</h4>}
                 height={450}

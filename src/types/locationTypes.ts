@@ -1,10 +1,10 @@
 export interface LocationState {
-  data: LocationProps[];
+  data: Location[];
   isLoading: boolean;
   error?: string;
 }
 
-export interface LocationProps {
+export interface Location {
   id: number;
   name: string;
   type: string;
@@ -24,7 +24,7 @@ interface FetchLocationAction {
 }
 interface FetchLocationSuccessAction {
   type: LocationActionTypes.FETCH_LOCATIONS_SUCCESS;
-  payload: LocationProps[];
+  payload: Location[];
 }
 interface FetchLocationErrorAction {
   type: LocationActionTypes.FETCH_LOCATIONS_ERROR;

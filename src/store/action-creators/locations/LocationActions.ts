@@ -1,7 +1,7 @@
 import {
   LocationActionTypes,
   LocationAction,
-  LocationProps,
+  Location,
 } from 'types/locationTypes';
 
 import i18n from 'config/i18n';
@@ -11,7 +11,7 @@ interface ServerResponse {
 }
 
 interface ServerData {
-  results: LocationProps[];
+  results: Location[];
 }
 
 export const fetchLocationAction = (): LocationAction => ({

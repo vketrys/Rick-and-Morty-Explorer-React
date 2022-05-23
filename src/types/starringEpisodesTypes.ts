@@ -1,7 +1,7 @@
-import { EpisodeProps } from './episodeTypes';
+import { Episode } from './episodeTypes';
 
 export interface StarringEpisodeState {
-  episodes: EpisodeProps[];
+  episodes: Episode[];
   isLoading: boolean;
   error?: string;
 }
@@ -9,6 +9,7 @@ export interface StarringEpisodeState {
 export enum StarringEpisodeActionTypes {
   FETCH_EPISODES = 'FETCH_EPISODES',
   FETCH_EPISODES_SUCCESS = 'FETCH_EPISODES_SUCCESS ',
+  FETCH_ONE_EPISODE_SUCCESS = 'FETCH_ONE_EPISODE_SUCCESS',
   FETCH_EPISODES_ERROR = 'FETCH_EPISODES_ERROR',
 }
 interface FetchStarringEpisodeAction {
@@ -17,7 +18,11 @@ interface FetchStarringEpisodeAction {
 }
 interface FetchStarringEpisodeSuccessAction {
   type: StarringEpisodeActionTypes.FETCH_EPISODES_SUCCESS;
-  payload: EpisodeProps[];
+  payload: Episode[];
+}
+interface FetchOneStarringEpisodeSuccessAction {
+  type: StarringEpisodeActionTypes.FETCH_ONE_EPISODE_SUCCESS;
+  payload: Episode;
 }
 interface FetchStarringEpisodeErrorAction {
   type: StarringEpisodeActionTypes.FETCH_EPISODES_ERROR;
@@ -27,4 +32,5 @@ interface FetchStarringEpisodeErrorAction {
 export type StarringEpisodeAction =
   | FetchStarringEpisodeAction
   | FetchStarringEpisodeSuccessAction
-  | FetchStarringEpisodeErrorAction;
+  | FetchStarringEpisodeErrorAction
+  | FetchOneStarringEpisodeSuccessAction;

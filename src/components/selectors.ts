@@ -4,6 +4,7 @@ import { CharacterState } from 'types/characterTypes';
 import { EpisodeState } from 'types/episodeTypes';
 import { GeneralState, ListTypes } from 'types/generalTypes';
 import { LocationState } from 'types/locationTypes';
+import { StarringEpisodeState } from 'types/starringEpisodesTypes';
 
 export const CharacterSelectors = (
   state: CombinedState<{
@@ -22,6 +23,12 @@ export const EpisodeSelectors = (
     episode: EpisodeState;
   }>
 ): GeneralState => state.episode;
+
+export const StarringEpisodesSelectors = (
+  state: CombinedState<{
+    starringEpisodes: StarringEpisodeState;
+  }>
+): StarringEpisodeState => state.starringEpisodes;
 
 export const selectors = {
   [ListTypes.character]: CharacterSelectors,
