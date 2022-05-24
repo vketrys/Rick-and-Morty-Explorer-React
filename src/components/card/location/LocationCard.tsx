@@ -8,27 +8,27 @@ import 'config/i18n';
 import style from './LocationCard.module.scss';
 
 export interface LocationCardProps {
-  location: Location;
+  item: Location;
 }
 
-function LocationCard({ location }: LocationCardProps): JSX.Element {
+function LocationCard({ item }: LocationCardProps): JSX.Element {
   const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardContent}>
         <div className={style.Description}>
-          <a href={location.url}>
-            <h2>{location.name}</h2>
+          <a href={item.url}>
+            <h2>{item.name}</h2>
           </a>
-          <h6>{location.type}</h6>
-          <p>{t('location.dimension', { name: location.dimension })}</p>
+          <h6>{item.type}</h6>
+          <p>{t('location.dimension', { name: item.dimension })}</p>
         </div>
         <div className={style.Residents}>
-          <a href={location.residents[0]}>{t('location.residents')}</a>
+          <a href={item.residents[0]}>{t('location.residents')}</a>
         </div>
       </div>
     </article>
   );
 }
 
-export default React.memo(LocationCard);
+export default LocationCard;

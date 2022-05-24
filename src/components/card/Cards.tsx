@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { MemoExoticComponent } from 'react';
 
 import { selectors } from 'components/selectors';
 
-import { ListTypes } from 'types/generalTypes';
+import { General, ListTypes } from 'types/generalTypes';
 import { Character } from 'types/characterTypes';
 import { Location } from 'types/locationTypes';
 import { Episode } from 'types/episodeTypes';
@@ -11,9 +11,10 @@ import useTypeSelector from 'hooks/useTypeSelector';
 
 import style from 'pages/contentList/List.module.scss';
 
-import CharacterCard from './character/CharacterCard';
-import LocationCard from './location/LocationCard';
-import EpisodeCard from './episode/EpisodeCard';
+import cards from './cardsSelector';
+import { CharacterCardProps } from './character/CharacterCard';
+import { LocationCardProps } from './location/LocationCard';
+import { EpisodeCardProps } from './episode/EpisodeCard';
 
 interface CardsProps {
   type: ListTypes;
@@ -25,21 +26,22 @@ const Cards = ({ type }: CardsProps): JSX.Element => {
   return (
     <div className={style.CardsContainer}>
       {data.map((item) => {
-        const cards = {
-          [ListTypes.character]: (
-            <CharacterCard key={item.id} character={item as Character} />
-          ),
-          [ListTypes.location]: (
-            <LocationCard key={item.id} location={item as Location} />
-          ),
-          [ListTypes.episode]: (
-            <EpisodeCard key={item.id} episode={item as Episode} />
-          ),
-        };
-        return cards[type];
+        const Component = cards[type];
+        return <Component key={item.id} item={item} />;
       })}
     </div>
   );
 };
 
 export default Cards;
+
+// switch (type) {
+//   case ListTypes.character:
+//     return <cards[type] key={item.id} item={item as Character} />;
+//   case ListTypes.location:
+//     return <cards.location key={item.id} item={item as Location} />;
+//   case ListTypes.episode:
+//     return <cards.episode key={item.id} item={item as Episode} />;
+//   default:
+//     return <cards.character key={item.id} item={item as Character} />;
+// }

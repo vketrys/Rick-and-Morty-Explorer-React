@@ -82,7 +82,7 @@ export default function CharacterInfo(): JSX.Element {
               >
                 <div className={style.EpisodesContainer}>
                   {episodes.map((item) => (
-                    <EpisodeCard key={item.id} episode={item} />
+                    <EpisodeCard key={item.id} item={item} />
                   ))}
                 </div>
               </InfiniteScroll>

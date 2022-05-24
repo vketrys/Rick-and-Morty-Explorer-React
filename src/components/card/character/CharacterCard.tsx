@@ -8,33 +8,33 @@ import paths from 'components/navigation/paths';
 
 import style from './CharacterCard.module.scss';
 
-interface CharacterCardProps {
-  character: Character;
+export interface CharacterCardProps {
+  item: Character;
 }
 
-function CharacterCard({ character }: CharacterCardProps): JSX.Element {
+function CharacterCard({ item }: CharacterCardProps): JSX.Element {
   const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardImage}>
-        <div className={style.Status}>{character.status}</div>
-        <img src={character.image} alt={character.name} />
+        <div className={style.Status}>{item.status}</div>
+        <img src={item.image} alt={item.name} />
       </div>
       <div className={style.CardContent}>
         <div className={style.NameSection}>
-          <Link to={`${paths.character}/${character.id}`}>
+          <Link to={`${paths.character}/${item.id}`}>
             <h2>
-              {character.name}, {character.id}
+              {item.name}, {item.id}
             </h2>
           </Link>
           <h6>
-            {character.species}, {character.gender}
+            {item.species}, {item.gender}
           </h6>
         </div>
         <div className={style.description}>
-          <a href={character.episode[0]}>{t('character.firstSeen')}</a>
-          <a href={character.origin.url}>
-            {t('character.origin', { name: character.origin.name })}
+          <a href={item.episode[0]}>{t('character.firstSeen')}</a>
+          <a href={item.origin.url}>
+            {t('character.origin', { name: item.origin.name })}
           </a>
         </div>
       </div>
@@ -42,4 +42,4 @@ function CharacterCard({ character }: CharacterCardProps): JSX.Element {
   );
 }
 
-export default React.memo(CharacterCard);
+export default CharacterCard;

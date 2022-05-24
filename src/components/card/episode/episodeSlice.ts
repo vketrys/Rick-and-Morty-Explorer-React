@@ -1,7 +1,7 @@
 import { Episode } from 'types/episodeTypes';
 
-const episodeSlice = (episode: Episode): string => {
-  const episodeNum = episode.episode.slice(4);
+const episodeSlice = (item: Episode): string => {
+  const episodeNum = item.episode.slice(4);
   let slicedEpisode: string;
 
   if (+episodeNum[0]) {
