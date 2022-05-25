@@ -16,6 +16,47 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+
+  .Lang {
+    display: flex;
+    position: absolute;
+    background-color: transparent;
+    margin-left: 90%;
+    width: 20px;
+    height: 15px;
+    padding: 10px;
+
+    button {
+      background-color: transparent;
+      background-size: cover;
+      border-radius: 25px;
+      border: none;
+      width: 30px;
+      height: 30px;
+    }
+
+    .LangRU {
+      margin-left: 10px;
+
+      button {
+        background-image: url("../../img/RU.png");
+
+        &:focus {
+          border: 3px solid $blue;
+        }
+      }
+    }
+
+    .LangEN {
+      button {
+        background-image: url("../../img/EN.png");
+
+        &:focus {
+          border: 3px solid $blue;
+        }
+      }
+    }
+  }
 }
 
 ::-webkit-scrollbar {
