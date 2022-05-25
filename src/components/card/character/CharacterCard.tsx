@@ -2,42 +2,41 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import { CharacterProps } from 'types/characterTypes';
+import { Character } from 'types/characterTypes';
 import 'config/i18n';
-
 import paths from 'components/navigation/paths';
 
 import style from './CharacterCard.module.scss';
 
-interface Character {
-  character: CharacterProps;
+export interface CharacterCardProps {
+  item: Character;
 }
 
-function CharacterCard({ character }: Character): JSX.Element {
+function CharacterCard({ item }: CharacterCardProps): JSX.Element {
   const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardImage}>
-        <div className={style.Status}>{character.status}</div>
-        <img src={character.image} alt={character.name} />
+        <div className={style.Status}>{item.status}</div>
+        <img src={item.image} alt={item.name} />
       </div>
       <div className={style.CardContent}>
         <div className={style.NameSection}>
-          <Link to={`${paths.character}/${character.id}`}>
+          <Link to={`${paths.character}/${item.id}`}>
             <h2>
-              {character.name}, {character.id}
+              {item.name}, {item.id}
             </h2>
           </Link>
           <h6>
-            {character.species}, {character.gender}
+            {item.species}, {item.gender}
           </h6>
         </div>
         <div className={style.description}>
-          <Link to={`${paths.episode}/${character.episode[0].slice(40)}`}>
+          <Link to={`${paths.episode}/${item.episode[0].slice(40)}`}>
             {t('character.firstSeen')}
           </Link>
-          <Link to={`${paths.location}/${character.origin.url.slice(41)}`}>
-            {t('character.origin', { name: character.origin.name })}
+          <Link to={`${paths.location}/${item.origin.url.slice(41)}`}>
+            {t('character.origin', { name: item.origin.name })}
           </Link>
         </div>
       </div>
@@ -45,4 +44,4 @@ function CharacterCard({ character }: Character): JSX.Element {
   );
 }
 
-export default React.memo(CharacterCard);
+export default CharacterCard;

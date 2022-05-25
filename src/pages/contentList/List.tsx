@@ -11,9 +11,9 @@ import Cards from 'components/card/Cards';
 import { ListTypes } from 'types/generalTypes';
 import useTypeSelector from 'hooks/useTypeSelector';
 
-import fetchCharacters from 'store/action-creators/characters/moreCharacters';
-import fetchLocations from 'store/action-creators/locations/moreLocations';
-import fetchEpisodes from 'store/action-creators/episodes/moreEpisodes';
+import fetchCharacters from 'store/action-creators/characters/fetchCharacters';
+import fetchLocations from 'store/action-creators/locations/fetchLocations';
+import fetchEpisodes from 'store/action-creators/episodes/fetchEpisodes';
 
 import hasMore from './hasMore';
 
@@ -35,7 +35,7 @@ function List({ type }: ListProps): JSX.Element {
   };
 
   useEffect(() => {
-    if (data.length < 1) {
+    if (!data.length) {
       dispatch(fetchFunctions[type](page));
     }
     setPage(page + 1);

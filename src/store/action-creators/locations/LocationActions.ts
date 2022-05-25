@@ -1,7 +1,7 @@
 import {
   LocationActionTypes,
   LocationAction,
-  LocationProps,
+  Location,
 } from 'types/locationTypes';
 
 import i18n from 'config/i18n';
@@ -11,22 +11,22 @@ interface ServerResponse {
 }
 
 interface ServerData {
-  results: LocationProps[];
+  results: Location[];
 }
 
-export const fetchLocationDispatch = (): LocationAction => ({
+export const fetchLocationAction = (): LocationAction => ({
   type: LocationActionTypes.FETCH_LOCATIONS,
   payload: true,
 });
 
-export const fetchLocationSuccessDispatch = (
+export const fetchLocationSuccessAction = (
   response: ServerResponse
 ): LocationAction => ({
   type: LocationActionTypes.FETCH_LOCATIONS_SUCCESS,
   payload: response.data.results,
 });
 
-export const fetchLocationErrorDispatch = (): LocationAction => ({
+export const fetchLocationErrorAction = (): LocationAction => ({
   type: LocationActionTypes.FETCH_LOCATIONS_ERROR,
   payload: i18n.t('loadingError'),
 });

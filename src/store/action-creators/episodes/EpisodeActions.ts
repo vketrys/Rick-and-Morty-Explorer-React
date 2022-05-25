@@ -1,8 +1,4 @@
-import {
-  EpisodeActionTypes,
-  EpisodeAction,
-  EpisodeProps,
-} from 'types/episodeTypes';
+import { EpisodeActionTypes, EpisodeAction, Episode } from 'types/episodeTypes';
 import i18n from 'config/i18n';
 
 interface ServerResponse {
@@ -10,22 +6,22 @@ interface ServerResponse {
 }
 
 interface ServerData {
-  results: EpisodeProps[];
+  results: Episode[];
 }
 
-export const fetchEpisodeDispatch = (): EpisodeAction => ({
+export const fetchEpisodeAction = (): EpisodeAction => ({
   type: EpisodeActionTypes.FETCH_EPISODES,
   payload: true,
 });
 
-export const fetchEpisodeSuccessDispatch = (
+export const fetchEpisodeSuccessAction = (
   response: ServerResponse
 ): EpisodeAction => ({
   type: EpisodeActionTypes.FETCH_EPISODES_SUCCESS,
   payload: response.data.results,
 });
 
-export const fetchEpisodeErrorDispatch = (): EpisodeAction => ({
+export const fetchEpisodeErrorAction = (): EpisodeAction => ({
   type: EpisodeActionTypes.FETCH_EPISODES_ERROR,
   payload: i18n.t('loadingError'),
 });

@@ -2,32 +2,32 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import { LocationProps } from 'types/locationTypes';
+import { Location } from 'types/locationTypes';
 import paths from 'components/navigation/paths';
 
 import 'config/i18n';
 
 import style from './LocationCard.module.scss';
 
-export interface Location {
-  location: LocationProps;
+export interface LocationCardProps {
+  item: Location;
 }
 
-function LocationCard({ location }: Location): JSX.Element {
+function LocationCard({ item }: LocationCardProps): JSX.Element {
   const { t } = useTranslation();
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardContent}>
         <div className={style.Description}>
-          <Link to={`${paths.location}/${location.url.slice(41)}`}>
-            <h2>{location.name}</h2>
+          <Link to={`${paths.location}/${item.url.slice(41)}`}>
+            <h2>{item.name}</h2>
           </Link>
-          <h6>{location.type}</h6>
-          <p>{t('location.dimension', { name: location.dimension })}</p>
+          <h6>{item.type}</h6>
+          <p>{t('location.dimension', { name: item.dimension })}</p>
         </div>
         <div className={style.Residents}>
           <p>
-            {t('location.residents')}: {location.residents.length}
+            {t('location.residents')}: {item.residents.length}
           </p>
         </div>
       </div>
@@ -35,4 +35,4 @@ function LocationCard({ location }: Location): JSX.Element {
   );
 }
 
-export default React.memo(LocationCard);
+export default LocationCard;

@@ -2,32 +2,32 @@ import { useEffect, useState } from 'react';
 
 import paths from 'components/navigation/paths';
 import axios from 'config/axios';
-import { CharacterProps } from 'types/characterTypes';
+import { Character } from 'types/characterTypes';
 
 interface ServerResponseArray {
-  data: CharacterProps[];
+  data: Character[];
 }
 
 interface ServerResponseObject {
-  data: CharacterProps;
+  data: Character;
 }
 
-const useStarringCharacters = (ids: string[]): CharacterProps[] => {
-  const [characters, setCharacters] = useState<CharacterProps[]>([]);
+const useStarringCharacters = (ids: string[]): Character[] => {
+  const [characters, setCharacters] = useState<Character[]>([]);
 
   useEffect(() => {
     if (ids.length > 1) {
       axios
         .get(`${paths.character}/${ids.join()}`)
         .then((response: ServerResponseArray) => {
-          const characters: CharacterProps[] = response.data;
+          const characters: Character[] = response.data;
           setCharacters(characters);
         });
     } else {
       axios
         .get(`${paths.character}/${ids.join()}`)
         .then((response: ServerResponseObject) => {
-          const characters: CharacterProps[] = [];
+          const characters: Character[] = [];
           characters.push(response.data);
           setCharacters(characters);
         });

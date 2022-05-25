@@ -7,6 +7,7 @@ import MainPage from 'pages/main/Main';
 import ContentList from 'pages/contentList/ContentList';
 import LocationInfo from 'pages/info/LocationInfo';
 import CharacterInfo from 'pages/info/CharacterInfo';
+import EpisodeInfo from 'pages/info/EpisodeInfo';
 
 import routerPaths from './paths';
 
@@ -29,6 +30,7 @@ function Router(): JSX.Element {
       />
       <Route path={routerPaths.characterInfo} element={<CharacterInfo />} />
       <Route path={routerPaths.locationInfo} element={<LocationInfo />} />
+      <Route path={routerPaths.episodeInfo} element={<EpisodeInfo />} />
     </Routes>
   );
 }

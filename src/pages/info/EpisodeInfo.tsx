@@ -15,25 +15,25 @@ import useTypeSelector from 'hooks/useTypeSelector';
 
 import style from './LocationInfo.module.scss';
 
-type LocationParams = {
+type EpisodeParams = {
   id: string;
 };
 
-export default function LocationInfo(): JSX.Element {
+export default function EpisodeInfo(): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const { data } = useTypeSelector((state) => state.location);
+  const { data } = useTypeSelector((state) => state.episode);
   const { characters } = useTypeSelector((state) => state.starringCharacters);
 
-  let { id } = useParams<LocationParams>();
+  let { id } = useParams<EpisodeParams>();
   id = id ?? '1';
 
-  const location = data[+id - 1];
+  const episode = data[+id - 1];
 
   const ids: string[] = [];
-  location.residents.map((url) => {
+  episode.characters.map((url) => {
     const id = url.slice(42);
     ids.push(id);
     return ids;
@@ -60,14 +60,14 @@ export default function LocationInfo(): JSX.Element {
     <div className={style.Container}>
       <div className={style.Content}>
         <div className={style.LocationInfo}>
-          <div className={style.Name}>{location.name}</div>
+          <div className={style.Name}>{episode.name}</div>
           <div className={style.Description}>
-            <p>{location.type}</p>
-            <p>{location.dimension}</p>
+            <p>{episode.episode}</p>
+            <p>{episode.air_date}</p>
           </div>
         </div>
         <div className={style.Characters}>
-          <div className={style.Label}>Residents</div>
+          <div className={style.Label}>Starring</div>
           <div className={style.Cards}>
             <InfiniteScroll
               dataLength={data.length}

@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useNavigate, useParams } from 'react-router-dom';
-
-import fetchCharacters from 'store/action-creators/characters/moreCharacters';
+import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
-import EpisodeCard from 'components/card/EpisodeCard';
+import EpisodeCard from 'components/card/episode/EpisodeCard';
 
+// eslint-disable-next-line max-len
+import fetchStarringEpisodes from 'store/action-creators/starring/episodes/fetchStarringEpisodes';
 import useTypeSelector from 'hooks/useTypeSelector';
-import useStarringEpisodes from 'hooks/useStarringEpisodes';
-
-import { AppThunk } from 'types/thunkTypes';
+import { Episode } from 'types/episodeTypes';
 
 import style from './CharacterInfo.module.scss';
 
@@ -22,20 +21,26 @@ type CharacterParams = {
 export default function CharacterInfo(): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const { data } = useTypeSelector((state) => state.character);
+  const { episodes } = useTypeSelector((state) => state.starringEpisodes);
 
   let { id } = useParams<CharacterParams>();
-  if (typeof id === 'undefined') {
-    id = '1';
-  }
+  id = id ?? '1';
 
   const character = data[+id - 1];
 
   const ids: string[] = [];
-  character.episode.map((url) => ids.push(url.slice(40)));
+  character.episode.map((url) => {
+    const id = url.slice(40);
+    ids.push(id);
+    return ids;
+  });
 
-  const episodes = useStarringEpisodes(ids);
+  useEffect(() => {
+    dispatch(fetchStarringEpisodes(ids));
+  }, []);
 
   return (
     <div className={style.Container}>
@@ -69,7 +74,7 @@ export default function CharacterInfo(): JSX.Element {
             <div className={style.Episodes}>
               <InfiniteScroll
                 dataLength={data.length}
-                next={(): ((page: number) => AppThunk<void>) => fetchCharacters}
+                next={(): Episode[] => episodes}
                 hasMore
                 loader={<h4>{t('loading')}</h4>}
                 height={450}
@@ -77,7 +82,7 @@ export default function CharacterInfo(): JSX.Element {
               >
                 <div className={style.EpisodesContainer}>
                   {episodes.map((item) => (
-                    <EpisodeCard key={item.id} episode={item} />
+                    <EpisodeCard key={item.id} item={item} />
                   ))}
                 </div>
               </InfiniteScroll>
