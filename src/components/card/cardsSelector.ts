@@ -1,15 +1,11 @@
-import React, { MemoExoticComponent } from 'react';
 import { ListTypes } from 'types/generalTypes';
-import CharacterCard, { CharacterCardProps } from './character/CharacterCard';
-import EpisodeCard, { EpisodeCardProps } from './episode/EpisodeCard';
-import LocationCard, { LocationCardProps } from './location/LocationCard';
+import CharacterCard from './character/CharacterCard';
+import EpisodeCard from './episode/EpisodeCard';
+import LocationCard from './location/LocationCard';
 
-const cards: Record<
-  ListTypes,
-  | (({ item }: CharacterCardProps) => JSX.Element)
-  | (({ item }: LocationCardProps) => JSX.Element)
-  | (({ item }: EpisodeCardProps) => JSX.Element)
-> = {
+type Cards = typeof CharacterCard | typeof LocationCard | typeof EpisodeCard;
+
+const cards = {
   [ListTypes.character]: CharacterCard,
   [ListTypes.location]: LocationCard,
   [ListTypes.episode]: EpisodeCard,

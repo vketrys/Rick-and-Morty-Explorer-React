@@ -6,10 +6,11 @@
   "scrollEnd": "You have seen it all, mate!",
   "loadingError": "Loading error",
   "loadingPhrase": "Wubba Lubba Dub Dub !",
+
   "character": {
     "page": "Characters",
     "firstSeen": "First seen at...",
-    "origin": "Origin: {{name}}"
+    "origin": "Origin:"
   },
   "episode": {
     "page": "Episode",
