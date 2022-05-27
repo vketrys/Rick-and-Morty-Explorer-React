@@ -8,7 +8,7 @@ const FetchChars = (id: string): Character[] => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCharacters(Math.ceil(+id / 20)));
+    dispatch(fetchCharacters(Math.ceil(Number(id) / 20)));
   }, []);
 
   const { data } = useTypeSelector((state) => state.character);

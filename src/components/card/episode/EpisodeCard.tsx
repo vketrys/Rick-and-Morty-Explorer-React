@@ -15,8 +15,8 @@ export interface EpisodeCardProps {
 function EpisodeCard({ item }: EpisodeCardProps): JSX.Element {
   const { t } = useTranslation();
 
-  const showSeason = item.episode.charAt(2);
-  const showEpisode = episodeSlice(item);
+  const seasonNumber = item.episode.charAt(2);
+  const episodeNumber = episodeSlice(item);
 
   return (
     <article className={style.CardWrapper}>
@@ -25,8 +25,8 @@ function EpisodeCard({ item }: EpisodeCardProps): JSX.Element {
           <a href={item.url}>
             <h2>{item.name}</h2>
           </a>
-          <h6>{t('episode.season', { season: showSeason })}</h6>
-          <h6>{t('episode.episode', { episode: showEpisode })}</h6>
+          <h6>{t('episode.season', { season: seasonNumber })}</h6>
+          <h6>{t('episode.episode', { episode: episodeNumber })}</h6>
           <div className={style.Characters}>
             <a href={item.characters[0]}>{t('episode.characters')}</a>
           </div>

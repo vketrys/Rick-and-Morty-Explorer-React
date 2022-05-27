@@ -29,7 +29,7 @@ export default function CharacterInfo(): JSX.Element {
   let { id } = useParams<CharacterParams>();
   id = id ?? '1';
 
-  const character = data[+id - 1];
+  const character = data[Number(id) - 1];
 
   const ids: string[] = [];
   character.episode.map((url) => {
