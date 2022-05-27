@@ -68,7 +68,7 @@ export default function CharacterInfo(): JSX.Element {
           <div className={style.Name}>{character.name}</div>
           <div className={style.Description}>
             <div className={style.Links}>
-              {t('character.origin', { name: character.origin.name })} <br />
+              {t('character.origin')} <br /> {character.origin.name} <br />
               <a href={character.episode[0]}>{t('character.firstSeen')}</a>
             </div>
             <div className={style.Episodes}>

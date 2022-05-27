@@ -2,10 +2,10 @@ import React from 'react';
 
 import { selectors } from 'components/selectors';
 
-import { ListTypes } from 'types/generalTypes';
-import { Character } from 'types/characterTypes';
 import { Location } from 'types/locationTypes';
+import { Character } from 'types/characterTypes';
 import { Episode } from 'types/episodeTypes';
+import { ListTypes } from 'types/generalTypes';
 
 import useTypeSelector from 'hooks/useTypeSelector';
 

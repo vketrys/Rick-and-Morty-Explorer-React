@@ -1,5 +1,7 @@
 @import 'styles/fonts.scss';
 @import 'styles/colors.scss';
+@import 'styles/vars.scss';
+
 
 .Container {
   width: 100%;
@@ -12,6 +14,7 @@
     display: flex;
     justify-content: center;
   }
+
   .Content {
     display: flex;
     flex-direction: row;
@@ -24,8 +27,8 @@
       height: 85%;
       border: 2px solid $blue;
       border-radius: 15px;
-      margin: 50px;
-      margin-left: 70px;
+      margin: indent(10);
+      margin-left: indent(14);
       background: $dark-gradient;
       overflow: hidden;
 
@@ -46,9 +49,9 @@
 
         p {
           font-family: $SecondaryFont;
-          font-size: 30px;
+          font-size: $CardRecord;
           color: $white;
-          padding-bottom: 15px;
+          padding-bottom: indent(3);
         }
 
         b {
@@ -59,11 +62,11 @@
   
     .CharacterDescription {
       width: 100%;
-      margin-top: 70px;
+      margin-top: indent(14);
       
       .Name {
         color: $blue;
-        font-size: 100px;
+        font-size: $LargeLabel;
       }
   
       .Description {
@@ -73,11 +76,11 @@
         .Links {
           color:  white;
           width: 60%;
-          font-size: 50px;
-          margin-top: 30px;
-          padding-bottom: 30px;
+          font-size: $Sublabel;
+          margin-top: indent(6);
 
           a {
+            padding-top: indent(2);
             text-decoration: none;
             color:  white;
 
