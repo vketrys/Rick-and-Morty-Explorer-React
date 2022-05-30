@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
+import { getNumberFromURL } from 'components/selectors';
 import CharacterCard from 'components/card/character/CharacterCard';
 // eslint-disable-next-line max-len
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
@@ -27,14 +28,14 @@ export default function LocationInfo(): JSX.Element {
   const { data } = useTypeSelector((state) => state.location);
   const { characters } = useTypeSelector((state) => state.starringCharacters);
 
-  let { id } = useParams<LocationParams>();
-  id = id ?? '1';
+  const { id } = useParams<LocationParams>();
+  const idNum = id ?? '1';
 
-  const location = data[+id - 1];
+  const location = data[Number(idNum) - 1];
 
   const ids: string[] = [];
   location.residents.map((url) => {
-    const id = url.slice(42);
+    const id = url.slice(getNumberFromURL.character);
     ids.push(id);
     return ids;
   });

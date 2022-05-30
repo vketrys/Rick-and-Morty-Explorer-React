@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { Character } from 'types/characterTypes';
 import 'config/i18n';
+
 import paths from 'components/navigation/paths';
+import { getNumberFromURL } from 'components/selectors';
 
 import style from './CharacterCard.module.scss';
 
@@ -32,10 +34,18 @@ function CharacterCard({ item }: CharacterCardProps): JSX.Element {
           </h6>
         </div>
         <div className={style.description}>
-          <Link to={`${paths.episode}/${item.episode[0].slice(40)}`}>
+          <Link
+            to={`${paths.episode}/${item.episode[0].slice(
+              getNumberFromURL.episode
+            )}`}
+          >
             {t('character.firstSeen')}
           </Link>
-          <Link to={`${paths.location}/${item.origin.url.slice(41)}`}>
+          <Link
+            to={`${paths.location}/${item.origin.url.slice(
+              getNumberFromURL.location
+            )}`}
+          >
             {t('character.origin', { name: item.origin.name })}
           </Link>
         </div>

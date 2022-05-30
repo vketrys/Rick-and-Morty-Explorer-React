@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
 import EpisodeCard from 'components/card/episode/EpisodeCard';
+import { getNumberFromURL } from 'components/selectors';
 
 // eslint-disable-next-line max-len
 import fetchStarringEpisodes from 'store/action-creators/starring/episodes/fetchStarringEpisodes';
@@ -26,14 +27,14 @@ export default function CharacterInfo(): JSX.Element {
   const { data } = useTypeSelector((state) => state.character);
   const { episodes } = useTypeSelector((state) => state.starringEpisodes);
 
-  let { id } = useParams<CharacterParams>();
-  id = id ?? '1';
+  const { id } = useParams<CharacterParams>();
+  const idNum = id ?? '1';
 
-  const character = data[+id - 1];
+  const character = data[Number(idNum) - 1];
 
   const ids: string[] = [];
   character.episode.map((url) => {
-    const id = url.slice(40);
+    const id = url.slice(getNumberFromURL.episode);
     ids.push(id);
     return ids;
   });
