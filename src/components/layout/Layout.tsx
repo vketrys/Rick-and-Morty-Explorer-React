@@ -9,25 +9,29 @@ interface LayoutProps {
 
 function Layout({ children }: LayoutProps): JSX.Element {
   const { i18n } = useTranslation();
-  const changeLanguage = (lng: string): void => {
-    i18n.changeLanguage(lng);
-  };
 
   return (
     <div className={style.banner}>
       <div className={style.Lang}>
         <div className={style.LangEN}>
-          <button type="button" onClick={(): void => changeLanguage('en')}>
-            {' '}
+          <button
+            type="button"
+            onClick={(): void => {
+              i18n.changeLanguage('en');
+            }}
+          >
+            en
           </button>
         </div>
         <div className={style.LangRU}>
           <button
             className="RU"
             type="button"
-            onClick={(): void => changeLanguage('ru')}
+            onClick={(): void => {
+              i18n.changeLanguage('ru');
+            }}
           >
-            {' '}
+            ru
           </button>
         </div>
       </div>

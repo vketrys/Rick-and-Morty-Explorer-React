@@ -33,27 +33,26 @@
       border: none;
       width: 30px;
       height: 30px;
+      color: transparent;
+      
+      &:focus {
+        border: 3px solid $blue;
+        }
     }
 
+    
     .LangRU {
       margin-left: 10px;
 
       button {
-        background-image: url("../../img/RU.png");
-
-        &:focus {
-          border: 3px solid $blue;
-        }
+        background-image: $RUicon;
       }
     }
 
     .LangEN {
-      button {
-        background-image: url("../../img/EN.png");
 
-        &:focus {
-          border: 3px solid $blue;
-        }
+      button {
+        background-image: $ENicon;
       }
     }
   }
