@@ -13,7 +13,7 @@
   },
   "episode": {
     "page": "Эпизоды",
-    "characters": "В ролях...",
+    "characters": "В ролях:",
     "season": "Сезон: {{season}}",
     "episode": "Эпизод: {{episode}}"
   },

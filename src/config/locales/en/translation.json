@@ -14,7 +14,7 @@
   },
   "episode": {
     "page": "Episode",
-    "characters": "Starring...",
+    "characters": "Starring:",
     "season": "Season: {{season}}",
     "episode": "Episode: {{episode}}"
   },

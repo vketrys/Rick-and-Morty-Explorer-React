@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { AppThunk } from 'types/thunkTypes';
 import { StarringCharacterAction } from 'types/starringCharactersTypes';
+import { Character } from 'types/characterTypes';
 
 import paths from 'components/navigation/paths';
 import {
@@ -20,11 +21,15 @@ const fetchStarringCharacters =
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}${paths.character}/${ids.join()}`
       );
+
+      const data: Character[] = [];
+
       if (ids.length > 1) {
-        dispatch(fetchStarringCharacterSuccessAction(response));
+        data.push(...response.data);
       } else {
-        dispatch(fetchOneStarringCharacterSuccessAction(response));
+        data.push(response.data);
       }
+      dispatch(fetchStarringCharacterSuccessAction(data));
     } catch (error) {
       dispatch(fetchStarringCharacterErrorAction());
     }

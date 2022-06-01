@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
 import EpisodeCard from 'components/card/episode/EpisodeCard';
 import { getNumberFromURL } from 'components/selectors';
+import paths from 'components/navigation/paths';
 
 // eslint-disable-next-line max-len
 import fetchStarringEpisodes from 'store/action-creators/starring/episodes/fetchStarringEpisodes';
 import useTypeSelector from 'hooks/useTypeSelector';
+import useCharacter from 'hooks/useCharacter';
 import { Episode } from 'types/episodeTypes';
 
 import style from './CharacterInfo.module.scss';
@@ -24,13 +26,12 @@ export default function CharacterInfo(): JSX.Element {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const { data } = useTypeSelector((state) => state.character);
   const { episodes } = useTypeSelector((state) => state.starringEpisodes);
 
   const { id } = useParams<CharacterParams>();
   const idNum = id ?? '1';
 
-  const character = data[Number(idNum) - 1];
+  const character = useCharacter(idNum);
 
   const ids: string[] = [];
   character.episode.map((url) => {
@@ -41,7 +42,7 @@ export default function CharacterInfo(): JSX.Element {
 
   useEffect(() => {
     dispatch(fetchStarringEpisodes(ids));
-  }, []);
+  }, [character]);
 
   return (
     <div className={style.Container}>
@@ -69,12 +70,24 @@ export default function CharacterInfo(): JSX.Element {
           <div className={style.Name}>{character.name}</div>
           <div className={style.Description}>
             <div className={style.Links}>
-              {t('character.origin')} <br /> {character.origin.name} <br />
-              <a href={character.episode[0]}>{t('character.firstSeen')}</a>
+              <Link
+                to={`${paths.location}/${character.origin.url.slice(
+                  getNumberFromURL.location
+                )}`}
+              >
+                {t('character.origin')} <br /> {character.origin.name} <br />
+              </Link>
+              <Link
+                to={`${paths.episode}/${character.episode[0].slice(
+                  getNumberFromURL.episode
+                )}`}
+              >
+                {t('character.firstSeen')}
+              </Link>
             </div>
             <div className={style.Episodes}>
               <InfiniteScroll
-                dataLength={data.length}
+                dataLength={episodes.length}
                 next={(): Episode[] => episodes}
                 hasMore
                 loader={<h4>{t('loading')}</h4>}

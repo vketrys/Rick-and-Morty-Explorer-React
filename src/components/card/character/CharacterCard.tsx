@@ -46,7 +46,7 @@ function CharacterCard({ item }: CharacterCardProps): JSX.Element {
               getNumberFromURL.location
             )}`}
           >
-            {t('character.origin', { name: item.origin.name })}
+            {t('character.origin')} {item.origin.name}
           </Link>
         </div>
       </div>

@@ -15,7 +15,7 @@ const starringEpisodeReducer = (
 ): StarringEpisodeState => {
   switch (type) {
     case StarringEpisodeActionTypes.FETCH_EPISODES:
-      return { isLoading: payload, episodes: [...state.episodes] };
+      return { isLoading: true, episodes: [...state.episodes] };
     case StarringEpisodeActionTypes.FETCH_EPISODES_SUCCESS:
       return { isLoading: false, episodes: [...payload] };
     case StarringEpisodeActionTypes.FETCH_ONE_EPISODE_SUCCESS:

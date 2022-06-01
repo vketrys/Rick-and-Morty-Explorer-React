@@ -20,10 +20,10 @@ export const fetchStarringCharacterAction = (): StarringCharacterAction => ({
 });
 
 export const fetchStarringCharacterSuccessAction = (
-  response: ServerResponse
+  response: Character[]
 ): StarringCharacterAction => ({
   type: StarringCharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
-  payload: response.data,
+  payload: response,
 });
 
 export const fetchOneStarringCharacterSuccessAction = (

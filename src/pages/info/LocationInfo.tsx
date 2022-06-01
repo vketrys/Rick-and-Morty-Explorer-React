@@ -13,6 +13,7 @@ import fetchStarringCharacters from 'store/action-creators/starring/characters/f
 import { Character } from 'types/characterTypes';
 
 import useTypeSelector from 'hooks/useTypeSelector';
+import useLocation from 'hooks/useLocation';
 
 import style from './LocationInfo.module.scss';
 
@@ -25,13 +26,12 @@ export default function LocationInfo(): JSX.Element {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const { data } = useTypeSelector((state) => state.location);
   const { characters } = useTypeSelector((state) => state.starringCharacters);
 
   const { id } = useParams<LocationParams>();
   const idNum = id ?? '1';
 
-  const location = data[Number(idNum) - 1];
+  const location = useLocation(idNum);
 
   const ids: string[] = [];
   location.residents.map((url) => {
@@ -42,7 +42,7 @@ export default function LocationInfo(): JSX.Element {
 
   useEffect(() => {
     dispatch(fetchStarringCharacters(ids));
-  }, []);
+  }, [location]);
 
   const noChars = (): JSX.Element => {
     if (characters.length) {
@@ -71,7 +71,7 @@ export default function LocationInfo(): JSX.Element {
           <div className={style.Label}>Residents</div>
           <div className={style.Cards}>
             <InfiniteScroll
-              dataLength={data.length}
+              dataLength={characters.length}
               next={(): Character[] => characters}
               hasMore
               loader={<h4>{t('loading')}</h4>}

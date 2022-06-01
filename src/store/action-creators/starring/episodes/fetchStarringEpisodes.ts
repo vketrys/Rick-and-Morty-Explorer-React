@@ -19,6 +19,7 @@ const fetchStarringEpisodes =
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}${paths.episode}/${ids.join()}`
       );
+
       if (ids.length > 1) {
         dispatch(fetchStarringEpisodeSuccessAction(response));
       } else {

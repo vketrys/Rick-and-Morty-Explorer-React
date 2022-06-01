@@ -15,7 +15,7 @@ const starringCharacterReducer = (
 ): StarringCharacterState => {
   switch (type) {
     case StarringCharacterActionTypes.FETCH_CHARACTERS:
-      return { isLoading: payload, characters: [...state.characters] };
+      return { isLoading: true, characters: [...state.characters] };
     case StarringCharacterActionTypes.FETCH_CHARACTERS_SUCCESS:
       return {
         isLoading: false,

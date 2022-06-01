@@ -11,7 +11,7 @@ import CharacterCard from 'components/card/character/CharacterCard';
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
 
 import { Character } from 'types/characterTypes';
-
+import useEpisode from 'hooks/useEpisode';
 import useTypeSelector from 'hooks/useTypeSelector';
 
 import style from './LocationInfo.module.scss';
@@ -25,13 +25,12 @@ export default function EpisodeInfo(): JSX.Element {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const { data } = useTypeSelector((state) => state.episode);
   const { characters } = useTypeSelector((state) => state.starringCharacters);
 
   const { id } = useParams<EpisodeParams>();
   const idNum = id ?? '1';
 
-  const episode = data[Number(idNum) - 1];
+  const episode = useEpisode(idNum);
 
   const ids: string[] = [];
   episode.characters.map((url) => {
@@ -42,7 +41,7 @@ export default function EpisodeInfo(): JSX.Element {
 
   useEffect(() => {
     dispatch(fetchStarringCharacters(ids));
-  }, []);
+  }, [episode]);
 
   const noChars = (): JSX.Element => {
     if (characters.length) {
@@ -71,7 +70,7 @@ export default function EpisodeInfo(): JSX.Element {
           <div className={style.Label}>Starring</div>
           <div className={style.Cards}>
             <InfiniteScroll
-              dataLength={data.length}
+              dataLength={characters.length}
               next={(): Character[] => characters}
               hasMore
               loader={<h4>{t('loading')}</h4>}
