@@ -9,7 +9,6 @@ import EpisodeCard from 'components/card/episode/EpisodeCard';
 import { getNumberFromURL } from 'components/selectors';
 import paths from 'components/navigation/paths';
 
-// eslint-disable-next-line max-len
 import fetchStarringEpisodes from 'store/action-creators/starring/episodes/fetchStarringEpisodes';
 import useTypeSelector from 'hooks/useTypeSelector';
 import useCharacter from 'hooks/useCharacter';

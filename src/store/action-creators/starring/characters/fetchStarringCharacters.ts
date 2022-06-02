@@ -7,7 +7,6 @@ import { Character } from 'types/characterTypes';
 
 import paths from 'components/navigation/paths';
 import {
-  fetchOneStarringCharacterSuccessAction,
   fetchStarringCharacterAction,
   fetchStarringCharacterErrorAction,
   fetchStarringCharacterSuccessAction,

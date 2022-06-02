@@ -18,8 +18,6 @@ const starringEpisodeReducer = (
       return { isLoading: true, episodes: [...state.episodes] };
     case StarringEpisodeActionTypes.FETCH_EPISODES_SUCCESS:
       return { isLoading: false, episodes: [...payload] };
-    case StarringEpisodeActionTypes.FETCH_ONE_EPISODE_SUCCESS:
-      return { isLoading: false, episodes: [payload] };
     case StarringEpisodeActionTypes.FETCH_EPISODES_ERROR:
       return { isLoading: false, error: payload, episodes: [] };
     default:

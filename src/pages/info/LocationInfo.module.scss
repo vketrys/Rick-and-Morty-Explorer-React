@@ -1,5 +1,6 @@
 @import 'styles/fonts.scss';
 @import 'styles/colors.scss';
+@import 'styles/vars.scss';
 
 .Container {
   width: 100%;
@@ -18,23 +19,22 @@
       flex-direction: column;
       height: 85%;
       width: 55%;
-      margin-left: 60px;
-      margin-top: 30px;
+      margin-left: indent(12);
+      margin-top: indent(6);
       justify-content: center;
 
       .Name {
         color: $blue;
-        font-size: 130px;
+        font-size: $InfoLabel;
       }
   
       .Description {
         color:  white;
         width: 60%;
-        font-size: 45px;
-        font-size: 80px;
+        font-size: $MainInfo;
 
         p {
-          margin-top: 30px;
+          margin-top: indent(5);
           font-family: $SecondaryFont;
           font-weight: bold;
         }
@@ -50,7 +50,7 @@
       
       .Label {
         color:  white;
-        font-size: 50px;
+        font-size: $Sublabel;
         font-family: $SecondaryFont;
       }
 

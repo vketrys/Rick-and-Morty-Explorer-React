@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import Button from 'components/button/Button';
 import { getNumberFromURL } from 'components/selectors';
 import CharacterCard from 'components/card/character/CharacterCard';
-// eslint-disable-next-line max-len
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
 
 import { Character } from 'types/characterTypes';

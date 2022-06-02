@@ -16,8 +16,8 @@ const useCharacter = (id: string): Character => {
     axios
       .get(`${process.env.REACT_APP_API_URL}${paths.character}/${id}`)
       .then((response: ServerResponse) => {
-        const characters: Character = response.data;
-        setCharacters(characters);
+        const character: Character = response.data;
+        setCharacters(character);
       });
   }, []);
 

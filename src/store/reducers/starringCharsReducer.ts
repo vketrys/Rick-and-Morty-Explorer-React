@@ -21,11 +21,6 @@ const starringCharacterReducer = (
         isLoading: false,
         characters: [...payload],
       };
-    case StarringCharacterActionTypes.FETCH_ONE_CHARACTER_SUCCESS:
-      return {
-        isLoading: false,
-        characters: [payload],
-      };
     case StarringCharacterActionTypes.FETCH_CHARACTERS_ERROR:
       return { isLoading: false, error: payload, characters: [] };
     default:
