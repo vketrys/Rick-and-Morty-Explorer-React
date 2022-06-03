@@ -35,3 +35,9 @@ export const selectors = {
   [ListTypes.location]: LocationSelectors,
   [ListTypes.episode]: EpisodeSelectors,
 };
+
+export const getNumberFromURL = {
+  character: 42,
+  location: 41,
+  episode: 40,
+};
