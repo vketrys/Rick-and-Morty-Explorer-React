@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
-import { getNumberFromURL } from 'components/selectors';
+import { getItemIdFromURL } from 'components/selectors';
 import CharacterCard from 'components/card/character/CharacterCard';
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
 
@@ -34,7 +34,7 @@ export default function LocationInfo(): JSX.Element {
 
   const ids: string[] = [];
   location.residents.map((url) => {
-    const id = url.slice(getNumberFromURL.character);
+    const id = url.slice(getItemIdFromURL.character);
     ids.push(id);
     return ids;
   });

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Location } from 'types/locationTypes';
 import paths from 'components/navigation/paths';
-import { getNumberFromURL } from 'components/selectors';
+import { getItemIdFromURL } from 'components/selectors';
 
 import 'config/i18n';
 
@@ -22,7 +22,7 @@ function LocationCard({ item }: LocationCardProps): JSX.Element {
         <div className={style.Description}>
           <Link
             to={`${paths.location}/${item.url.slice(
-              getNumberFromURL.location
+              getItemIdFromURL.location
             )}`}
           >
             <h2>{item.name}</h2>

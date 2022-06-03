@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import paths from 'components/navigation/paths';
 import { Episode } from 'types/episodeTypes';
-import { examples } from 'types/generalTypes';
+import examples from 'components/card/examples';
 
 interface ServerResponse {
   data: Episode;

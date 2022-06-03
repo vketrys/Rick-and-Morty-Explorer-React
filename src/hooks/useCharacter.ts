@@ -3,14 +3,14 @@ import axios from 'axios';
 
 import paths from 'components/navigation/paths';
 import { Character } from 'types/characterTypes';
-import { examples } from 'types/generalTypes';
+import examples from 'components/card/examples';
 
 interface ServerResponse {
   data: Character;
 }
 
 const useCharacter = (id: string): Character => {
-  const [characters, setCharacters] = useState<Character>(examples.character);
+  const [characters, setCharacters] = useState<Character | null>(null);
 
   useEffect(() => {
     axios
@@ -21,7 +21,7 @@ const useCharacter = (id: string): Character => {
       });
   }, []);
 
-  return characters;
+  return characters as Character;
 };
 
 export default useCharacter;
