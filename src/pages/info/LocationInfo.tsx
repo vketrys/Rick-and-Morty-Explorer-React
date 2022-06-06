@@ -43,18 +43,14 @@ export default function LocationInfo(): JSX.Element {
     dispatch(fetchStarringCharacters(ids));
   }, [location]);
 
-  const noChars = (): JSX.Element => {
-    if (characters.length) {
-      return (
-        <div className={style.EpisodesContainer}>
-          {characters.map((item) => (
-            <CharacterCard key={item.id} item={item} />
-          ))}
-        </div>
-      );
-    }
-    return <p>This place was destroyed</p>;
-  };
+  const residents = 'Residents';
+  const noResidents =
+    'There is no residents. This place was destroyed. Special thanks to';
+  let label: string;
+
+  if (ids.length) {
+    label = residents;
+  } else label = noResidents;
 
   return (
     <div className={style.Container}>
@@ -67,7 +63,7 @@ export default function LocationInfo(): JSX.Element {
           </div>
         </div>
         <div className={style.Characters}>
-          <div className={style.Label}>Residents</div>
+          <div className={style.Label}>{label}</div>
           <div className={style.Cards}>
             <InfiniteScroll
               dataLength={characters.length}
@@ -77,7 +73,9 @@ export default function LocationInfo(): JSX.Element {
               height={550}
               endMessage={<h1>{t('scrollEnd')}</h1>}
             >
-              <div className={style.EpisodesContainer}>{noChars()}</div>
+              {characters.map((item) => (
+                <CharacterCard key={item.id} item={item} />
+              ))}
             </InfiniteScroll>
           </div>
         </div>

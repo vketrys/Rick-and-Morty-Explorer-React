@@ -42,19 +42,6 @@ export default function EpisodeInfo(): JSX.Element {
     dispatch(fetchStarringCharacters(ids));
   }, [episode]);
 
-  const noChars = (): JSX.Element => {
-    if (characters.length) {
-      return (
-        <div className={style.EpisodesContainer}>
-          {characters.map((item) => (
-            <CharacterCard key={item.id} item={item} />
-          ))}
-        </div>
-      );
-    }
-    return <p>This place was destroyed</p>;
-  };
-
   return (
     <div className={style.Container}>
       <div className={style.Content}>
@@ -76,7 +63,9 @@ export default function EpisodeInfo(): JSX.Element {
               height={550}
               endMessage={<h1>{t('scrollEnd')}</h1>}
             >
-              <div className={style.EpisodesContainer}>{noChars()}</div>
+              {characters.map((item) => (
+                <CharacterCard key={item.id} item={item} />
+              ))}
             </InfiniteScroll>
           </div>
         </div>

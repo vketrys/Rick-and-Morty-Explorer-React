@@ -10,7 +10,7 @@ interface ServerResponse {
 }
 
 const useCharacter = (id: string): Character => {
-  const [characters, setCharacters] = useState<Character | null>(null);
+  const [characters, setCharacters] = useState<Character>(examples.character);
 
   useEffect(() => {
     axios

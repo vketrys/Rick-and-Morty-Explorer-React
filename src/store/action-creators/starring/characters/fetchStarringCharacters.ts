@@ -25,8 +25,10 @@ const fetchStarringCharacters =
 
       if (ids.length > 1) {
         data.push(...response.data);
-      } else {
+      } else if (ids.length === 1) {
         data.push(response.data);
+      } else {
+        data.push(response.data.results[0]);
       }
       dispatch(fetchStarringCharacterSuccessAction(data));
     } catch (error) {
