@@ -6,7 +6,7 @@ import { Character } from 'types/characterTypes';
 import 'config/i18n';
 
 import paths from 'components/navigation/paths';
-import { getNumberFromURL } from 'components/selectors';
+import { URL_ID_POSITION } from 'components/selectors';
 
 import style from './CharacterCard.module.scss';
 
@@ -34,16 +34,20 @@ function CharacterCard({ item }: CharacterCardProps): JSX.Element {
           </h6>
         </div>
         <div className={style.description}>
-          <Link
-            to={`${paths.episode}/${item.episode[0].slice(
-              getNumberFromURL.episode
-            )}`}
-          >
-            {t('character.firstSeen')}
-          </Link>
+          {item.episode.length ? (
+            <Link
+              to={`${paths.episode}/${item.episode[0].slice(
+                URL_ID_POSITION.episode
+              )}`}
+            >
+              {t('character.firstSeen')}
+            </Link>
+          ) : (
+            t('character.firstSeen')
+          )}
           <Link
             to={`${paths.location}/${item.origin.url.slice(
-              getNumberFromURL.location
+              URL_ID_POSITION.location
             )}`}
           >
             {t('character.origin')} {item.origin.name}
