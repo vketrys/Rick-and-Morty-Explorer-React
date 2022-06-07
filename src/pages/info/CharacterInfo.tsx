@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
 import EpisodeCard from 'components/card/episode/EpisodeCard';
-import { getItemIdFromURL } from 'components/selectors';
+import { URL_ID_POSITION } from 'components/selectors';
 import paths from 'components/navigation/paths';
 
 import fetchStarringEpisodes from 'store/action-creators/starring/episodes/fetchStarringEpisodes';
@@ -34,7 +34,7 @@ export default function CharacterInfo(): JSX.Element {
 
   const ids: string[] = [];
   character.episode.map((url) => {
-    const id = url.slice(getItemIdFromURL.episode);
+    const id = url.slice(URL_ID_POSITION.episode);
     ids.push(id);
     return ids;
   });
@@ -71,14 +71,14 @@ export default function CharacterInfo(): JSX.Element {
             <div className={style.Links}>
               <Link
                 to={`${paths.location}/${character.origin.url.slice(
-                  getItemIdFromURL.location
+                  URL_ID_POSITION.location
                 )}`}
               >
                 {t('character.origin')} <br /> {character.origin.name} <br />
               </Link>
               <Link
                 to={`${paths.episode}/${character.episode[0].slice(
-                  getItemIdFromURL.episode
+                  URL_ID_POSITION.episode
                 )}`}
               >
                 {t('character.firstSeen')}

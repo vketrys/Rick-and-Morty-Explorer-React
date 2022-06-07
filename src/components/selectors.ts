@@ -36,7 +36,7 @@ export const selectors = {
   [ListTypes.episode]: EpisodeSelectors,
 };
 
-export const getItemIdFromURL = {
+export const URL_ID_POSITION = {
   character: 42,
   location: 41,
   episode: 40,

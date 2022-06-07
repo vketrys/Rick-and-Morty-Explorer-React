@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
-import { getItemIdFromURL } from 'components/selectors';
+import { URL_ID_POSITION } from 'components/selectors';
 import CharacterCard from 'components/card/character/CharacterCard';
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
 
@@ -33,7 +33,7 @@ export default function EpisodeInfo(): JSX.Element {
 
   const ids: string[] = [];
   episode.characters.map((url) => {
-    const id = url.slice(getItemIdFromURL.character);
+    const id = url.slice(URL_ID_POSITION.character);
     ids.push(id);
     return ids;
   });
