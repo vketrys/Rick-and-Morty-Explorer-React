@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
@@ -10,30 +10,30 @@ import CharacterCard from 'components/card/character/CharacterCard';
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
 
 import { Character } from 'types/characterTypes';
+import { Location } from 'types/locationTypes';
 
 import useTypeSelector from 'hooks/useTypeSelector';
-import useLocation from 'hooks/useLocation';
 
 import style from './LocationInfo.module.scss';
 
-type LocationParams = {
-  id: string;
-};
+interface LocationInfoProps {
+  item: Location;
+}
 
-export default function LocationInfo(): JSX.Element {
+export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const { characters } = useTypeSelector((state) => state.starringCharacters);
 
-  const { id } = useParams<LocationParams>();
-  const idNum = id ?? '1';
+  // const { id } = useParams<LocationParams>();
+  // const idNum = id ?? '1';
 
-  const location = useLocation(idNum);
+  // const location = useLocation(idNum);
 
   const ids: string[] = [];
-  location.residents.map((url) => {
+  item.residents.map((url) => {
     const id = url.slice(URL_ID_POSITION.character);
     ids.push(id);
     return ids;
@@ -41,25 +41,21 @@ export default function LocationInfo(): JSX.Element {
 
   useEffect(() => {
     dispatch(fetchStarringCharacters(ids));
-  }, [location]);
+  }, [item]);
 
-  const residents = 'Residents';
-  const noResidents =
-    'There is no residents. This place was destroyed. Special thanks to';
   let label: string;
-
   if (ids.length) {
-    label = residents;
-  } else label = noResidents;
+    label = t('info.residents');
+  } else label = t('info.noResidents');
 
   return (
     <div className={style.Container}>
       <div className={style.Content}>
         <div className={style.LocationInfo}>
-          <div className={style.Name}>{location.name}</div>
+          <div className={style.Name}>{item.name}</div>
           <div className={style.Description}>
-            <p>{location.type}</p>
-            <p>{location.dimension}</p>
+            <p>{item.type}</p>
+            <p>{item.dimension}</p>
           </div>
         </div>
         <div className={style.Characters}>

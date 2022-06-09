@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
@@ -11,29 +11,31 @@ import paths from 'components/navigation/paths';
 
 import fetchStarringEpisodes from 'store/action-creators/starring/episodes/fetchStarringEpisodes';
 import useTypeSelector from 'hooks/useTypeSelector';
-import useCharacter from 'hooks/useCharacter';
 import { Episode } from 'types/episodeTypes';
+import { Character } from 'types/characterTypes';
 
 import style from './CharacterInfo.module.scss';
 
-type CharacterParams = {
-  id: string;
-};
+interface CharacterInfoProps {
+  item: Character;
+}
 
-export default function CharacterInfo(): JSX.Element {
+export default function CharacterInfo({
+  item,
+}: CharacterInfoProps): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const { episodes } = useTypeSelector((state) => state.starringEpisodes);
 
-  const { id } = useParams<CharacterParams>();
-  const idNum = id ?? '1';
+  // const { characterId } = useParams<CharacterParams>();
+  // const idNum = id ?? '1';
 
-  const character = useCharacter(idNum);
+  // const character = useItem[type](idNum);
 
   const ids: string[] = [];
-  character.episode.map((url) => {
+  item.episode.map((url) => {
     const id = url.slice(URL_ID_POSITION.episode);
     ids.push(id);
     return ids;
@@ -41,43 +43,43 @@ export default function CharacterInfo(): JSX.Element {
 
   useEffect(() => {
     dispatch(fetchStarringEpisodes(ids));
-  }, [character]);
+  }, [item]);
 
   return (
     <div className={style.Container}>
       <div className={style.Content}>
         <div className={style.CharacterInfo}>
           <div className={style.Image}>
-            <img src={character.image} alt={character.name} />
+            <img src={item.image} alt={item.name} />
           </div>
           <div className={style.Info}>
             <p>
-              {t('info.status')} <b>{character.status}</b>
+              {t('info.status')} <b>{item.status}</b>
             </p>
             <p>
-              {t('info.species')} <b>{character.species}</b>
+              {t('info.species')} <b>{item.species}</b>
             </p>
             <p>
-              {t('info.type')} <b>{character.type}</b>
+              {t('info.type')} <b>{item.type}</b>
             </p>
             <p>
-              {t('info.gender')} <b>{character.gender}</b>
+              {t('info.gender')} <b>{item.gender}</b>
             </p>
           </div>
         </div>
         <div className={style.CharacterDescription}>
-          <div className={style.Name}>{character.name}</div>
+          <div className={style.Name}>{item.name}</div>
           <div className={style.Description}>
             <div className={style.Links}>
               <Link
-                to={`${paths.location}/${character.origin.url.slice(
+                to={`${paths.location}/${item.origin.url.slice(
                   URL_ID_POSITION.location
                 )}`}
               >
-                {t('character.origin')} <br /> {character.origin.name} <br />
+                {t('character.origin')} <br /> {item.origin.name} <br />
               </Link>
               <Link
-                to={`${paths.episode}/${character.episode[0].slice(
+                to={`${paths.episode}/${item.episode[0].slice(
                   URL_ID_POSITION.episode
                 )}`}
               >

@@ -39,7 +39,7 @@
   
       .Info {
         height: 100%;
-        padding: 10px;
+        padding: indent(2);
         display: flex;
         flex-direction: column;
         font-family: $SecondaryFont;

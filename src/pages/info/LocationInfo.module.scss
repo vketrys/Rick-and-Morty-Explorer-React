@@ -29,7 +29,7 @@
       }
   
       .Description {
-        color:  white;
+        color: $white;
         width: 60%;
         font-size: $MainInfo;
 
@@ -47,9 +47,10 @@
       text-align: center;
       align-content: center;
       margin-top: 2%;
+      width: 600px;
       
       .Label {
-        color:  white;
+        color:  $white;
         font-size: $Sublabel;
         font-family: $SecondaryFont;
       }
@@ -60,7 +61,7 @@
         justify-content: center;
 
         p {
-          color: white;
+          color: $white;
         }
 
       }

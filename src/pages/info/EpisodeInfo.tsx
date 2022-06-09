@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Button from 'components/button/Button';
@@ -10,29 +10,29 @@ import CharacterCard from 'components/card/character/CharacterCard';
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
 
 import { Character } from 'types/characterTypes';
-import useEpisode from 'hooks/useEpisode';
+import { Episode } from 'types/episodeTypes';
 import useTypeSelector from 'hooks/useTypeSelector';
 
 import style from './LocationInfo.module.scss';
 
-type EpisodeParams = {
-  id: string;
-};
+interface EpisodeInfoProps {
+  item: Episode;
+}
 
-export default function EpisodeInfo(): JSX.Element {
+export default function EpisodeInfo({ item }: EpisodeInfoProps): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const { characters } = useTypeSelector((state) => state.starringCharacters);
 
-  const { id } = useParams<EpisodeParams>();
-  const idNum = id ?? '1';
+  // const { id } = useParams<EpisodeParams>();
+  // const idNum = id ?? '1';
 
-  const episode = useEpisode(idNum);
+  // const episode = useEpisode(idNum);
 
   const ids: string[] = [];
-  episode.characters.map((url) => {
+  item.characters.map((url) => {
     const id = url.slice(URL_ID_POSITION.character);
     ids.push(id);
     return ids;
@@ -40,16 +40,16 @@ export default function EpisodeInfo(): JSX.Element {
 
   useEffect(() => {
     dispatch(fetchStarringCharacters(ids));
-  }, [episode]);
+  }, [item]);
 
   return (
     <div className={style.Container}>
       <div className={style.Content}>
         <div className={style.LocationInfo}>
-          <div className={style.Name}>{episode.name}</div>
+          <div className={style.Name}>{item.name}</div>
           <div className={style.Description}>
-            <p>{episode.episode}</p>
-            <p>{episode.air_date}</p>
+            <p>{item.episode}</p>
+            <p>{item.air_date}</p>
           </div>
         </div>
         <div className={style.Characters}>
