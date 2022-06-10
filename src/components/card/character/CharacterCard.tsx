@@ -16,6 +16,13 @@ export interface CharacterCardProps {
 
 function CharacterCard({ item }: CharacterCardProps): JSX.Element {
   const { t } = useTranslation();
+
+  const episodePath = `${paths.episode}/${item.episode[0].slice(
+    URL_ID_POSITION.episode
+  )}`;
+  const locationPath = `${paths.location}/${item.origin.url.slice(
+    URL_ID_POSITION.location
+  )}`;
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardImage}>
@@ -35,21 +42,11 @@ function CharacterCard({ item }: CharacterCardProps): JSX.Element {
         </div>
         <div className={style.description}>
           {item.episode.length ? (
-            <Link
-              to={`${paths.episode}/${item.episode[0].slice(
-                URL_ID_POSITION.episode
-              )}`}
-            >
-              {t('character.firstSeen')}
-            </Link>
+            <Link to={episodePath}>{t('character.firstSeen')}</Link>
           ) : (
             t('character.firstSeen')
           )}
-          <Link
-            to={`${paths.location}/${item.origin.url.slice(
-              URL_ID_POSITION.location
-            )}`}
-          >
+          <Link to={locationPath}>
             {t('character.origin')} {item.origin.name}
           </Link>
         </div>
