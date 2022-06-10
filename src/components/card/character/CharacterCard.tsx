@@ -23,6 +23,7 @@ function CharacterCard({ item }: CharacterCardProps): JSX.Element {
   const locationPath = `${paths.location}/${item.origin.url.slice(
     URL_ID_POSITION.location
   )}`;
+
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardImage}>
