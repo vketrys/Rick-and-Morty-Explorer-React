@@ -16,13 +16,15 @@ export interface LocationCardProps {
 
 function LocationCard({ item }: LocationCardProps): JSX.Element {
   const { t } = useTranslation();
+
+  const locationPath = `${paths.location}/${item.url.slice(
+    URL_ID_POSITION.location
+  )}`;
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardContent}>
         <div className={style.Description}>
-          <Link
-            to={`${paths.location}/${item.url.slice(URL_ID_POSITION.location)}`}
-          >
+          <Link to={locationPath}>
             <h2>{item.name}</h2>
           </Link>
           <h6>{item.type}</h6>

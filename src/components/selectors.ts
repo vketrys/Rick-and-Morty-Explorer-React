@@ -41,3 +41,9 @@ export const URL_ID_POSITION = {
   location: 41,
   episode: 40,
 };
+
+export const useItem = {
+  [ListTypes.character]: useCharacter,
+  [ListTypes.location]: useLocation,
+  [ListTypes.episode]: useEpisode,
+};
