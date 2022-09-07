@@ -1,7 +1,8 @@
 import React from 'react';
-
 import { useTranslation } from 'react-i18next';
+
 import 'config/i18n';
+
 import style from './Loader.module.scss';
 
 export default function Loader(): JSX.Element {

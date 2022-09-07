@@ -1,8 +1,9 @@
 {
   "title": "Рик и Морти",
   "home": "Домой",
+  "back": "Назад",
   "loading": "Загрузка...",
-  "srollEnd": "Теперь ты видел все, бро!",
+  "scrollEnd": "Теперь ты видел все, бро!",
   "loadingError": "Ошибка загрузки",
   "loadingPhrase": "Вабба Лабба Даб Даб !",
   "character": {
@@ -11,15 +12,28 @@
     "origin": "Происхождение:"
   },
   "episode": {
-    "page": "Эпизоды"
+    "page": "Эпизоды",
+    "characters": "В ролях:",
+    "season": "Сезон: {{season}}",
+    "episode": "Эпизод: {{episode}}"
   },
   "location": {
-    "page": "Локации"
+    "page": "Локации",
+    "dimension": "Измерение: {{name}}",
+    "residents": "Обитатели"
   },
   "main": {
     "page": "Энциклопедия",
     "characterButton": "Персонажи",
     "locationButton": "Локации",
     "episodeButton": "Эпизоды"
+  },
+  "info": {
+    "status": "Статус: ",
+    "species": "Вид: ",
+    "type": "Подвид: ",
+    "gender": "Пол: ",
+    "residents": "Обитатели",
+    "noResidents": "Здесь больше нет жителей.\n Это место было уничтожено.\n Все благодарности направлять\n"
   }
 }

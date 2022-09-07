@@ -1,29 +1,38 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
 import 'config/i18n';
 
-import CharacterList from 'components/lists/CharacterLists';
+import { ListTypes } from 'types/generalTypes';
+
 import Button from 'components/button/Button';
+import routerPaths from '../../components/navigation/paths';
+
 import style from './ContentList.module.scss';
 
-interface PageName {
-  name: string;
+import List from './List';
+
+interface ContentListProps {
+  type: ListTypes;
 }
 
-function ContentList({ name }: PageName): JSX.Element {
+function ContentList({ type }: ContentListProps): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
   return (
     <div className={style.content}>
       <h1>
-        {t('title')} <p>{t(`${name}.page`)}</p>
+        {t('title')} <p>{t(`${type}.page`)}</p>
       </h1>
       <div className={style.characterListContainer}>
-        <CharacterList />
+        <List type={type} />
       </div>
-      <Button label={t('home')} onClick={(): void => navigate('/home')} />
+      <Button
+        label={t('home')}
+        onClick={(): void => navigate(routerPaths.home)}
+      />
     </div>
   );
 }

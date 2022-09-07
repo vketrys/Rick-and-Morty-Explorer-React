@@ -1,25 +1,40 @@
 {
   "title": "Rick and Morty",
   "home": "Home",
+  "back": "Back",
   "loading": "Loading...",
-  "srollEnd": "You have seen it all, mate!",
+  "scrollEnd": "You have seen it all, mate!",
   "loadingError": "Loading error",
   "loadingPhrase": "Wubba Lubba Dub Dub !",
+
   "character": {
     "page": "Characters",
-    "firstSeen": "Firts seen at...",
+    "firstSeen": "First seen at...",
     "origin": "Origin:"
   },
   "episode": {
-    "page": "Episode"
+    "page": "Episode",
+    "characters": "Starring:",
+    "season": "Season: {{season}}",
+    "episode": "Episode: {{episode}}"
   },
   "location": {
-    "page": "Location"
+    "page": "Location",
+    "dimension": "Dimension: {{name}}",
+    "residents": "Residents"
   },
   "main": {
     "page": "Explorer",
     "characterButton": "Characters",
     "locationButton": "Locations",
     "episodeButton": "Episodes"
+  },
+  "info": {
+    "status": "Status: ",
+    "species": "Species: ",
+    "type": "Type: ",
+    "gender": "Gender: ",
+    "residents": "Residents",
+    "noResidents": "There is no residents.\n This place was destroyed.\n Special thanks to\n"
   }
 }

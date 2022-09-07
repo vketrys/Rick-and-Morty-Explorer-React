@@ -1,4 +1,5 @@
 import { ThunkDispatch } from 'redux-thunk';
+
 import { RootState } from 'store/reducers';
 import { CharacterAction } from './characterTypes';
 
