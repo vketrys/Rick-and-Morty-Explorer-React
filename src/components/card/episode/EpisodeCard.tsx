@@ -1,7 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import 'config/i18n';
+import routerPaths from 'components/navigation/paths';
 
 import { Episode } from 'types/episodeTypes';
 
@@ -15,20 +17,22 @@ export interface EpisodeCardProps {
 function EpisodeCard({ item }: EpisodeCardProps): JSX.Element {
   const { t } = useTranslation();
 
-  const seasonNumber = item.episode.charAt(2);
-  const episodeNumber = episodeSlice(item);
+  const showSeason = item.episode.charAt(2);
+  const showEpisode = episodeSlice(item);
 
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardContent}>
         <div className={style.Description}>
-          <a href={item.url}>
+          <Link to={`${routerPaths.episode}/${item.id}`}>
             <h2>{item.name}</h2>
-          </a>
-          <h6>{t('episode.season', { season: seasonNumber })}</h6>
-          <h6>{t('episode.episode', { episode: episodeNumber })}</h6>
+          </Link>
+          <h6>{t('episode.season', { season: showSeason })}</h6>
+          <h6>{t('episode.episode', { episode: showEpisode })}</h6>
           <div className={style.Characters}>
-            <a href={item.characters[0]}>{t('episode.characters')}</a>
+            <p>
+              {t('episode.characters')} {item.characters.length}
+            </p>
           </div>
         </div>
         <p>{item.air_date}</p>

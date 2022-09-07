@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { Character } from 'types/characterTypes';
 import 'config/i18n';
+
 import paths from 'components/navigation/paths';
+import { URL_ID_POSITION } from 'components/selectors';
 
 import style from './CharacterCard.module.scss';
 
@@ -14,6 +16,14 @@ export interface CharacterCardProps {
 
 function CharacterCard({ item }: CharacterCardProps): JSX.Element {
   const { t } = useTranslation();
+
+  const episodePath = `${paths.episode}/${item.episode[0].slice(
+    URL_ID_POSITION.episode
+  )}`;
+  const locationPath = `${paths.location}/${item.origin.url.slice(
+    URL_ID_POSITION.location
+  )}`;
+
   return (
     <article className={style.CardWrapper}>
       <div className={style.CardImage}>
@@ -32,10 +42,14 @@ function CharacterCard({ item }: CharacterCardProps): JSX.Element {
           </h6>
         </div>
         <div className={style.description}>
-          <a href={item.episode[0]}>{t('character.firstSeen')}</a>
-          <a href={item.origin.url}>
-            {t('character.origin', { name: item.origin.name })}
-          </a>
+          {item.episode.length ? (
+            <Link to={episodePath}>{t('character.firstSeen')}</Link>
+          ) : (
+            t('character.firstSeen')
+          )}
+          <Link to={locationPath}>
+            {t('character.origin')} {item.origin.name}
+          </Link>
         </div>
       </div>
     </article>

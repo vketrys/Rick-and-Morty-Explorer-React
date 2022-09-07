@@ -14,7 +14,7 @@
   },
   "episode": {
     "page": "Episode",
-    "characters": "Starring...",
+    "characters": "Starring:",
     "season": "Season: {{season}}",
     "episode": "Episode: {{episode}}"
   },
@@ -33,6 +33,8 @@
     "status": "Status: ",
     "species": "Species: ",
     "type": "Type: ",
-    "gender": "Gender: "
+    "gender": "Gender: ",
+    "residents": "Residents",
+    "noResidents": "There is no residents.\n This place was destroyed.\n Special thanks to\n"
   }
 }

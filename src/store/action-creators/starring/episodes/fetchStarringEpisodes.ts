@@ -1,11 +1,11 @@
 import { Dispatch } from 'redux';
 import axios from 'axios';
 
+import { Episode } from 'types/episodeTypes';
 import { AppThunk } from 'types/thunkTypes';
 import { StarringEpisodeAction } from 'types/starringEpisodesTypes';
 import paths from 'components/navigation/paths';
 import {
-  fetchOneStarringEpisodeSuccessAction,
   fetchStarringEpisodeAction,
   fetchStarringEpisodeErrorAction,
   fetchStarringEpisodeSuccessAction,
@@ -19,11 +19,14 @@ const fetchStarringEpisodes =
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}${paths.episode}/${ids.join()}`
       );
+      const data: Episode[] = [];
+
       if (ids.length > 1) {
-        dispatch(fetchStarringEpisodeSuccessAction(response));
+        data.push(...response.data);
       } else {
-        dispatch(fetchOneStarringEpisodeSuccessAction(response));
+        data.push(response.data);
       }
+      dispatch(fetchStarringEpisodeSuccessAction(data));
     } catch (error) {
       dispatch(fetchStarringEpisodeErrorAction());
     }

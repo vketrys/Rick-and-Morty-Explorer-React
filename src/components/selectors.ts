@@ -1,3 +1,6 @@
+import useCharacter from 'hooks/useCharacter';
+import useEpisode from 'hooks/useEpisode';
+import useLocation from 'hooks/useLocation';
 import { CombinedState } from 'redux';
 
 import { CharacterState } from 'types/characterTypes';
@@ -34,4 +37,16 @@ export const selectors = {
   [ListTypes.character]: CharacterSelectors,
   [ListTypes.location]: LocationSelectors,
   [ListTypes.episode]: EpisodeSelectors,
+};
+
+export const URL_ID_POSITION = {
+  character: 42,
+  location: 41,
+  episode: 40,
+};
+
+export const useItem = {
+  [ListTypes.character]: useCharacter,
+  [ListTypes.location]: useLocation,
+  [ListTypes.episode]: useEpisode,
 };
