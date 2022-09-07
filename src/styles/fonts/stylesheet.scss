@@ -1,26 +1,22 @@
 @font-face {
-    font-family: 'Neucha';
-    src: url('Neucha.eot');
-    src: local('Neucha'),
-        url('Neucha.eot?#iefix') format('embedded-opentype'),
-        url('Neucha.woff2') format('woff2'),
-        url('Neucha.woff') format('woff'),
-        url('Neucha.ttf') format('truetype'),
-        url('Neucha.svg#Neucha') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Neucha';
+  src: url('Neucha.eot');
+  src: local('Neucha'), url('Neucha.eot?#iefix') format('embedded-opentype'),
+    url('Neucha.woff2') format('woff2'), url('Neucha.woff') format('woff'),
+    url('Neucha.ttf') format('truetype'), url('Neucha.svg#Neucha') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Creepster';
-    src: url('Creepster-Regular.eot');
-    src: local('Creepster'), local('Creepster-Regular'),
-        url('Creepster-Regular.eot?#iefix') format('embedded-opentype'),
-        url('Creepster-Regular.woff2') format('woff2'),
-        url('Creepster-Regular.woff') format('woff'),
-        url('Creepster-Regular.ttf') format('truetype'),
-        url('Creepster-Regular.svg#Creepster-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Creepster';
+  src: url('Creepster-Regular.eot');
+  src: local('Creepster'), local('Creepster-Regular'),
+    url('Creepster-Regular.eot?#iefix') format('embedded-opentype'),
+    url('Creepster-Regular.woff2') format('woff2'),
+    url('Creepster-Regular.woff') format('woff'),
+    url('Creepster-Regular.ttf') format('truetype'),
+    url('Creepster-Regular.svg#Creepster-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
-

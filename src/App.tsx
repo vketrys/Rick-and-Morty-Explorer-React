@@ -1,14 +1,19 @@
-import React from 'react'
-import Layout from './components/layout/Layout'
+import React from 'react';
+import { Provider } from 'react-redux';
 
-import Router from './components/navigation/Router'
+import Layout from 'components/layout/Layout';
+import Router from 'components/navigation/Router';
+
+import store from 'store';
 
 function App(): JSX.Element {
   return (
-    <Layout>
-      <Router />
-    </Layout>
-  )
+    <Provider store={store}>
+      <Layout>
+        <Router />
+      </Layout>
+    </Provider>
+  );
 }
 
-export default App
+export default App;

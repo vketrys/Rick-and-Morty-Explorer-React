@@ -1,0 +1,75 @@
+@import 'styles/fonts.scss';
+@import 'styles/colors.scss';
+@import 'styles/vars.scss';
+
+.Container {
+  width: 100%;
+  height: 100%;
+  background: $dark-gradient;
+  display: flex;
+  flex-direction: column;
+
+  .Content {
+    display: flex;
+    flex-direction: row;
+    height: 85%;
+
+    .LocationInfo {
+      display: flex;
+      flex-direction: column;
+      height: 85%;
+      width: 55%;
+      margin-left: indent(12);
+      margin-top: indent(6);
+      justify-content: center;
+
+      .Name {
+        color: $blue;
+        font-size: $InfoLabel;
+      }
+  
+      .Description {
+        color: $white;
+        width: 60%;
+        font-size: $MainInfo;
+
+        p {
+          margin-top: indent(5);
+          font-family: $SecondaryFont;
+          font-weight: bold;
+        }
+      }
+    }
+  
+    .Characters {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-content: center;
+      margin-top: 2%;
+      width: 600px;
+      
+      .Label {
+        color:  $white;
+        font-size: $Sublabel;
+        font-family: $SecondaryFont;
+      }
+
+      .Cards {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+
+        p {
+          color: $white;
+        }
+
+      }
+    }
+  }
+
+  .Button {
+    display: flex;
+    justify-content: center;
+  }
+}
