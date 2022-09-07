@@ -1,14 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
+import React, { Suspense } from 'react';
+import ReactDOM from 'react-dom';
+
+import { BrowserRouter } from 'react-router-dom';
+import 'config/i18n';
+import Loader from 'components/loader/Loader';
+import reportWebVitals from './reportWebVitals';
+
+const App = React.lazy(() => import('./App'));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Suspense fallback={<Loader />}>
+        <App />
+      </Suspense>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
-)
+);
 
-reportWebVitals()
+reportWebVitals();

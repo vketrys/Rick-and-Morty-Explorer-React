@@ -1,0 +1,5 @@
+$base-indent: 5px;
+
+@function indent($num) {
+  @return $num * $base-indent;
+}

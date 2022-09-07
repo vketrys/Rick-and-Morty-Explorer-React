@@ -1,0 +1,19 @@
+@import 'styles/colors.scss';
+@import 'styles/fonts.scss';
+
+.content {
+  width: 100%;
+  text-align: center;
+  color: $blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: $Label;
+  }
+
+  .characterListContainer {
+    display: flex;
+  }
+}

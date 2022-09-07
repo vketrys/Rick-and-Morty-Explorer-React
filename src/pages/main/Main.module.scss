@@ -1,0 +1,24 @@
+@import 'styles/colors.scss';
+@import 'styles/fonts.scss';
+@import 'styles/vars.scss';
+
+.content {
+  width: 100%;
+  text-align: center;
+  color: $blue;
+  margin-top: indent(14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: $Label;
+  }
+}

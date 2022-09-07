@@ -1,21 +1,19 @@
-import React from 'react'
-import './App.css'
+import React from 'react';
+import { Provider } from 'react-redux';
+
+import Layout from 'components/layout/Layout';
+import Router from 'components/navigation/Router';
+
+import store from 'store';
 
 function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  )
+    <Provider store={store}>
+      <Layout>
+        <Router />
+      </Layout>
+    </Provider>
+  );
 }
 
-export default App
+export default App;
