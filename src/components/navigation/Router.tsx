@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import CharacterInfo from 'pages/info/CharacterInfo';
 
 import { ListTypes } from 'types/generalTypes';
 
@@ -25,6 +26,7 @@ function Router(): JSX.Element {
         path={routerPaths.location}
         element={<ContentList type={ListTypes.location} />}
       />
+      <Route path={routerPaths.characterInfo} element={<CharacterInfo />} />
     </Routes>
   );
 }

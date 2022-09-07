@@ -3,7 +3,7 @@ import i18n from 'config/i18n';
 import {
   CharacterAction,
   CharacterActionTypes,
-  CharacterProps,
+  Character,
 } from 'types/characterTypes';
 
 interface ServerResponse {
@@ -11,22 +11,22 @@ interface ServerResponse {
 }
 
 interface ServerData {
-  results: CharacterProps[];
+  results: Character[];
 }
 
-export const fetchCharacterDispatch = (): CharacterAction => ({
+export const fetchCharacterAction = (): CharacterAction => ({
   type: CharacterActionTypes.FETCH_CHARACTERS,
   payload: true,
 });
 
-export const fetchCharacterSuccessDispatch = (
+export const fetchCharacterSuccessAction = (
   response: ServerResponse
 ): CharacterAction => ({
   type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS,
   payload: response.data.results,
 });
 
-export const fetchCharacterErrorDispatch = (): CharacterAction => ({
+export const fetchCharacterErrorAction = (): CharacterAction => ({
   type: CharacterActionTypes.FETCH_CHARACTERS_ERROR,
   payload: i18n.t('loadingError'),
 });

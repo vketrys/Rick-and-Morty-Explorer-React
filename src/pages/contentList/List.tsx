@@ -10,8 +10,12 @@ import Cards from 'components/card/Cards';
 
 import { ListTypes } from 'types/generalTypes';
 import useTypeSelector from 'hooks/useTypeSelector';
-import fetchCharacters from 'store/action-creators/moreCharacters';
-import fetchLocations from 'store/action-creators/locations/moreLocations';
+
+import fetchCharacters from 'store/action-creators/characters/fetchCharacters';
+import fetchLocations from 'store/action-creators/locations/fetchLocations';
+import fetchEpisodes from 'store/action-creators/episodes/fetchEpisodes';
+
+import hasMore from './hasMore';
 
 interface ListProps {
   type: ListTypes;
@@ -27,10 +31,13 @@ function List({ type }: ListProps): JSX.Element {
   const fetchFunctions = {
     [ListTypes.character]: fetchCharacters,
     [ListTypes.location]: fetchLocations,
+    [ListTypes.episode]: fetchEpisodes,
   };
 
   useEffect(() => {
-    dispatch(fetchFunctions[type](page));
+    if (!data.length) {
+      dispatch(fetchFunctions[type](page));
+    }
     setPage(page + 1);
   }, []);
 
@@ -50,10 +57,10 @@ function List({ type }: ListProps): JSX.Element {
     <InfiniteScroll
       dataLength={data.length}
       next={nextPage}
-      hasMore
+      hasMore={hasMore(type, page)}
       loader={<h4>{t('loading')}</h4>}
       height={450}
-      endMessage={<b>{t('scrollEnd')}</b>}
+      endMessage={<h2>{t('scrollEnd')}</h2>}
     >
       <Cards type={type} />
     </InfiniteScroll>

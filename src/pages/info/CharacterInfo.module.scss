@@ -1,0 +1,105 @@
+@import 'styles/fonts.scss';
+@import 'styles/colors.scss';
+@import 'styles/vars.scss';
+
+
+.Container {
+  width: 100%;
+  height: 100%;
+  background: $dark-gradient;
+  display: flex;
+  flex-direction: column;
+
+  .Button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .Content {
+    display: flex;
+    flex-direction: row;
+    height: 85%;
+
+    .CharacterInfo {
+      display: flex;
+      flex-direction: column;
+      width: 390px;
+      height: 85%;
+      border: 2px solid $blue;
+      border-radius: 15px;
+      margin: indent(10);
+      margin-left: indent(14);
+      background: $dark-gradient;
+      overflow: hidden;
+
+      .Image {
+        display: flex;
+        justify-content: center;
+      }
+  
+      .Info {
+        height: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        font-family: $SecondaryFont;
+        font-size: $Subtitle;
+        justify-content: center;
+        align-items: flex-start;
+
+        p {
+          font-family: $SecondaryFont;
+          font-size: $CardRecord;
+          color: $white;
+          padding-bottom: indent(3);
+        }
+
+        b {
+          font-family: $SecondaryFont;
+        }
+      }
+    }
+  
+    .CharacterDescription {
+      width: 100%;
+      margin-top: indent(14);
+      
+      .Name {
+        color: $blue;
+        font-size: $LargeLabel;
+      }
+  
+      .Description {
+        display: flex;
+        flex: 2 1 0%;
+
+        .Links {
+          color:  white;
+          width: 60%;
+          font-size: $Sublabel;
+          margin-top: indent(6);
+
+          a {
+            padding-top: indent(2);
+            text-decoration: none;
+            color:  white;
+
+          }
+        }
+  
+        .Episodes {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+
+
+          .EpisodesContainer {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+        }
+      }
+    }
+  }
+}

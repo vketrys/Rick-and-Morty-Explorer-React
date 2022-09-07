@@ -2,16 +2,16 @@ import React from 'react';
 
 import { selectors } from 'components/selectors';
 
+import { Location } from 'types/locationTypes';
+import { Character } from 'types/characterTypes';
+import { Episode } from 'types/episodeTypes';
 import { ListTypes } from 'types/generalTypes';
-import { CharacterProps } from 'types/characterTypes';
-import { LocationProps } from 'types/locationTypes';
 
 import useTypeSelector from 'hooks/useTypeSelector';
 
 import style from 'pages/contentList/List.module.scss';
 
-import CharacterCard from './CharacterCard';
-import LocationCard from './LocationCard';
+import cards from './cardsSelector';
 
 interface CardsProps {
   type: ListTypes;
@@ -23,15 +23,16 @@ const Cards = ({ type }: CardsProps): JSX.Element => {
   return (
     <div className={style.CardsContainer}>
       {data.map((item) => {
-        const cards = {
-          [ListTypes.character]: (
-            <CharacterCard key={item.id} character={item as CharacterProps} />
-          ),
-          [ListTypes.location]: (
-            <LocationCard key={item.id} location={item as LocationProps} />
-          ),
-        };
-        return cards[type];
+        switch (type) {
+          case ListTypes.character:
+            return <cards.character key={item.id} item={item as Character} />;
+          case ListTypes.location:
+            return <cards.location key={item.id} item={item as Location} />;
+          case ListTypes.episode:
+            return <cards.episode key={item.id} item={item as Episode} />;
+          default:
+            return <cards.character key={item.id} item={item as Character} />;
+        }
       })}
     </div>
   );

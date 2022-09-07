@@ -1,14 +1,15 @@
 export interface CharacterState {
-  data: CharacterProps[];
+  data: Character[];
   isLoading: boolean;
   error?: string;
 }
 
-export interface CharacterProps {
+export interface Character {
   id: number;
   name: string;
   status: string;
   species: string;
+  type: string;
   gender: string;
   origin: {
     name: string;
@@ -30,7 +31,7 @@ interface FetchCharacterAction {
 }
 interface FetchCharacterSuccessAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_SUCCESS;
-  payload: CharacterProps[];
+  payload: Character[];
 }
 interface FetchCharacterErrorAction {
   type: CharacterActionTypes.FETCH_CHARACTERS_ERROR;

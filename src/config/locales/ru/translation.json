@@ -1,6 +1,7 @@
 {
   "title": "Рик и Морти",
   "home": "Домой",
+  "back": "Назад",
   "loading": "Загрузка...",
   "scrollEnd": "Теперь ты видел все, бро!",
   "loadingError": "Ошибка загрузки",
@@ -8,10 +9,13 @@
   "character": {
     "page": "Персонажи",
     "firstSeen": "Первое появление в...",
-    "origin": "Происхождение: {{name}}"
+    "origin": "Происхождение:"
   },
   "episode": {
-    "page": "Эпизоды"
+    "page": "Эпизоды",
+    "characters": "В ролях...",
+    "season": "Сезон: {{season}}",
+    "episode": "Эпизод: {{episode}}"
   },
   "location": {
     "page": "Локации",
@@ -23,5 +27,11 @@
     "characterButton": "Персонажи",
     "locationButton": "Локации",
     "episodeButton": "Эпизоды"
+  },
+  "info": {
+    "status": "Статус: ",
+    "species": "Вид: ",
+    "type": "Подвид: ",
+    "gender": "Пол: "
   }
 }
