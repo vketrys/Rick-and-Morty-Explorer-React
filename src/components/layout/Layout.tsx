@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import Switcher from 'components/switcher/Switcher';
 
 import style from './Layout.module.scss';
 
@@ -13,27 +14,7 @@ function Layout({ children }: LayoutProps): JSX.Element {
   return (
     <div className={style.banner}>
       <div className={style.Lang}>
-        <div className={style.LangEN}>
-          <button
-            type="button"
-            onClick={(): void => {
-              i18n.changeLanguage('en');
-            }}
-          >
-            en
-          </button>
-        </div>
-        <div className={style.LangRU}>
-          <button
-            className="RU"
-            type="button"
-            onClick={(): void => {
-              i18n.changeLanguage('ru');
-            }}
-          >
-            ru
-          </button>
-        </div>
+        <Switcher />
       </div>
       {children}
     </div>

@@ -27,7 +27,10 @@
     "page": "Explorer",
     "characterButton": "Characters",
     "locationButton": "Locations",
-    "episodeButton": "Episodes"
+    "episodeButton": "Episodes",
+    "tickerPhrase1": "Let's go!",
+    "tickerPhrase2": "In and out",
+    "tickerPhrase3": "20 minutes adventure..."
   },
   "info": {
     "status": "Status: ",
