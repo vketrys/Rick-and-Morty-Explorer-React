@@ -39,8 +39,8 @@ function MainPage(): JSX.Element {
         />
       </div>
       <div className={style.bottom}>
-        {tickerPhrases.map((el) => (
-          <Ticker offset="run-in" speed={25} mode="await">
+        {tickerPhrases.map((el, index) => (
+          <Ticker offset={(index + 1) * 50} speed={25} mode="await">
             {(): JSX.Element => <p>{el}</p>}
           </Ticker>
         ))}
