@@ -6,6 +6,9 @@ import GlobeIcon from 'img/globeIcon.svg';
 import IconEN from 'img/EN.png';
 import IconRU from 'img/RU.png';
 
+import colors from 'variables/colors';
+import style from './Switcher.module.scss';
+
 function Switcher(): JSX.Element {
   const { i18n } = useTranslation();
 
@@ -23,23 +26,13 @@ function Switcher(): JSX.Element {
       <ReactSwitch
         onChange={handleChange}
         checked={languageRu}
-        offColor="#fff"
-        onColor="#fff"
+        offColor={colors.white}
+        onColor={colors.white}
         checkedIcon={
-          <img
-            src={IconEN}
-            height={25}
-            alt="EN"
-            style={{ margin: '2px 0 0 2px' }}
-          />
+          <img src={IconEN} height={25} alt="EN" className={style.image} />
         }
         uncheckedIcon={
-          <img
-            src={IconRU}
-            height={25}
-            alt="RU"
-            style={{ margin: '2px 0 0 2px' }}
-          />
+          <img src={IconRU} height={25} alt="RU" className={style.image} />
         }
         checkedHandleIcon={<img src={GlobeIcon} alt="globe" />}
         uncheckedHandleIcon={<img src={GlobeIcon} alt="globe" />}

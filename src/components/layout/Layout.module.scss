@@ -1,6 +1,7 @@
 @import 'styles/fonts.scss';
 @import 'styles/colors.scss';
 @import 'styles/images.scss';
+@import 'styles/vars.scss';
 
 * {
   margin: 0;
@@ -22,7 +23,7 @@
     justify-content: flex-end;
     position: absolute;
     width: 95%;
-    padding-top: 20px;
+    padding-top: indent(4);
   }
 }
 

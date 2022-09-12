@@ -60,7 +60,7 @@ export default function CharacterInfo({
               {t('info.species')} <b>{item.species}</b>
             </p>
             <p>
-              {t('info.type')} <b>{item.type ? item.type : '-'}</b>
+              {t('info.type')} <b>{item.type ?? '-'}</b>
             </p>
             <p>
               {t('info.gender')} <b>{item.gender}</b>

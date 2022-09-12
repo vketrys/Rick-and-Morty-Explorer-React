@@ -6,6 +6,7 @@ import 'config/i18n';
 
 import Button from 'components/button/Button';
 import routerPaths from 'components/navigation/paths';
+import tickerVars from 'variables/ticker';
 
 import style from './Main.module.scss';
 
@@ -40,7 +41,11 @@ function MainPage(): JSX.Element {
       </div>
       <div className={style.bottom}>
         {tickerPhrases.map((el, index) => (
-          <Ticker offset={(index + 1) * 50} speed={25} mode="await">
+          <Ticker
+            offset={(index + 1) * tickerVars.baseOffset}
+            speed={tickerVars.speed}
+            mode="await"
+          >
             {(): JSX.Element => <p>{el}</p>}
           </Ticker>
         ))}
