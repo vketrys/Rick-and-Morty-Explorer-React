@@ -1,5 +1,7 @@
 @import 'styles/colors.scss';
 @import 'styles/fonts.scss';
+@import 'styles/vars.scss';
+
 
 .content {
   width: 100%;
@@ -15,5 +17,20 @@
 
   .characterListContainer {
     display: flex;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .content {
+    margin-top: indent(12);
+
+    h1 {
+      font-size: 70px;
+    }
+  
+    .characterListContainer {
+      display: flex;
+      margin: indent(12) 0;
+    }
   }
 }

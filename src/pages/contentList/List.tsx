@@ -49,6 +49,7 @@ function List({ type }: ListProps): JSX.Element {
   if (isLoading) {
     return <h1>{t('loading')}</h1>;
   }
+
   if (error) {
     return <h1>{error}</h1>;
   }
