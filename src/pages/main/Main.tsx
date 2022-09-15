@@ -14,11 +14,9 @@ function MainPage(): JSX.Element {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const tickerPhrases = [
-    t('main.tickerPhrase1'),
-    t('main.tickerPhrase2'),
-    t('main.tickerPhrase3'),
-  ];
+  const tickerPhrases: string[] = t('ticker', { returnObjects: true });
+
+  const MemoTicker = React.memo(Ticker);
 
   return (
     <div className={style.content}>
@@ -41,13 +39,13 @@ function MainPage(): JSX.Element {
       </div>
       <div className={style.bottom}>
         {tickerPhrases.map((el, index) => (
-          <Ticker
+          <MemoTicker
             offset={(index + 1) * tickerVars.baseOffset}
             speed={tickerVars.speed}
             mode="await"
           >
             {(): JSX.Element => <p>{el}</p>}
-          </Ticker>
+          </MemoTicker>
         ))}
       </div>
     </div>

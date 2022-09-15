@@ -27,10 +27,7 @@
     "page": "Explorer",
     "characterButton": "Characters",
     "locationButton": "Locations",
-    "episodeButton": "Episodes",
-    "tickerPhrase1": "Let's go!",
-    "tickerPhrase2": "In and out",
-    "tickerPhrase3": "20 minutes adventure..."
+    "episodeButton": "Episodes"
   },
   "info": {
     "status": "Status: ",
@@ -39,5 +36,6 @@
     "gender": "Gender: ",
     "residents": "Residents",
     "noResidents": "There is no residents.\n This place was destroyed.\n Special thanks to\n"
-  }
+  },
+  "ticker": [ "Let's go!", "In and out", "20 minutes adventure..." ]
 }
