@@ -64,7 +64,7 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: $Tablet) {
   .CardWrapper {
     width: 250px;
     height: 300px;

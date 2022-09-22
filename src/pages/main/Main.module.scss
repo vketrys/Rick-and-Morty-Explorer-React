@@ -23,7 +23,7 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: $Tablet) {
   .content {
     margin-top: indent(12);
 
@@ -32,7 +32,18 @@
     }
   
     h1 {
-      font-size: 70px;
+      font-size: $MainInfo;
+      margin-bottom: indent(7);
+    }
+  }
+}
+
+@media only screen and (max-width: $Mobile) {
+  .content {
+    margin-top: indent(12);
+  
+    h1 {
+      font-size: $Info;
       margin-bottom: indent(7);
     }
   }

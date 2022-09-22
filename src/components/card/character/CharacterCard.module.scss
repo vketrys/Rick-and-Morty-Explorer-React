@@ -85,3 +85,63 @@
     }
   }
 }
+
+@media only screen and (max-width: $SmallTablet) {
+  .CardWrapper {
+    width: 400px;
+    height: 150px;
+    margin: indent(2);
+  
+    .CardContent {
+      .NameSection {
+        a {
+          h2 {
+            font-size: $Subtitle;
+          }
+        }
+  
+        h6 {
+          font-size: $MobileSubtitle;
+        }
+      }
+  
+      .description {
+        font-size: $MobileSubtitle;
+  
+        a {
+          margin-top: indent(2);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $Mobile) {
+  .CardWrapper {
+    width: 300px;
+    height: 150px;
+    margin: indent(2);
+  
+    .CardContent {
+      .NameSection {
+        a {
+          h2 {
+            font-size: $Subtitle;
+          }
+        }
+  
+        h6 {
+          font-size: $MobileSubtitle;
+        }
+      }
+  
+      .description {
+        font-size: $MobileSubtitle;
+  
+        a {
+          margin-top: indent(2);
+        }
+      }
+    }
+  }
+}

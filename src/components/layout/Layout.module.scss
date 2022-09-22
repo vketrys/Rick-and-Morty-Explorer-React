@@ -19,11 +19,10 @@
 
   .Lang {
     display: flex;
+    justify-content: flex-end;
     position: absolute;
     background-color: transparent;
-    margin-left: 90%;
-    width: 20px;
-    height: 15px;
+    width: 95%;
     padding: 10px;
 
     button {

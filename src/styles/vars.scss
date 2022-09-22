@@ -3,3 +3,7 @@ $base-indent: 5px;
 @function indent($num) {
   @return $num * $base-indent;
 }
+
+$Tablet: 800px;
+$SmallTablet: 650px;
+$Mobile: 475px;

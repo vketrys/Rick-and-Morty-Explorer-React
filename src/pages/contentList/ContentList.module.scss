@@ -20,17 +20,32 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: $Tablet) {
   .content {
     margin-top: indent(12);
 
     h1 {
-      font-size: 70px;
+      font-size: $MainInfo;
     }
   
     .characterListContainer {
       display: flex;
       margin: indent(12) 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $Mobile) {
+  .content {
+    margin-top: indent(7);
+
+    h1 {
+      font-size: $Sublabel;
+    }
+  
+    .characterListContainer {
+      display: flex;
+      margin: indent(2) 0;
     }
   }
 }
