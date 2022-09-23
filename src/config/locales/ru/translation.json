@@ -26,10 +26,7 @@
     "page": "Энциклопедия",
     "characterButton": "Персонажи",
     "locationButton": "Локации",
-    "episodeButton": "Эпизоды",
-    "tickerPhrase1": "Давай!",
-    "tickerPhrase2": "Пошли и вышли",
-    "tickerPhrase3": "Приключение на 20 минут..."
+    "episodeButton": "Эпизоды"
   },
   "info": {
     "status": "Статус: ",

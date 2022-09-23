@@ -14,23 +14,15 @@ function Switcher(): JSX.Element {
   const { i18n } = useTranslation();
 
   const [switcher, setSwitcher] = useState(false);
-  const [language, setLanguage] = useState(languagesKeys.ru);
 
   const handleChange = (): void => {
     setSwitcher(!switcher);
 
-    switch (language) {
-      case 'en':
-        setLanguage(languagesKeys.ru);
-        break;
-      case 'ru':
-        setLanguage(languagesKeys.en);
-        break;
-      default:
-        setLanguage(languagesKeys.ru);
-        break;
+    if (switcher) {
+      i18n.changeLanguage(languagesKeys.en);
+    } else {
+      i18n.changeLanguage(languagesKeys.ru);
     }
-    i18n.changeLanguage(language);
   };
 
   return (
