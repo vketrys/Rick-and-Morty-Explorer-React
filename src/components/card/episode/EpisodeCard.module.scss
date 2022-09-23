@@ -67,6 +67,32 @@
 @media only screen and (max-width: $Tablet) {
   .CardWrapper {
     width: 250px;
-    height: 300px;
+    height: 275px;
+
+    .CardContent {
+      .Description {
+        a {
+          h2 {
+            font-size: $CardRecord;
+          }
+        }
+
+        h6 {
+          font-size: $Description;
+        }
+
+        .Characters {
+          p {
+            margin-top: indent(2);
+            font-size: $Description;
+          }
+        }
+      }
+
+      p {
+        font-size: $MobileSubtitle;
+        margin-top: indent(1);
+      }
+    }
   }
 }

@@ -67,5 +67,33 @@
   .CardWrapper {
     width: 250px;
     height: 250px;
+
+    .CardContent { 
+      .Description {
+        padding: 0;
+
+        a {
+          h2 {
+            font-size: $CardRecord;
+          }
+        }
+  
+        h6 {
+          font-size: $Description;
+        }
+  
+        p {
+          font-size: $Description;
+        }
+      }
+  
+      .Residents {
+        font-size: $MobileSubtitle;
+  
+        p {
+          margin-top: indent(2);
+        }
+      }
+    }
   }
 }
