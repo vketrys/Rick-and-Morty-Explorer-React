@@ -12,6 +12,7 @@ import fetchStarringCharacters from 'store/action-creators/starring/characters/f
 import { Character } from 'types/characterTypes';
 import { Location } from 'types/locationTypes';
 
+import useWindowDimensions from 'hooks/useWindowDimensions';
 import useTypeSelector from 'hooks/useTypeSelector';
 
 import style from './LocationInfo.module.scss';
@@ -24,6 +25,7 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const { height } = useWindowDimensions();
 
   const { characters } = useTypeSelector((state) => state.starringCharacters);
 
@@ -66,7 +68,7 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
               next={(): Character[] => characters}
               hasMore
               loader={<h4>{t('loading')}</h4>}
-              height={550}
+              height={height / 2.5}
               endMessage={<h1>{t('scrollEnd')}</h1>}
             >
               {characters.map((item) => (

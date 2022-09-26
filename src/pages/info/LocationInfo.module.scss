@@ -73,3 +73,46 @@
     justify-content: center;
   }
 }
+
+@media only screen and (max-width: $Tablet){
+  .Container {
+    .Content {
+      flex-direction: column;
+  
+      .LocationInfo {
+        display: flex;
+        flex-direction: column;
+        height: 85%;
+        width: 100%;
+        margin-left: 0;
+        margin-top: indent(7);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+  
+        .Name {
+          font-size: $Sublabel;
+        }
+    
+        .Description {
+          color: $white;
+          width: 60%;
+          font-size: $Subtitle;
+  
+          p {
+            margin-top: indent(2);
+          }
+        }
+      }
+    
+      .Characters {
+        width: 100%;
+        
+        .Label {
+          font-size: $Subtitle;
+          margin-bottom: indent(2);
+        }
+      }
+    }
+  }
+}
