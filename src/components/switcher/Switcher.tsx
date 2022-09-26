@@ -13,12 +13,12 @@ import style from './Switcher.module.scss';
 function Switcher(): JSX.Element {
   const { i18n } = useTranslation();
 
-  const [switcher, setSwitcher] = useState(false);
+  const [isSwitched, setIsSwitched] = useState(false);
 
   const handleChange = (): void => {
-    setSwitcher(!switcher);
+    setIsSwitched(!isSwitched);
 
-    if (switcher) {
+    if (isSwitched) {
       i18n.changeLanguage(languagesKeys.en);
     } else {
       i18n.changeLanguage(languagesKeys.ru);
@@ -29,7 +29,7 @@ function Switcher(): JSX.Element {
     <div>
       <ReactSwitch
         onChange={handleChange}
-        checked={switcher}
+        checked={isSwitched}
         offColor={colors.white}
         onColor={colors.white}
         checkedIcon={
