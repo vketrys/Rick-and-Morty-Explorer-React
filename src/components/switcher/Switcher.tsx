@@ -7,7 +7,9 @@ import IconEN from 'img/EN.png';
 import IconRU from 'img/RU.png';
 
 import languagesKeys from 'variables/languages';
+import alts from 'variables/images';
 import colors from 'variables/colors';
+
 import style from './Switcher.module.scss';
 
 function Switcher(): JSX.Element {
@@ -33,13 +35,13 @@ function Switcher(): JSX.Element {
         offColor={colors.white}
         onColor={colors.white}
         checkedIcon={
-          <img src={IconEN} height={25} alt="EN" className={style.image} />
+          <img src={IconEN} height={25} alt={alts.en} className={style.image} />
         }
         uncheckedIcon={
-          <img src={IconRU} height={25} alt="RU" className={style.image} />
+          <img src={IconRU} height={25} alt={alts.ru} className={style.image} />
         }
-        checkedHandleIcon={<img src={GlobeIcon} alt="globe" />}
-        uncheckedHandleIcon={<img src={GlobeIcon} alt="globe" />}
+        checkedHandleIcon={<img src={GlobeIcon} alt={alts.globe} />}
+        uncheckedHandleIcon={<img src={GlobeIcon} alt={alts.globe} />}
       />
     </div>
   );
