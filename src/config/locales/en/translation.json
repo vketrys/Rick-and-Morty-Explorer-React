@@ -36,5 +36,6 @@
     "gender": "Gender: ",
     "residents": "Residents",
     "noResidents": "There is no residents.\n This place was destroyed.\n Special thanks to\n"
-  }
+  },
+  "ticker": [ "Let's go!", "In and out", "20 minutes adventure..." ]
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
 import 'config/i18n';
 
 import Button from 'components/button/Button';
-import routerPaths from '../../components/navigation/paths';
+import routerPaths from 'components/navigation/paths';
+import MemoTicker from 'components/ticker/MemoTicker';
 
 import style from './Main.module.scss';
 
@@ -16,7 +16,7 @@ function MainPage(): JSX.Element {
   return (
     <div className={style.content}>
       <h1>
-        {t('title')} <p>{t('main.page')}</p>
+        {t('title')} {t('main.page')}
       </h1>
       <div className={style.buttons}>
         <Button
@@ -31,6 +31,9 @@ function MainPage(): JSX.Element {
           label={t('main.episodeButton')}
           onClick={(): void => navigate(routerPaths.episode)}
         />
+      </div>
+      <div className={style.bottom}>
+        <MemoTicker />
       </div>
     </div>
   );

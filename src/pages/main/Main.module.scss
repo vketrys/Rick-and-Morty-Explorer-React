@@ -20,5 +20,19 @@
 
   h1 {
     font-size: $Label;
+    height: 250px;
+    width: 650px;
+  }
+
+  .bottom {
+    margin-top: indent(12);
+    width: 100%;
+    height: 200px;
+    flex-direction: row;
+
+    p {
+      font-size: 40px;
+      margin: indent(2);
+    }
   }
 }

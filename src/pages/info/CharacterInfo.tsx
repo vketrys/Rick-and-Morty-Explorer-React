@@ -60,7 +60,7 @@ export default function CharacterInfo({
               {t('info.species')} <b>{item.species}</b>
             </p>
             <p>
-              {t('info.type')} <b>{item.type}</b>
+              {t('info.type')} <b>{item.type ?? '-'}</b>
             </p>
             <p>
               {t('info.gender')} <b>{item.gender}</b>
@@ -76,7 +76,7 @@ export default function CharacterInfo({
                   URL_ID_POSITION.location
                 )}`}
               >
-                {t('character.origin')} <br /> {item.origin.name} <br />
+                <b>{t('character.origin')}</b> <br /> {item.origin.name} <br />
               </Link>
               <Link
                 to={`${paths.episode}/${item.episode[0].slice(

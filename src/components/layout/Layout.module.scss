@@ -1,6 +1,7 @@
 @import 'styles/fonts.scss';
 @import 'styles/colors.scss';
 @import 'styles/images.scss';
+@import 'styles/vars.scss';
 
 * {
   margin: 0;
@@ -19,42 +20,10 @@
 
   .Lang {
     display: flex;
+    justify-content: flex-end;
     position: absolute;
-    background-color: transparent;
-    margin-left: 90%;
-    width: 20px;
-    height: 15px;
-    padding: 10px;
-
-    button {
-      background-color: transparent;
-      background-size: cover;
-      border-radius: 25px;
-      border: none;
-      width: 30px;
-      height: 30px;
-      color: transparent;
-      
-      &:focus {
-        border: 3px solid $blue;
-        }
-    }
-
-    
-    .LangRU {
-      margin-left: 10px;
-
-      button {
-        background-image: $RUicon;
-      }
-    }
-
-    .LangEN {
-
-      button {
-        background-image: $ENicon;
-      }
-    }
+    width: 95%;
+    padding-top: indent(4);
   }
 }
 
