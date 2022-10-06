@@ -14,8 +14,8 @@ function MainPage(): JSX.Element {
   const navigate = useNavigate();
 
   return (
-    <div className={style.content}>
-      <h1>
+    <div className={style.Content}>
+      <h1 className={style.Title}>
         {t('title')} {t('main.page')}
       </h1>
       <div className={style.buttons}>

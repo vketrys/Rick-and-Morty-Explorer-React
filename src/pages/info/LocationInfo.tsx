@@ -11,8 +11,9 @@ import fetchStarringCharacters from 'store/action-creators/starring/characters/f
 
 import { Character } from 'types/characterTypes';
 import { Location } from 'types/locationTypes';
+import { ListTypes } from 'types/generalTypes';
 
-import useWindowDimensions from 'hooks/useWindowDimensions';
+import useScrollSizer from 'hooks/useScollSizer';
 import useTypeSelector from 'hooks/useTypeSelector';
 
 import style from './LocationInfo.module.scss';
@@ -25,7 +26,6 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { height } = useWindowDimensions();
 
   const { characters } = useTypeSelector((state) => state.starringCharacters);
 
@@ -56,8 +56,8 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
         <div className={style.LocationInfo}>
           <div className={style.Name}>{item.name}</div>
           <div className={style.Description}>
-            <p>{item.type}</p>
-            <p>{item.dimension}</p>
+            <p className={style.DescriptionNote}>{item.type}</p>
+            <p className={style.DescriptionNote}>{item.dimension}</p>
           </div>
         </div>
         <div className={style.Characters}>
@@ -68,7 +68,7 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
               next={(): Character[] => characters}
               hasMore
               loader={<h4>{t('loading')}</h4>}
-              height={height / 2.5}
+              height={useScrollSizer(ListTypes.location)}
               endMessage={<h1>{t('scrollEnd')}</h1>}
             >
               {characters.map((item) => (

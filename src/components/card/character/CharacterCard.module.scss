@@ -59,19 +59,19 @@
         color: $white;
         text-decoration: none;
 
-        h2 {
+        .Name {
           font-size: $Title;
           color: $blue;
         }
       }
 
-      h6 {
+      .Info {
         font-size: $Subtitle;
         font-family: $SecondaryFont;
       }
     }
 
-    .description {
+    .Description {
       font-size: $Description;
       display: flex;
       flex-direction: column;
@@ -88,24 +88,24 @@
 
 @media only screen and (max-width: $SmallTablet) {
   .CardWrapper {
-    width: 400px;
+    max-width: 400px;
     height: 150px;
     margin: indent(2);
   
     .CardContent {
       .NameSection {
         a {
-          h2 {
+          .Name {
             font-size: $Subtitle;
           }
         }
   
-        h6 {
+        .Info {
           font-size: $MobileSubtitle;
         }
       }
   
-      .description {
+      .Description {
         font-size: $MobileSubtitle;
   
         a {
@@ -125,17 +125,17 @@
     .CardContent {
       .NameSection {
         a {
-          h2 {
-            font-size: $Subtitle;
+          .Name {
+            font-size: $SmallSubtitle;
           }
         }
   
-        h6 {
+        .Info {
           font-size: $MobileSubtitle;
         }
       }
   
-      .description {
+      .Description {
         font-size: $MobileSubtitle;
   
         a {

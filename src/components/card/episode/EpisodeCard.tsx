@@ -25,17 +25,21 @@ function EpisodeCard({ item }: EpisodeCardProps): JSX.Element {
       <div className={style.CardContent}>
         <div className={style.Description}>
           <Link to={`${routerPaths.episode}/${item.id}`}>
-            <h2>{item.name}</h2>
+            <h2 className={style.Name}>{item.name}</h2>
           </Link>
-          <h6>{t('episode.season', { season: showSeason })}</h6>
-          <h6>{t('episode.episode', { episode: showEpisode })}</h6>
+          <h6 className={style.Season}>
+            {t('episode.season', { season: showSeason })}
+          </h6>
+          <h6 className={style.Episode}>
+            {t('episode.episode', { episode: showEpisode })}
+          </h6>
           <div className={style.Characters}>
-            <p>
+            <p className={style.CharactersCount}>
               {t('episode.characters')} {item.characters.length}
             </p>
           </div>
         </div>
-        <p>{item.air_date}</p>
+        <p className={style.AirDate}>{item.air_date}</p>
       </div>
     </article>
   );

@@ -33,15 +33,15 @@ function CharacterCard({ item }: CharacterCardProps): JSX.Element {
       <div className={style.CardContent}>
         <div className={style.NameSection}>
           <Link to={`${paths.character}/${item.id}`}>
-            <h2>
+            <h2 className={style.Name}>
               {item.name}, {item.id}
             </h2>
           </Link>
-          <h6>
+          <h6 className={style.Info}>
             {item.species}, {item.gender}
           </h6>
         </div>
-        <div className={style.description}>
+        <div className={style.Description}>
           {item.episode.length ? (
             <Link to={episodePath}>{t('character.firstSeen')}</Link>
           ) : (

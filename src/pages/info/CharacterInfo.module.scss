@@ -44,14 +44,14 @@
         justify-content: center;
         align-items: flex-start;
 
-        p {
+        .Status, .Species, .Type, .Gender {
           font-family: $SecondaryFont;
           font-size: $CardRecord;
           color: $white;
           padding-bottom: indent(3);
         }
 
-        b {
+        .InfoBold {
           font-family: $SecondaryFont;
         }
       }
@@ -82,7 +82,7 @@
             color:  white;
             font-family: $SecondaryFont;
 
-            b {
+            .Origin {
               font-family: $SecondaryFont;
             }
           }
@@ -105,7 +105,7 @@
   }
 }
 
-@media only screen and (max-width: $Tablet) {
+@media only screen and (max-width: $LargeTablet) {
   .Container {
     width: 100%;
     height: 100%;
@@ -119,7 +119,7 @@
       .CharacterInfo {
         flex-direction: row;
         width: 85%;
-        height: 100px;
+        height: 120px;
         border-radius: 15px;
         margin: indent(4) auto;
   
@@ -136,12 +136,12 @@
           justify-content: center;
           align-items: flex-start;
   
-          p {
+          .Status, .Species, .Type, .Gender {
             font-size: $Description;
             padding-bottom: 0;
           }
   
-          b {
+          .InfoBold {
             font-family: $SecondaryFont;
           }
         }
@@ -172,7 +172,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin-bottom: indent(2);
+            margin-bottom: indent(5);
   
             a {
               margin-top: indent(2);

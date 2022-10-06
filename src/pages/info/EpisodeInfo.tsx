@@ -11,8 +11,10 @@ import fetchStarringCharacters from 'store/action-creators/starring/characters/f
 
 import { Character } from 'types/characterTypes';
 import { Episode } from 'types/episodeTypes';
+import { ListTypes } from 'types/generalTypes';
+
 import useTypeSelector from 'hooks/useTypeSelector';
-import useWindowDimensions from 'hooks/useWindowDimensions';
+import useScrollSizer from 'hooks/useScollSizer';
 
 import style from './LocationInfo.module.scss';
 
@@ -24,7 +26,6 @@ export default function EpisodeInfo({ item }: EpisodeInfoProps): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { height } = useWindowDimensions();
 
   const { characters } = useTypeSelector((state) => state.starringCharacters);
 
@@ -50,19 +51,19 @@ export default function EpisodeInfo({ item }: EpisodeInfoProps): JSX.Element {
         <div className={style.LocationInfo}>
           <div className={style.Name}>{item.name}</div>
           <div className={style.Description}>
-            <p>{item.episode}</p>
-            <p>{item.air_date}</p>
+            <p className={style.DescriptionNote}>{item.episode}</p>
+            <p className={style.DescriptionNote}>{item.air_date}</p>
           </div>
         </div>
         <div className={style.Characters}>
-          <div className={style.Label}>Starring</div>
+          <div className={style.Label}>{t('info.starring')}</div>
           <div className={style.Cards}>
             <InfiniteScroll
               dataLength={characters.length}
               next={(): Character[] => characters}
               hasMore
               loader={<h4>{t('loading')}</h4>}
-              height={height / 2.5}
+              height={useScrollSizer(ListTypes.episode)}
               endMessage={<h1>{t('scrollEnd')}</h1>}
             >
               {characters.map((item) => (

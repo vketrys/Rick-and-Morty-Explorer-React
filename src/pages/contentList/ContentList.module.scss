@@ -3,7 +3,7 @@
 @import 'styles/vars.scss';
 
 
-.content {
+.Content {
   width: 100%;
   text-align: center;
   color: $blue;
@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
 
-  h1 {
+  .Title {
     font-size: $Label;
   }
 
@@ -21,10 +21,10 @@
 }
 
 @media only screen and (max-width: $Tablet) {
-  .content {
+  .Content {
     margin-top: indent(12);
 
-    h1 {
+    .Title {
       font-size: $MainInfo;
     }
   
@@ -36,10 +36,10 @@
 }
 
 @media only screen and (max-width: $Mobile) {
-  .content {
+  .Content {
     margin-top: indent(7);
 
-    h1 {
+    .Title {
       font-size: $Sublabel;
     }
   

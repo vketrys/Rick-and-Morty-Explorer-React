@@ -42,8 +42,8 @@
 
 @media only screen and (max-width: $Tablet) {
   .button {
-    font-size: $CardRecord;
-    width: 240px;
+    font-size: $Description;
+    max-width: 240px;
     padding: indent(4) 0;
     margin: indent(4) indent(4);
     border-radius: 30px;
@@ -57,9 +57,7 @@
 
 @media only screen and (max-width: $Mobile) {
   .button {
-    font-size: $Description;
-    width: 170px;
+    max-width: 170px;
     padding: indent(3) 0;
-    margin: indent(6) indent(4);
   }
 }

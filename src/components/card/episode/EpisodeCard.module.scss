@@ -32,13 +32,13 @@
         color: $white;
         text-decoration: none;
 
-        h2 {
+        .Name {
           font-size: $Title;
           color: $blue;
         }
       }
 
-      h6 {
+      .Season, .Episode {
         font-size: $Subtitle;
         font-family: $SecondaryFont;
       }
@@ -48,7 +48,7 @@
         display: flex;
         flex-direction: column;
 
-        p {
+        .CharactersCount {
           margin-top: indent(5);
           color: $white;
           font-family: $SecondaryFont;
@@ -56,7 +56,7 @@
       }
     }
 
-    p {
+    .AirDate {
       font-size: $Description;
       font-family: $SecondaryFont;
       margin-top: indent(1);
@@ -66,30 +66,30 @@
 
 @media only screen and (max-width: $Tablet) {
   .CardWrapper {
-    width: 250px;
+    max-width: 250px;
     height: 275px;
 
     .CardContent {
       .Description {
         a {
-          h2 {
+          .Name {
             font-size: $CardRecord;
           }
         }
 
-        h6 {
+        .Season, .Episode {
           font-size: $Description;
         }
 
         .Characters {
-          p {
+          .CharactersCount {
             margin-top: indent(2);
             font-size: $Description;
           }
         }
       }
 
-      p {
+      .AirDate {
         font-size: $MobileSubtitle;
         margin-top: indent(1);
       }

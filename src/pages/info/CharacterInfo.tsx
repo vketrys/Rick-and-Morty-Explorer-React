@@ -11,9 +11,11 @@ import paths from 'components/navigation/paths';
 
 import fetchStarringEpisodes from 'store/action-creators/starring/episodes/fetchStarringEpisodes';
 import useTypeSelector from 'hooks/useTypeSelector';
-import useWindowDimensions from 'hooks/useWindowDimensions';
+import useScrollSizer from 'hooks/useScollSizer';
+
 import { Episode } from 'types/episodeTypes';
 import { Character } from 'types/characterTypes';
+import { ListTypes } from 'types/generalTypes';
 
 import style from './CharacterInfo.module.scss';
 
@@ -24,7 +26,6 @@ interface CharacterInfoProps {
 export default function CharacterInfo({
   item,
 }: CharacterInfoProps): JSX.Element {
-  const { height } = useWindowDimensions();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -55,17 +56,19 @@ export default function CharacterInfo({
             <img src={item.image} alt={item.name} />
           </div>
           <div className={style.Info}>
-            <p>
-              {t('info.status')} <b>{item.status}</b>
+            <p className={style.Status}>
+              {t('info.status')} <b className={style.InfoBold}>{item.status}</b>
             </p>
-            <p>
-              {t('info.species')} <b>{item.species}</b>
+            <p className={style.Species}>
+              {t('info.species')}
+              <b className={style.InfoBold}>{item.species}</b>
             </p>
-            <p>
-              {t('info.type')} <b>{item.type ?? '-'}</b>
+            <p className={style.Type}>
+              {t('info.type')}
+              <b className={style.InfoBold}>{item.type ?? '-'}</b>
             </p>
-            <p>
-              {t('info.gender')} <b>{item.gender}</b>
+            <p className={style.Gender}>
+              {t('info.gender')} <b className={style.InfoBold}>{item.gender}</b>
             </p>
           </div>
         </div>
@@ -78,7 +81,8 @@ export default function CharacterInfo({
                   URL_ID_POSITION.location
                 )}`}
               >
-                <b>{t('character.origin')}</b> <br /> {item.origin.name} <br />
+                <b className={style.Origin}>{t('character.origin')}</b> <br />
+                {item.origin.name} <br />
               </Link>
               <Link
                 to={`${paths.episode}/${item.episode[0].slice(
@@ -94,7 +98,7 @@ export default function CharacterInfo({
                 next={(): Episode[] => episodes}
                 hasMore
                 loader={<h4>{t('loading')}</h4>}
-                height={height / 3}
+                height={useScrollSizer(ListTypes.character)}
                 endMessage={<h1>{t('scrollEnd')}</h1>}
               >
                 <div className={style.EpisodesContainer}>

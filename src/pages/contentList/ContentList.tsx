@@ -22,8 +22,8 @@ function ContentList({ type }: ContentListProps): JSX.Element {
   const { t } = useTranslation();
 
   return (
-    <div className={style.content}>
-      <h1>
+    <div className={style.Content}>
+      <h1 className={style.Title}>
         {t('title')} <p>{t(`${type}.page`)}</p>
       </h1>
       <div className={style.characterListContainer}>

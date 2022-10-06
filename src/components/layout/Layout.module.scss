@@ -23,8 +23,8 @@
     justify-content: flex-end;
     position: absolute;
     background-color: transparent;
-    width: 95%;
-    padding: 10px;
+    width: 90%;
+    padding: indent(2);
 
     button {
       background-color: transparent;
@@ -42,7 +42,7 @@
 
     
     .LangRU {
-      margin-left: 10px;
+      margin-left: indent(2);
 
       button {
         background-image: $RUicon;
@@ -55,6 +55,12 @@
         background-image: $ENicon;
       }
     }
+  }
+}
+
+@media only screen and (max-width: $Tablet) {
+  .Lang {
+    width: 90%;
   }
 }
 
@@ -74,4 +80,8 @@
   &:hover {
     background: darken($blue, $amount: 10);
   }
+}
+
+::selection {
+  background: $blue;
 }

@@ -46,13 +46,14 @@
       flex-direction: column;
       text-align: center;
       align-content: center;
-      margin-top: 2%;
+      margin-top: indent(20);
       width: 600px;
       
       .Label {
         color:  $white;
         font-size: $Sublabel;
         font-family: $SecondaryFont;
+        margin-bottom: indent(6);
       }
 
       .Cards {
@@ -74,7 +75,7 @@
   }
 }
 
-@media only screen and (max-width: $Tablet){
+@media only screen and (max-width: $SmallDesktop){
   .Container {
     .Content {
       flex-direction: column;
@@ -91,15 +92,15 @@
         text-align: center;
   
         .Name {
-          font-size: $Sublabel;
+          font-size: $Label;
         }
     
         .Description {
           color: $white;
           width: 60%;
-          font-size: $Subtitle;
+          font-size: $Title;
   
-          p {
+          .DescriptionNote {
             margin-top: indent(2);
           }
         }
@@ -111,6 +112,22 @@
         .Label {
           font-size: $Subtitle;
           margin-bottom: indent(2);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $Tablet){
+  .Container {
+    .Content {  
+      .LocationInfo {
+        .Name {
+          font-size: $Sublabel;
+        }
+    
+        .Description {
+          font-size: $Subtitle;
         }
       }
     }

@@ -2,7 +2,7 @@
 @import 'styles/fonts.scss';
 @import 'styles/vars.scss';
 
-.content {
+.Content {
   width: 100%;
   text-align: center;
   color: $blue;
@@ -18,7 +18,7 @@
     align-items: center;
   }
 
-  h1 {
+  .Title {
     font-size: $Label;
     height: 250px;
     width: 650px;
@@ -38,27 +38,49 @@
 }
 
 @media only screen and (max-width: $Tablet) {
-  .content {
+  .Content {
     margin-top: indent(12);
 
     .buttons {
       flex-direction: column;
     }
   
-    h1 {
+    .Title {
       font-size: $MainInfo;
       margin-bottom: indent(7);
+      width: 100%;
+      height: auto;
+    }
+
+    .bottom {
+      margin-top: indent(5);
+      height: 100px;
+  
+      p {
+        font-size: $Subtitle;
+        margin: indent(1);
+      }
     }
   }
 }
 
 @media only screen and (max-width: $Mobile) {
-  .content {
+  .Content {
     margin-top: indent(12);
   
-    h1 {
+    .Title {
       font-size: $Info;
       margin-bottom: indent(7);
+    }
+
+    .bottom {
+      margin-top: indent(1);
+      height: 30px;
+  
+      p {
+        font-size: $Description;
+        margin: indent(1);
+      }
     }
   }
 }

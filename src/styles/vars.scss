@@ -4,6 +4,8 @@ $base-indent: 5px;
   @return $num * $base-indent;
 }
 
+$SmallDesktop: 1200px;
+$LargeTablet: 1000px;
 $Tablet: 800px;
 $SmallTablet: 650px;
 $Mobile: 475px;
