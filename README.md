@@ -4,7 +4,7 @@ That is Rick and Morty's Multiverse Explorer where You can check all of the info
 
 **Stack: TypeScript, React, Redux, axios, i18n, React Router, SCSS, CSS modules.**
 
-Also project is built with an approach of RWD, so You can use it on your smarphone.
+Also project is built with an approach of RWD, so You can use it on your smarphone or tablet.
 
 Now I working on Get Random Episode feature, so You could choose which episode to watch again when You get bored :)
 
