@@ -79,7 +79,7 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
         </div>
       </div>
       <div className={style.Button}>
-        <Button label={t('back')} onClick={(): void => navigate(-1)} />
+        <Button label={t('back')} onClick={(): void => navigate(-1)} isCTA />
       </div>
     </div>
   );

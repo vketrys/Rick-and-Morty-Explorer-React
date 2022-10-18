@@ -6,12 +6,18 @@
   width: 100%;
   text-align: center;
   color: $blue;
-  margin-top: indent(14);
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .buttons {
+  .RandomButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .Buttons {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -24,7 +30,7 @@
     width: 650px;
   }
 
-  .bottom {
+  .Bottom {
     margin-top: indent(12);
     width: 100%;
     height: 200px;
@@ -39,9 +45,7 @@
 
 @media only screen and (max-width: $Tablet) {
   .Content {
-    margin-top: indent(12);
-
-    .buttons {
+    .Buttons {
       flex-direction: column;
     }
   
@@ -52,7 +56,7 @@
       height: auto;
     }
 
-    .bottom {
+    .Bottom {
       margin-top: indent(5);
       height: 100px;
   
@@ -65,15 +69,13 @@
 }
 
 @media only screen and (max-width: $Mobile) {
-  .Content {
-    margin-top: indent(12);
-  
+  .Content {  
     .Title {
       font-size: $Info;
       margin-bottom: indent(7);
     }
 
-    .bottom {
+    .Bottom {
       margin-top: indent(1);
       height: 30px;
   

@@ -32,6 +32,7 @@ function ContentList({ type }: ContentListProps): JSX.Element {
       <Button
         label={t('home')}
         onClick={(): void => navigate(routerPaths.home)}
+        isCTA
       />
     </div>
   );

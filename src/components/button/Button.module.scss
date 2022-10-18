@@ -1,6 +1,8 @@
 @import 'styles/colors.scss';
 @import 'styles/fonts.scss';
 @import 'styles/vars.scss';
+@import 'styles/images.scss';
+
 
 .button {
   font-size: $Subtitle;
@@ -9,14 +11,14 @@
   text-align: center;
   margin: indent(6) indent(4);
   border-radius: 25px;
-  border: 1px solid $blue;
+  border: 2px solid $blue;
   background: transparent;
   color: $white;
   cursor: pointer;
   position: relative;
   overflow: hidden;
 
-  p {
+  .label {
     position: relative;
   }
 
@@ -40,6 +42,98 @@
   }
 }
 
+.buttonSecond {
+  font-size: $Description;
+  max-width: 250px;
+  height: 64px;
+  margin: indent(6) indent(4);
+  border-radius: 35px;
+  border: 1px solid $white;
+  background: transparent;
+  color: $white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 indent(4);
+
+  .label {
+    position: relative;
+    font-family: $FallbackFont;
+    margin-left: indent(2);
+  }
+
+  .portal {
+    width: 40px;
+    height: 40px;
+  }
+
+  &:hover {
+    border: 1px solid transparent;
+    padding: 0;
+    margin: indent(6) indent(8);
+
+    .portal {
+      -webkit-animation-name: spin;
+      -webkit-animation-duration: 4000ms;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      animation-name: spin;
+      animation-duration: 4000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+
+      z-index: 5;
+    }
+
+    .label {
+      -webkit-animation-name: move;
+      -webkit-animation-duration: 2000ms;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: ease-in-out;
+      animation-name: move;
+      animation-duration: 2000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+
+      z-index: 3;
+    }
+  }
+
+  @-webkit-keyframes spin { 
+    from { 
+        -webkit-transform: rotate(0deg); 
+    } to { 
+        -webkit-transform: rotate(360deg); 
+    }
+  }
+  @keyframes spin { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+  }
+
+  @-webkit-keyframes move { 
+    from { 
+        -webkit-transform: translateX(0px); 
+    } to { 
+        -webkit-transform: translateX(-170px); 
+    }
+  }
+  @keyframes move { 
+    from { 
+        transform: translateX(0px); 
+    } to { 
+        transform: translateX(-170px); 
+    }
+  }
+}
+
 @media only screen and (max-width: $Tablet) {
   .button {
     font-size: $Description;
@@ -51,6 +145,25 @@
   
     .span {
       width: 100%;
+    }
+  }
+
+  .buttonSecond {
+    font-size: $MobileSubtitle;
+    max-width: 150px;
+    height: auto;
+    margin: indent(2) indent(4);
+    padding: indent(1) indent(2);
+  
+    .label {
+      position: relative;
+      font-family: $FallbackFont;
+      margin-left: indent(2);
+    }
+  
+    .portal {
+      width: 30px;
+      height: 30px;
     }
   }
 }

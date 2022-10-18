@@ -24,7 +24,7 @@
     position: absolute;
     background-color: transparent;
     width: 90%;
-    padding: indent(2);
+    padding: indent(4);
 
     button {
       background-color: transparent;
@@ -61,6 +61,7 @@
 @media only screen and (max-width: $Tablet) {
   .Lang {
     width: 90%;
+    padding: indent(3);
   }
 }
 

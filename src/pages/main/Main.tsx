@@ -15,24 +15,34 @@ function MainPage(): JSX.Element {
 
   return (
     <div className={style.Content}>
+      <div className={style.RandomButton}>
+        <Button
+          label="get random episode"
+          onClick={(): void => navigate(routerPaths.character)}
+          isCTA={false}
+        />
+      </div>
       <h1 className={style.Title}>
         {t('title')} {t('main.page')}
       </h1>
-      <div className={style.buttons}>
+      <div className={style.Buttons}>
         <Button
           label={t('main.characterButton')}
           onClick={(): void => navigate(routerPaths.character)}
+          isCTA
         />
         <Button
           label={t('main.locationButton')}
           onClick={(): void => navigate(routerPaths.location)}
+          isCTA
         />
         <Button
           label={t('main.episodeButton')}
           onClick={(): void => navigate(routerPaths.episode)}
+          isCTA
         />
       </div>
-      <div className={style.bottom}>
+      <div className={style.Bottom}>
         <MemoTicker />
       </div>
     </div>
