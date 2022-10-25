@@ -7,7 +7,7 @@ const scrollDivider = {
   locationsColumn: 2.5,
 };
 
-export const maxWindowSize = {
+export const maxWindowWidth = {
   character: 1200,
   episode: 1000,
   location: 1000,

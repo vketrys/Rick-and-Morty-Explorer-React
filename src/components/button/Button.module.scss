@@ -165,6 +165,17 @@
       width: 30px;
       height: 30px;
     }
+
+    &:hover {
+      border: 1px solid transparent;
+      padding: 10px 20px;
+      margin: indent(1) indent(2);
+
+      .label {
+        animation: none;
+        z-index: -1;
+      }
+    }
   }
 }
 

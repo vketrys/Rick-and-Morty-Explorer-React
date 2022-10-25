@@ -16,15 +16,16 @@
   background-attachment: fixed;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 
   .Lang {
     display: flex;
     justify-content: flex-end;
     position: absolute;
     background-color: transparent;
-    width: 90%;
-    padding: indent(4);
+    width: 100px;
+    padding: indent(5) indent(4);
+    z-index: 10;
 
     button {
       background-color: transparent;

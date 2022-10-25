@@ -27,7 +27,12 @@
     "page": "Explorer",
     "characterButton": "Characters",
     "locationButton": "Locations",
-    "episodeButton": "Episodes"
+    "episodeButton": "Episodes",
+    "randomEpisode": {
+      "welcomePhrase1": "Let's get shwifty !",
+      "welcomePhrase2": "Here is your episode, dude...",
+      "wishes": "Pleasant viewing, dawg 👀"
+    }
   },
   "info": {
     "status": "Status: ",
