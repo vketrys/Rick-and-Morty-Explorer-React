@@ -6,6 +6,7 @@ enum routerPaths {
   characterInfo = '/character/:characterId',
   locationInfo = '/location/:locationId',
   episodeInfo = '/episode/:episodeId',
+  goBack = -1,
 }
 
 export default routerPaths;

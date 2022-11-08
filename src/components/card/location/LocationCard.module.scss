@@ -1,29 +1,29 @@
-@import 'styles/colors.scss';
-@import 'styles/fonts.scss';
-@import 'styles/vars.scss';
+@import "styles/colors.scss";
+@import "styles/fonts.scss";
+@import "styles/vars.scss";
 
 .CardWrapper {
   position: relative;
-  width: 300px;
-  height: 300px;
   display: flex;
   overflow: hidden;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
   border: 1px solid $blue;
-  background: $dark-gradient;
   border-radius: 10px;
   margin: indent(4);
-  justify-content: center;
+  background: $dark-gradient;
 
   .CardContent {
-    padding: indent(2);
-    color: $white;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: indent(2);
+    color: $white;
 
     .Description {
-      flex: 1 1 0%;
       display: flex;
+      flex: 1 1 0%;
       flex-direction: column;
       padding: indent(2);
 
@@ -32,27 +32,27 @@
         text-decoration: none;
 
         .Name {
-          font-size: $Title;
           color: $blue;
+          font-size: $Title;
         }
       }
 
       .Type {
-        font-size: $Subtitle;
         font-family: $SecondaryFont;
+        font-size: $Subtitle;
       }
 
       .Dimension {
-        font-size: $Description;
-        font-family: $SecondaryFont;
         margin-top: indent(1);
+        font-family: $SecondaryFont;
+        font-size: $Description;
       }
     }
 
     .Residents {
-      font-size: $Description;
       display: flex;
       flex-direction: column;
+      font-size: $Description;
 
       .ResidentsCount {
         margin-top: indent(5);
@@ -68,7 +68,7 @@
     max-width: 250px;
     height: 250px;
 
-    .CardContent { 
+    .CardContent {
       .Description {
         padding: unset;
 
@@ -77,19 +77,19 @@
             font-size: $CardRecord;
           }
         }
-  
+
         .Type {
           font-size: $Description;
         }
-  
+
         .Dimension {
           font-size: $Description;
         }
       }
-  
+
       .Residents {
         font-size: $MobileSubtitle;
-  
+
         .ResidentsCount {
           margin-top: indent(2);
         }

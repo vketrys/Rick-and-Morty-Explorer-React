@@ -12,7 +12,7 @@ interface ButtonProps {
 function Button({ label, onClick, isCTA = true }: ButtonProps): JSX.Element {
   return (
     <button
-      className={isCTA ? style.button : style.buttonSecond}
+      className={isCTA ? style.button : style.buttonImage}
       type="button"
       onClick={onClick}
     >

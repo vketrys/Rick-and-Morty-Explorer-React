@@ -1,31 +1,31 @@
-@import 'styles/colors.scss';
-@import 'styles/fonts.scss';
-@import 'styles/vars.scss';
+@import "styles/colors.scss";
+@import "styles/fonts.scss";
+@import "styles/vars.scss";
 
 .CardWrapper {
   position: relative;
-  width: 600px;
-  height: 220px;
   display: flex;
   overflow: hidden;
+  width: 600px;
+  height: 220px;
   border: 1px solid $blue;
-  background: $dark-gradient;
   border-radius: 10px;
   margin: indent(4);
+  background: $dark-gradient;
 
   .CardImage {
-    flex: 2 1 0%;
     width: 100%;
+    flex: 2 1 0%;
 
     .Status {
       position: absolute;
+      padding: indent(0.5);
       border-radius: 5px;
       margin: indent(1);
-      padding: indent(0.5);
       background-color: $grey;
-      font-size: $Description;
       color: $white;
       font-family: $SecondaryFont;
+      font-size: $Description;
       font-weight: bold;
     }
 
@@ -33,26 +33,26 @@
       width: 100%;
       height: 100%;
       margin: 0;
+      object-fit: cover;
+      object-position: center center;
       opacity: 1;
       transition: opacity 0.5s ease 0s;
-      object-position: center center;
-      object-fit: cover;
     }
   }
 
   .CardContent {
-    flex: 3 1 0%;
     position: relative;
+    display: flex;
+    flex: 3 1 0%;
+    flex-direction: column;
+    justify-content: center;
     padding: indent(2);
     color: $white;
-    display: flex;
-    flex-direction: column;
     text-align: left;
-    justify-content: center;
 
     .NameSection {
-      flex: 1 1 0%;
       display: flex;
+      flex: 1 1 0%;
       flex-direction: column;
 
       a {
@@ -60,27 +60,27 @@
         text-decoration: none;
 
         .Name {
-          font-size: $Title;
           color: $blue;
+          font-size: $Title;
         }
       }
 
       .Info {
-        font-size: $Subtitle;
         font-family: $SecondaryFont;
+        font-size: $Subtitle;
       }
     }
 
     .Description {
-      font-size: $Description;
       display: flex;
       flex-direction: column;
+      font-size: $Description;
 
       a {
         margin-top: indent(5);
         color: $white;
-        text-decoration: none;
         font-family: $SecondaryFont;
+        text-decoration: none;
       }
     }
   }
@@ -91,7 +91,7 @@
     max-width: 400px;
     height: 150px;
     margin: indent(2);
-  
+
     .CardContent {
       .NameSection {
         a {
@@ -99,15 +99,15 @@
             font-size: $Subtitle;
           }
         }
-  
+
         .Info {
           font-size: $MobileSubtitle;
         }
       }
-  
+
       .Description {
         font-size: $MobileSubtitle;
-  
+
         a {
           margin-top: indent(2);
         }
@@ -121,7 +121,7 @@
     width: 300px;
     height: 150px;
     margin: indent(2);
-  
+
     .CardContent {
       .NameSection {
         a {
@@ -129,15 +129,15 @@
             font-size: $SmallSubtitle;
           }
         }
-  
+
         .Info {
           font-size: $MobileSubtitle;
         }
       }
-  
+
       .Description {
         font-size: $MobileSubtitle;
-  
+
         a {
           margin-top: indent(2);
         }

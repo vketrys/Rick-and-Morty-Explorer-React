@@ -112,7 +112,11 @@ export default function CharacterInfo({
         </div>
       </div>
       <div className={style.Button}>
-        <Button label={t('back')} onClick={(): void => navigate(-1)} isCTA />
+        <Button
+          label={t('back')}
+          onClick={(): void => navigate(paths.goBack)}
+          isCTA
+        />
       </div>
     </div>
   );

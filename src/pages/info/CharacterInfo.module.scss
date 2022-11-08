@@ -1,14 +1,13 @@
-@import 'styles/fonts.scss';
-@import 'styles/colors.scss';
-@import 'styles/vars.scss';
-
+@import "styles/fonts.scss";
+@import "styles/colors.scss";
+@import "styles/vars.scss";
 
 .Container {
+  display: flex;
   width: 100%;
   height: 100%;
-  background: $dark-gradient;
-  display: flex;
   flex-direction: column;
+  background: $dark-gradient;
 
   .Button {
     display: flex;
@@ -17,38 +16,41 @@
 
   .Content {
     display: flex;
-    flex-direction: row;
     height: 85%;
+    flex-direction: row;
 
     .CharacterInfo {
       display: flex;
-      flex-direction: column;
+      overflow: hidden;
       width: 390px;
       height: 90%;
+      flex-direction: column;
       border: 2px solid $blue;
       border-radius: 15px;
       margin: indent(18) indent(10) indent(10) indent(14);
       background: $dark-gradient;
-      overflow: hidden;
 
       .Image {
         display: flex;
         justify-content: center;
       }
-  
-      .Info {
-        height: 100%;
-        padding: indent(2);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
 
-        .Status, .Species, .Type, .Gender {
+      .Info {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: indent(2);
+
+        .Status,
+ .Species,
+ .Type,
+ .Gender {
+          padding-bottom: indent(3);
+          color: $white;
           font-family: $SecondaryFont;
           font-size: $CardRecord;
-          color: $white;
-          padding-bottom: indent(3);
         }
 
         .InfoBold {
@@ -56,48 +58,47 @@
         }
       }
     }
-  
+
     .CharacterDescription {
       width: 100%;
       margin-top: indent(14);
-      
+
       .Name {
         color: $blue;
         font-size: $LargeLabel;
       }
-  
+
       .Description {
         display: flex;
         flex: 2 1 0%;
 
         .Links {
           display: flex;
+          width: 60%;
           flex-direction: column;
           justify-content: space-around;
-          width: 60%;
           font-size: $Sublabel;
 
           a {
-            text-decoration: none;
-            color:  white;
+            color: white;
             font-family: $SecondaryFont;
+            text-decoration: none;
 
             .Origin {
               font-family: $SecondaryFont;
             }
           }
         }
-  
+
         .Episodes {
           display: flex;
           width: 100%;
           justify-content: center;
 
-
           .EpisodesContainer {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
+            justify-content: center;
           }
         }
       }
@@ -109,71 +110,74 @@
   .Container {
     width: 100%;
     height: 100%;
-  
+
     .Content {
       display: flex;
-      flex-direction: column;
       height: 85%;
+      flex-direction: column;
       justify-content: flex-end;
-  
+
       .CharacterInfo {
-        flex-direction: row;
         width: 85%;
         height: 120px;
+        flex-direction: row;
         border-radius: 15px;
         margin: indent(4) auto;
-  
+
         .Image {
           display: flex;
           justify-content: center;
         }
-    
+
         .Info {
-          height: 100%;
-          padding: 0 0 0 indent(2);
           display: flex;
+          height: 100%;
           flex-direction: column;
-          justify-content: center;
           align-items: flex-start;
-  
-          .Status, .Species, .Type, .Gender {
-            font-size: $Description;
+          justify-content: center;
+          padding: 0 0 0 indent(2);
+
+          .Status,
+ .Species,
+ .Type,
+ .Gender {
             padding-bottom: 0;
+            font-size: $Description;
           }
-  
+
           .InfoBold {
             font-family: $SecondaryFont;
           }
         }
       }
-    
+
       .CharacterDescription {
         width: 100%;
         margin-top: 0;
-        
+
         .Name {
-          font-size: $Sublabel;
           display: flex;
           justify-content: center;
-          text-align: center;
           margin: 0 indent(2);
+          font-size: $Sublabel;
+          text-align: center;
         }
-    
+
         .Description {
           display: flex;
           flex-direction: column;
-  
+
           .Links {
-            font-size: $Description;
+            display: flex;
             width: 100%;
             height: 55px;
-            margin-top: 0;
-            margin-left: indent(2);
-            display: flex;
-            justify-content: space-around;
             align-items: center;
+            justify-content: space-around;
+            margin-top: 0;
             margin-bottom: indent(5);
-  
+            margin-left: indent(2);
+            font-size: $Description;
+
             a {
               margin-top: indent(2);
             }

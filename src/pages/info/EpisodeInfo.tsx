@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import Button from 'components/button/Button';
 import { URL_ID_POSITION } from 'components/selectors';
 import CharacterCard from 'components/card/character/CharacterCard';
+import routerPaths from 'components/navigation/paths';
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
 
 import { Character } from 'types/characterTypes';
@@ -74,7 +75,11 @@ export default function EpisodeInfo({ item }: EpisodeInfoProps): JSX.Element {
         </div>
       </div>
       <div className={style.Button}>
-        <Button label={t('back')} onClick={(): void => navigate(-1)} isCTA />
+        <Button
+          label={t('back')}
+          onClick={(): void => navigate(routerPaths.goBack)}
+          isCTA
+        />
       </div>
     </div>
   );

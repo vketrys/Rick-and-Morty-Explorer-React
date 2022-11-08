@@ -8,6 +8,7 @@ import Button from 'components/button/Button';
 import { URL_ID_POSITION } from 'components/selectors';
 import CharacterCard from 'components/card/character/CharacterCard';
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
+import routerPaths from 'components/navigation/paths';
 
 import { Character } from 'types/characterTypes';
 import { Location } from 'types/locationTypes';
@@ -79,7 +80,11 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
         </div>
       </div>
       <div className={style.Button}>
-        <Button label={t('back')} onClick={(): void => navigate(-1)} isCTA />
+        <Button
+          label={t('back')}
+          onClick={(): void => navigate(routerPaths.goBack)}
+          isCTA
+        />
       </div>
     </div>
   );
