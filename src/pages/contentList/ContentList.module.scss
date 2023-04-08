@@ -1,0 +1,51 @@
+@import "styles/colors.scss";
+@import "styles/fonts.scss";
+@import "styles/vars.scss";
+
+.Content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: $blue;
+  text-align: center;
+
+  .Title {
+    font-size: $Label;
+  }
+
+  .characterListContainer {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: $Tablet) {
+  .Content {
+    margin-top: indent(12);
+
+    .Title {
+      font-size: $MainInfo;
+    }
+
+    .characterListContainer {
+      display: flex;
+      margin: indent(6) 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $Mobile) {
+  .Content {
+    margin-top: indent(7);
+
+    .Title {
+      font-size: $Sublabel;
+    }
+
+    .characterListContainer {
+      display: flex;
+      margin: indent(2) 0;
+    }
+  }
+}

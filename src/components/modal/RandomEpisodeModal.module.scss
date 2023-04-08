@@ -1,0 +1,137 @@
+@import "styles/colors.scss";
+@import "styles/fonts.scss";
+@import "styles/vars.scss";
+@import "styles/images.scss";
+
+.ModalOverlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 50%);
+  inset: 0;
+}
+
+.Modal {
+  position: absolute;
+  top: 100px;
+  bottom: 100px;
+  display: flex;
+  min-width: 400px;
+  flex-direction: column;
+  border: 2px solid $blue;
+  border-radius: 50px;
+  margin: 0 100px;
+  background-attachment: fixed;
+  background-image: $dark-gradient, $modalBackground;
+  background-position: center;
+  background-size: cover;
+
+  .Close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: $FallbackFont;
+    font-size: 40px;
+  }
+
+  .ModalContent {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .Text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      padding-bottom: 80px;
+
+      .Welcome {
+        padding-left: 20px;
+        color: $white;
+        font-family: $FallbackFont;
+        font-size: $Sublabel;
+        text-align: center;
+      }
+
+      .Wishes {
+        padding-left: 20px;
+        color: $white;
+        font-family: $FallbackFont;
+        font-size: $Subtitle;
+        text-align: center;
+      }
+    }
+
+    .Episode {
+      article {
+        -webkit-animation-duration: 1000ms;
+        animation-duration: 1000ms;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-name: apearance;
+        animation-name: apearance;
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        transform: scale(0.7);
+      }
+    }
+  }
+
+  @-webkit-keyframes apearance {
+    from {
+        -webkit-transform: scale(0.01);
+    }
+
+ to {
+        -webkit-transform: scale(0.7);
+    }
+  }
+
+  @keyframes apearance {
+    from {
+        transform: scale(0.01);
+    }
+
+ to {
+        transform: scale(0.7);
+    }
+  }
+}
+
+@media only screen and (max-width: $SmallTablet) {
+  .Modal {
+    position: absolute;
+    top: 70px;
+    bottom: 70px;
+    min-width: 300px;
+    margin: 0 100px;
+
+    .ModalContent {
+      flex-direction: column-reverse;
+      justify-content: center;
+
+      .Text {
+        padding-bottom: 10px;
+
+        .Welcome {
+          padding: 0 20px 20px;
+          font-size: $CardRecord;
+        }
+
+        .Wishes {
+          padding: 0 20px;
+        }
+      }
+
+      .Episode {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}

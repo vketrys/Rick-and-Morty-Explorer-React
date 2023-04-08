@@ -1,0 +1,99 @@
+@import "styles/colors.scss";
+@import "styles/fonts.scss";
+@import "styles/vars.scss";
+
+.CardWrapper {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  border: 1px solid $blue;
+  border-radius: 10px;
+  margin: indent(4);
+  background: $dark-gradient;
+
+  .CardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: indent(2);
+    color: $white;
+
+    .Description {
+      display: flex;
+      flex: 1 1 0%;
+      flex-direction: column;
+      padding: indent(2);
+
+      a {
+        color: $white;
+        text-decoration: none;
+
+        .Name {
+          color: $blue;
+          font-size: $Title;
+        }
+      }
+
+      .Type {
+        font-family: $SecondaryFont;
+        font-size: $Subtitle;
+      }
+
+      .Dimension {
+        margin-top: indent(1);
+        font-family: $SecondaryFont;
+        font-size: $Description;
+      }
+    }
+
+    .Residents {
+      display: flex;
+      flex-direction: column;
+      font-size: $Description;
+
+      .ResidentsCount {
+        margin-top: indent(5);
+        color: $white;
+        font-family: $SecondaryFont;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $Tablet) {
+  .CardWrapper {
+    max-width: 250px;
+    height: 250px;
+
+    .CardContent {
+      .Description {
+        padding: unset;
+
+        a {
+          .Name {
+            font-size: $CardRecord;
+          }
+        }
+
+        .Type {
+          font-size: $Description;
+        }
+
+        .Dimension {
+          font-size: $Description;
+        }
+      }
+
+      .Residents {
+        font-size: $MobileSubtitle;
+
+        .ResidentsCount {
+          margin-top: indent(2);
+        }
+      }
+    }
+  }
+}

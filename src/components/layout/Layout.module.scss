@@ -1,0 +1,88 @@
+@import "styles/fonts.scss";
+@import "styles/colors.scss";
+@import "styles/images.scss";
+@import "styles/vars.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: $PrimaryFont, $FallbackFont;
+}
+
+.banner {
+  display: flex;
+  height: 100vh;
+  justify-content: flex-end;
+  background-attachment: fixed;
+  background-image: $dark-gradient, $background;
+  background-position: center;
+  background-size: cover;
+
+  .Lang {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    width: 100px;
+    justify-content: flex-end;
+    padding: indent(5) indent(4);
+    background-color: transparent;
+
+    button {
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 25px;
+      background-color: transparent;
+      background-size: cover;
+      color: transparent;
+
+      &:focus {
+        border: 3px solid $blue;
+        }
+    }
+
+    .LangRU {
+      margin-left: indent(2);
+
+      button {
+        background-image: $RUicon;
+      }
+    }
+
+    .LangEN {
+      button {
+        background-image: $ENicon;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $Tablet) {
+  .Lang {
+    width: 90%;
+    padding: indent(3);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: $dark-gradient;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 5px solid $dark-gradient;
+  border-radius: 10px;
+  background: $blue;
+
+  &:hover {
+    background: darken($blue, $amount: 10);
+  }
+}
+
+::selection {
+  background: $blue;
+}

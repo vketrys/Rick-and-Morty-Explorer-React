@@ -1,0 +1,19 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-idiomatic-order"], 
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "selector-class-pattern": null,
+    "scss/at-import-partial-extension": null,
+    "function-no-unknown": null,
+    "property-no-vendor-prefix": null,
+    "scss/dollar-variable-pattern": null,
+    "scss/dollar-variable-empty-line-before": null,
+    "at-rule-no-vendor-prefix": null,
+    "scss/no-global-function-names": null,
+    "indentation": null,
+    "function-url-quotes": null,
+    "color-function-notation": null
+  }
+}

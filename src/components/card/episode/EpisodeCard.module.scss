@@ -1,0 +1,100 @@
+@import "styles/colors.scss";
+@import "styles/fonts.scss";
+@import "styles/vars.scss";
+
+.CardWrapper {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  border: 1px solid $blue;
+  border-radius: 10px;
+  margin: indent(4);
+  background: $dark-gradient;
+
+  .CardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: indent(2);
+    color: $white;
+    text-align: center;
+
+    .Description {
+      display: flex;
+      flex: 1 1 0%;
+      flex-direction: column;
+      padding: indent(2);
+
+      a {
+        color: $white;
+        text-decoration: none;
+
+        .Name {
+          color: $blue;
+          font-size: $Title;
+        }
+      }
+
+      .Season,
+ .Episode {
+        font-family: $SecondaryFont;
+        font-size: $Subtitle;
+      }
+
+      .Characters {
+        display: flex;
+        flex-direction: column;
+        font-size: $Description;
+
+        .CharactersCount {
+          margin-top: indent(5);
+          color: $white;
+          font-family: $SecondaryFont;
+        }
+      }
+    }
+
+    .AirDate {
+      margin-top: indent(1);
+      font-family: $SecondaryFont;
+      font-size: $Description;
+    }
+  }
+}
+
+@media only screen and (max-width: $Tablet) {
+  .CardWrapper {
+    max-width: 250px;
+    height: 275px;
+
+    .CardContent {
+      .Description {
+        a {
+          .Name {
+            font-size: $CardRecord;
+          }
+        }
+
+        .Season,
+ .Episode {
+          font-size: $Description;
+        }
+
+        .Characters {
+          .CharactersCount {
+            margin-top: indent(2);
+            font-size: $Description;
+          }
+        }
+      }
+
+      .AirDate {
+        margin-top: indent(1);
+        font-size: $MobileSubtitle;
+      }
+    }
+  }
+}

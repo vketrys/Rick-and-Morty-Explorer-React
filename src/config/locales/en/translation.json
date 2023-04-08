@@ -1,0 +1,47 @@
+{
+  "title": "Rick and Morty",
+  "home": "Home",
+  "back": "Back",
+  "loading": "Loading...",
+  "scrollEnd": "You have seen it all, mate!",
+  "loadingError": "Loading error",
+  "loadingPhrase": "Wubba Lubba Dub Dub !",
+
+  "character": {
+    "page": "Characters",
+    "firstSeen": "First seen at...",
+    "origin": "Origin:"
+  },
+  "episode": {
+    "page": "Episode",
+    "characters": "Starring:",
+    "season": "Season: {{season}}",
+    "episode": "Episode: {{episode}}"
+  },
+  "location": {
+    "page": "Location",
+    "dimension": "Dimension: {{name}}",
+    "residents": "Residents"
+  },
+  "main": {
+    "page": "Explorer",
+    "characterButton": "Characters",
+    "locationButton": "Locations",
+    "episodeButton": "Episodes",
+    "randomEpisode": {
+      "welcomePhrase1": "Let's get shwifty !",
+      "welcomePhrase2": "Here is your episode, dude...",
+      "wishes": "Pleasant viewing, dawg 👀"
+    }
+  },
+  "info": {
+    "status": "Status: ",
+    "species": "Species: ",
+    "type": "Type: ",
+    "gender": "Gender: ",
+    "residents": "Residents",
+    "noResidents": "There is no residents.\n This place was destroyed.\n Special thanks to\n",
+    "starring": "Starring"
+  },
+  "ticker": [ "Let's go!", "In and out", "20 minutes adventure..." ]
+}

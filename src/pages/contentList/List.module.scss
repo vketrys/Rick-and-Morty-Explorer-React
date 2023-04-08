@@ -1,0 +1,9 @@
+@import "styles/vars.scss";
+
+.CardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: indent(4);
+  border-radius: 10px;
+}

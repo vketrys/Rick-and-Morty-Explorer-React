@@ -1,0 +1,28 @@
+@font-face {
+  font-family: Neucha;
+  font-style: normal;
+  font-weight: normal;
+  src: url("Neucha.eot");
+  src:
+ local("Neucha"),
+ url("Neucha.eot?#iefix") format("embedded-opentype"),
+    url("Neucha.woff2") format("woff2"),
+ url("Neucha.woff") format("woff"),
+    url("Neucha.ttf") format("truetype"),
+ url("Neucha.svg#Neucha") format("svg");
+}
+
+@font-face {
+  font-family: Creepster;
+  font-style: normal;
+  font-weight: normal;
+  src: url("Creepster-Regular.eot");
+  src:
+ local("Creepster"),
+ local("Creepster-Regular"),
+    url("Creepster-Regular.eot?#iefix") format("embedded-opentype"),
+    url("Creepster-Regular.woff2") format("woff2"),
+    url("Creepster-Regular.woff") format("woff"),
+    url("Creepster-Regular.ttf") format("truetype"),
+    url("Creepster-Regular.svg#Creepster-Regular") format("svg");
+}
