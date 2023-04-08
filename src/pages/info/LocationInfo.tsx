@@ -8,10 +8,13 @@ import Button from 'components/button/Button';
 import { URL_ID_POSITION } from 'components/selectors';
 import CharacterCard from 'components/card/character/CharacterCard';
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
+import routerPaths from 'components/navigation/paths';
 
 import { Character } from 'types/characterTypes';
 import { Location } from 'types/locationTypes';
+import { ListTypes } from 'types/generalTypes';
 
+import useScrollSizer from 'hooks/useScollSizer';
 import useTypeSelector from 'hooks/useTypeSelector';
 
 import style from './LocationInfo.module.scss';
@@ -54,8 +57,8 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
         <div className={style.LocationInfo}>
           <div className={style.Name}>{item.name}</div>
           <div className={style.Description}>
-            <p>{item.type}</p>
-            <p>{item.dimension}</p>
+            <p className={style.DescriptionNote}>{item.type}</p>
+            <p className={style.DescriptionNote}>{item.dimension}</p>
           </div>
         </div>
         <div className={style.Characters}>
@@ -66,7 +69,7 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
               next={(): Character[] => characters}
               hasMore
               loader={<h4>{t('loading')}</h4>}
-              height={550}
+              height={useScrollSizer(ListTypes.location)}
               endMessage={<h1>{t('scrollEnd')}</h1>}
             >
               {characters.map((item) => (
@@ -77,7 +80,11 @@ export default function LocationInfo({ item }: LocationInfoProps): JSX.Element {
         </div>
       </div>
       <div className={style.Button}>
-        <Button label={t('back')} onClick={(): void => navigate(-1)} />
+        <Button
+          label={t('back')}
+          onClick={(): void => navigate(routerPaths.goBack)}
+          isCTA
+        />
       </div>
     </div>
   );

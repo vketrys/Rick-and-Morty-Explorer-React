@@ -10,6 +10,7 @@ import Cards from 'components/card/Cards';
 
 import { ListTypes } from 'types/generalTypes';
 import useTypeSelector from 'hooks/useTypeSelector';
+import useWindowDimensions from 'hooks/useWindowDimensions';
 
 import fetchCharacters from 'store/action-creators/characters/fetchCharacters';
 import fetchLocations from 'store/action-creators/locations/fetchLocations';
@@ -25,6 +26,7 @@ function List({ type }: ListProps): JSX.Element {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const { data, isLoading, error } = useTypeSelector(selectors[type]);
+  const { height } = useWindowDimensions();
 
   const dispatch = useDispatch();
 
@@ -49,6 +51,7 @@ function List({ type }: ListProps): JSX.Element {
   if (isLoading) {
     return <h1>{t('loading')}</h1>;
   }
+
   if (error) {
     return <h1>{error}</h1>;
   }
@@ -59,7 +62,7 @@ function List({ type }: ListProps): JSX.Element {
       next={nextPage}
       hasMore={hasMore(type, page)}
       loader={<h4>{t('loading')}</h4>}
-      height={450}
+      height={height / 2}
       endMessage={<h2>{t('scrollEnd')}</h2>}
     >
       <Cards type={type} />

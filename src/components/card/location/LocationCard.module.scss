@@ -1,29 +1,29 @@
-@import 'styles/colors.scss';
-@import 'styles/fonts.scss';
-@import 'styles/vars.scss';
+@import "styles/colors.scss";
+@import "styles/fonts.scss";
+@import "styles/vars.scss";
 
 .CardWrapper {
   position: relative;
-  width: 300px;
-  height: 300px;
   display: flex;
   overflow: hidden;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
   border: 1px solid $blue;
-  background: $dark-gradient;
   border-radius: 10px;
   margin: indent(4);
-  justify-content: center;
+  background: $dark-gradient;
 
   .CardContent {
-    padding: indent(2);
-    color: $white;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: indent(2);
+    color: $white;
 
     .Description {
-      flex: 1 1 0%;
       display: flex;
+      flex: 1 1 0%;
       flex-direction: column;
       padding: indent(2);
 
@@ -31,33 +31,68 @@
         color: $white;
         text-decoration: none;
 
-        h2 {
-          font-size: $Title;
+        .Name {
           color: $blue;
+          font-size: $Title;
         }
       }
 
-      h6 {
-        font-size: $Subtitle;
+      .Type {
         font-family: $SecondaryFont;
+        font-size: $Subtitle;
       }
 
-      p {
-        font-size: $Description;
-        font-family: $SecondaryFont;
+      .Dimension {
         margin-top: indent(1);
+        font-family: $SecondaryFont;
+        font-size: $Description;
       }
     }
 
     .Residents {
-      font-size: $Description;
       display: flex;
       flex-direction: column;
+      font-size: $Description;
 
-      p {
+      .ResidentsCount {
         margin-top: indent(5);
         color: $white;
         font-family: $SecondaryFont;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $Tablet) {
+  .CardWrapper {
+    max-width: 250px;
+    height: 250px;
+
+    .CardContent {
+      .Description {
+        padding: unset;
+
+        a {
+          .Name {
+            font-size: $CardRecord;
+          }
+        }
+
+        .Type {
+          font-size: $Description;
+        }
+
+        .Dimension {
+          font-size: $Description;
+        }
+      }
+
+      .Residents {
+        font-size: $MobileSubtitle;
+
+        .ResidentsCount {
+          margin-top: indent(2);
+        }
       }
     }
   }

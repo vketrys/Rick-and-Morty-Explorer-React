@@ -7,11 +7,15 @@ import { useDispatch } from 'react-redux';
 import Button from 'components/button/Button';
 import { URL_ID_POSITION } from 'components/selectors';
 import CharacterCard from 'components/card/character/CharacterCard';
+import routerPaths from 'components/navigation/paths';
 import fetchStarringCharacters from 'store/action-creators/starring/characters/fetchStarringCharacters';
 
 import { Character } from 'types/characterTypes';
 import { Episode } from 'types/episodeTypes';
+import { ListTypes } from 'types/generalTypes';
+
 import useTypeSelector from 'hooks/useTypeSelector';
+import useScrollSizer from 'hooks/useScollSizer';
 
 import style from './LocationInfo.module.scss';
 
@@ -48,19 +52,19 @@ export default function EpisodeInfo({ item }: EpisodeInfoProps): JSX.Element {
         <div className={style.LocationInfo}>
           <div className={style.Name}>{item.name}</div>
           <div className={style.Description}>
-            <p>{item.episode}</p>
-            <p>{item.air_date}</p>
+            <p className={style.DescriptionNote}>{item.episode}</p>
+            <p className={style.DescriptionNote}>{item.air_date}</p>
           </div>
         </div>
         <div className={style.Characters}>
-          <div className={style.Label}>Starring</div>
+          <div className={style.Label}>{t('info.starring')}</div>
           <div className={style.Cards}>
             <InfiniteScroll
               dataLength={characters.length}
               next={(): Character[] => characters}
               hasMore
               loader={<h4>{t('loading')}</h4>}
-              height={550}
+              height={useScrollSizer(ListTypes.episode)}
               endMessage={<h1>{t('scrollEnd')}</h1>}
             >
               {characters.map((item) => (
@@ -71,7 +75,11 @@ export default function EpisodeInfo({ item }: EpisodeInfoProps): JSX.Element {
         </div>
       </div>
       <div className={style.Button}>
-        <Button label={t('back')} onClick={(): void => navigate(-1)} />
+        <Button
+          label={t('back')}
+          onClick={(): void => navigate(routerPaths.goBack)}
+          isCTA
+        />
       </div>
     </div>
   );

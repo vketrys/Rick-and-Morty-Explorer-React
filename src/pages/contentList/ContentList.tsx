@@ -22,8 +22,8 @@ function ContentList({ type }: ContentListProps): JSX.Element {
   const { t } = useTranslation();
 
   return (
-    <div className={style.content}>
-      <h1>
+    <div className={style.Content}>
+      <h1 className={style.Title}>
         {t('title')} <p>{t(`${type}.page`)}</p>
       </h1>
       <div className={style.characterListContainer}>
@@ -32,6 +32,7 @@ function ContentList({ type }: ContentListProps): JSX.Element {
       <Button
         label={t('home')}
         onClick={(): void => navigate(routerPaths.home)}
+        isCTA
       />
     </div>
   );

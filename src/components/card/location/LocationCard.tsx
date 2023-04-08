@@ -25,13 +25,15 @@ function LocationCard({ item }: LocationCardProps): JSX.Element {
       <div className={style.CardContent}>
         <div className={style.Description}>
           <Link to={locationPath}>
-            <h2>{item.name}</h2>
+            <h2 className={style.Name}>{item.name}</h2>
           </Link>
-          <h6>{item.type}</h6>
-          <p>{t('location.dimension', { name: item.dimension })}</p>
+          <h6 className={style.Type}>{item.type}</h6>
+          <p className={style.Dimension}>
+            {t('location.dimension', { name: item.dimension })}
+          </p>
         </div>
         <div className={style.Residents}>
-          <p>
+          <p className={style.ResidentsCount}>
             {t('location.residents')}: {item.residents.length}
           </p>
         </div>

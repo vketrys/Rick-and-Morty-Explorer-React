@@ -27,7 +27,12 @@
     "page": "Explorer",
     "characterButton": "Characters",
     "locationButton": "Locations",
-    "episodeButton": "Episodes"
+    "episodeButton": "Episodes",
+    "randomEpisode": {
+      "welcomePhrase1": "Let's get shwifty !",
+      "welcomePhrase2": "Here is your episode, dude...",
+      "wishes": "Pleasant viewing, dawg 👀"
+    }
   },
   "info": {
     "status": "Status: ",
@@ -35,7 +40,8 @@
     "type": "Type: ",
     "gender": "Gender: ",
     "residents": "Residents",
-    "noResidents": "There is no residents.\n This place was destroyed.\n Special thanks to\n"
+    "noResidents": "There is no residents.\n This place was destroyed.\n Special thanks to\n",
+    "starring": "Starring"
   },
   "ticker": [ "Let's go!", "In and out", "20 minutes adventure..." ]
 }
