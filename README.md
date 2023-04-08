@@ -2,6 +2,8 @@
 
 That is Rick and Morty's Multiverse Explorer where You can check all of the information about characters (status, species, origin, starring episodes), locations (residents, galaxy, etc.) and episodes (air data, starring characters, etc.).
 
+Live: https://develop--euphonious-nasturtium-aa4126.netlify.app/character
+
 **Stack: TypeScript, React, Redux, axios, i18n, React Router, SCSS, CSS modules.**
 
 Also project is built with an approach of RWD, so You can use it on your smarphone or tablet.
